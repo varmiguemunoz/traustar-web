@@ -1,0 +1,276 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Navbar from '../components/organisms/Navbar.astro';
+import SiteFooter from '../components/organisms/SiteFooter.astro';
+import Icon from '../components/atoms/Icon.astro';
+import Button from '../components/atoms/Button.astro';
+import SectionLabel from '../components/atoms/SectionLabel.astro';
+
+const title = 'Soluciones para Shippers | Traustar Logistics';
+const description = 'Optimiza tu cadena de suministro con inteligencia y visibilidad. Mueve tu carga con seguridad, eficiencia y tecnología avanzada en toda Norteamérica.';
+
+const benefits = [
+	{ icon: 'inventory_2', title: 'Capacidad Garantizada', description: 'Acceso inmediato a una flota diversa y equipo disponible exactamente cuando lo necesites.' },
+	{ icon: 'farsight_digital', title: 'Visibilidad GPS 24/7', description: 'Rastreo en tiempo real y actualizaciones automáticas de cada embarque para tu total tranquilidad.' },
+	{ icon: 'monitoring', title: 'Tarifas Basadas en Datos', description: 'Inteligencia de mercado para ofrecerte precios competitivos que optimizan tus costos operativos.' },
+	{ icon: 'verified', title: 'Red Verificada', description: 'Socios comerciales rigurosamente evaluados con altos estándares de seguridad y cumplimiento.' },
+];
+
+const solutions = [
+	{ label: 'Carga Directa', title: 'FTL (Full Truckload)', description: 'Máxima eficiencia y rapidez para grandes volúmenes de carga punto a punto.', image: '/images/shipper-ftl.jpg' },
+	{ label: 'Optimización', title: 'LTL (Consolidado)', description: 'Ahorra costos compartiendo espacio con otros embarques mediante nuestra red nacional.', image: '/images/shipper-ltl.jpg' },
+	{ label: 'Internacional', title: 'Cross-Border', description: 'Expertos en la compleja logística transfronteriza entre México, EE.UU. y Canadá.', image: '/images/shipper-crossborder.jpg' },
+	{ label: 'Prioridad Alta', title: 'Expedited', description: 'Soluciones críticas con entrega prioritaria para cuando cada minuto cuenta.', image: '/images/shipper-expedited.jpg' },
+];
+
+const certifications = [
+	{ icon: 'verified_user', name: 'FMCSA' },
+	{ icon: 'local_shipping', name: 'DOT' },
+	{ icon: 'security', name: 'C-TPAT' },
+	{ icon: 'public', name: 'IATA' },
+];
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="bg-white text-slate-900 font-display">
+		<Navbar />
+
+		<!-- Hero Section -->
+		<section class="relative bg-white overflow-hidden pt-28 pb-12 md:pt-36 md:pb-20">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
+				<div class="flex flex-col gap-8 flex-1">
+					<div class="flex flex-col gap-4">
+						<SectionLabel>Soluciones Logísticas Premium</SectionLabel>
+						<h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight">
+							Optimiza tu Cadena de Suministro con <span class="text-primary">Inteligencia y Visibilidad</span>
+						</h1>
+						<p class="text-slate-600 text-lg md:text-xl leading-relaxed max-w-xl">
+							Mueve tu carga con seguridad, eficiencia y tecnología avanzada en toda Norteamérica. Tu socio estratégico en transporte terrestre.
+						</p>
+					</div>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<Button variant="primary" size="lg" className="shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+							Obtener Cotización Ahora
+						</Button>
+						<Button variant="secondary" size="lg" href="#servicios">
+							Ver Servicios
+						</Button>
+					</div>
+				</div>
+				<div class="flex-1 w-full relative">
+					<div class="w-full aspect-video md:aspect-square bg-slate-100 rounded-2xl overflow-hidden shadow-2xl relative">
+						<img class="absolute inset-0 w-full h-full object-cover" alt="Almacén logístico moderno con camiones cargando" src="/images/shipper-hero.jpg" loading="eager" />
+						<div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm p-6 rounded-xl border border-white/20 shadow-lg">
+							<div class="flex items-center gap-4">
+								<div class="bg-primary/10 p-3 rounded-full text-primary">
+									<Icon name="analytics" />
+								</div>
+								<div>
+									<p class="text-xs font-bold text-primary uppercase">Reporte en tiempo real</p>
+									<p class="text-sm font-semibold">99.8% Entregas a tiempo este mes</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Trust Signals / Certifications -->
+		<section class="bg-slate-50 py-10 border-y border-slate-200">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all">
+					{certifications.map((cert) => (
+						<div class="flex items-center gap-2">
+							<Icon name={cert.icon} size="text-3xl" />
+							<span class="font-bold text-xl">{cert.name}</span>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section class="py-20 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-16">
+					<SectionLabel>¿Por qué elegirnos?</SectionLabel>
+					<h2 class="text-3xl md:text-5xl font-black mb-6 mt-3">Beneficios Diseñados para Shippers</h2>
+					<p class="text-slate-600 max-w-2xl mx-auto text-lg">Potenciamos tu logística con tecnología de punta y una red de transporte confiable y verificada.</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+					{benefits.map((benefit) => (
+						<div class="group p-8 rounded-2xl border border-slate-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+							<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+								<Icon name={benefit.icon} size="text-3xl" />
+							</div>
+							<h4 class="text-xl font-bold mb-3">{benefit.title}</h4>
+							<p class="text-slate-600 leading-relaxed">{benefit.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Specialized Solutions -->
+		<section class="py-20 bg-slate-50" id="servicios">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+					<div class="max-w-2xl">
+						<h3 class="text-3xl md:text-5xl font-black mb-4">Soluciones Especializadas</h3>
+						<p class="text-slate-600 text-lg">Cubrimos todas tus necesidades de transporte con servicios adaptados a la medida de tu negocio.</p>
+					</div>
+					<a class="text-primary font-bold flex items-center gap-2 hover:underline whitespace-nowrap" href="#">
+						Explorar todos los servicios <Icon name="arrow_forward" />
+					</a>
+				</div>
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+					{solutions.map((s) => (
+						<div class="flex flex-col gap-4">
+							<div class="aspect-[4/5] rounded-xl overflow-hidden shadow-md group relative">
+								<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt={s.title} src={s.image} loading="lazy" />
+								<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+								<div class="absolute bottom-6 left-6 text-white">
+									<p class="text-sm font-bold uppercase tracking-widest text-blue-300 mb-1">{s.label}</p>
+									<h5 class="text-xl font-bold">{s.title}</h5>
+								</div>
+							</div>
+							<p class="text-slate-600 text-sm">{s.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Why Choose Us / Boutique Service -->
+		<section class="py-24 bg-white overflow-hidden">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex flex-col lg:flex-row items-center gap-16">
+					<div class="flex-1 space-y-8">
+						<div>
+							<h3 class="text-3xl md:text-5xl font-black mb-6 leading-tight">Servicio Personalizado: Logística con Rostro Humano</h3>
+							<p class="text-slate-600 text-lg leading-relaxed">
+								A diferencia de los grandes corredores impersonales, en Traustar ofrecemos un <span class="font-bold text-slate-900 underline decoration-primary decoration-4">enfoque boutique</span>. Cada cliente tiene un equipo dedicado que conoce sus rutas, sus retos y sus objetivos.
+							</p>
+						</div>
+						<div class="space-y-4">
+							<div class="flex items-start gap-4">
+								<div class="bg-primary/10 p-2 rounded-lg text-primary mt-1">
+									<Icon name="support_agent" />
+								</div>
+								<div>
+									<h5 class="font-bold text-lg">Soporte Dedicado 24/7</h5>
+									<p class="text-slate-600">Sin extensiones infinitas. Hablas directamente con expertos que pueden tomar decisiones al momento.</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-4">
+								<div class="bg-primary/10 p-2 rounded-lg text-primary mt-1">
+									<Icon name="hub" />
+								</div>
+								<div>
+									<h5 class="font-bold text-lg">Agilidad Operativa</h5>
+									<p class="text-slate-600">Nuestra estructura nos permite adaptarnos rápidamente a cambios imprevistos en tu demanda.</p>
+								</div>
+							</div>
+						</div>
+						<div class="p-8 bg-slate-50 rounded-2xl border-l-4 border-primary">
+							<p class="italic text-lg text-slate-700 mb-4">"Traustar no solo mueve nuestra carga; entienden nuestro negocio. La visibilidad que nos dan nos ha permitido reducir tiempos de espera en un 25%."</p>
+							<div class="flex items-center gap-3">
+								<div class="size-10 rounded-full bg-slate-300"></div>
+								<div>
+									<p class="font-bold text-sm">Director de Logística</p>
+									<p class="text-xs text-slate-500">Empresa Manufacturera Global</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex-1 w-full relative">
+						<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+						<div class="relative z-10 grid grid-cols-2 gap-4">
+							<div class="space-y-4">
+								<div class="aspect-square rounded-2xl bg-slate-100 overflow-hidden shadow-lg">
+									<img class="w-full h-full object-cover" alt="Contenedor de carga y camión" src="/images/shipper-about-1.jpg" loading="lazy" />
+								</div>
+								<div class="aspect-[4/3] rounded-2xl bg-slate-100 overflow-hidden shadow-lg">
+									<img class="w-full h-full object-cover" alt="Acuerdo logístico" src="/images/shipper-about-2.jpg" loading="lazy" />
+								</div>
+							</div>
+							<div class="space-y-4 pt-8">
+								<div class="aspect-[4/3] rounded-2xl bg-slate-100 overflow-hidden shadow-lg">
+									<img class="w-full h-full object-cover" alt="Equipo trabajando en estrategia" src="/images/shipper-about-3.jpg" loading="lazy" />
+								</div>
+								<div class="aspect-square rounded-2xl bg-slate-100 overflow-hidden shadow-lg">
+									<img class="w-full h-full object-cover" alt="Dashboard y tablet de logística" src="/images/shipper-about-4.jpg" loading="lazy" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Final CTA / Form Section -->
+		<section class="py-24 bg-primary text-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid lg:grid-cols-2 gap-16 items-center">
+					<div class="space-y-6">
+						<h2 class="text-4xl md:text-5xl font-black">¿Listo para transformar tu logística?</h2>
+						<p class="text-xl text-blue-100 leading-relaxed">Únete a cientos de empresas que ya optimizan sus costos y visibilidad con Traustar Logistics.</p>
+						<ul class="space-y-4">
+							<li class="flex items-center gap-3">
+								<Icon name="check_circle" className="text-green-400" />
+								<span class="text-lg">Cotización en menos de 30 minutos</span>
+							</li>
+							<li class="flex items-center gap-3">
+								<Icon name="check_circle" className="text-green-400" />
+								<span class="text-lg">Asesoría gratuita en optimización de rutas</span>
+							</li>
+							<li class="flex items-center gap-3">
+								<Icon name="check_circle" className="text-green-400" />
+								<span class="text-lg">Sin compromisos ni cargos ocultos</span>
+							</li>
+						</ul>
+					</div>
+					<div class="bg-white rounded-2xl p-8 md:p-10 shadow-2xl text-slate-900">
+						<h3 class="text-2xl font-bold mb-6">Solicita tu Cotización</h3>
+						<form class="space-y-4">
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+								<div class="space-y-2">
+									<label class="text-sm font-semibold">Nombre Completo</label>
+									<input class="w-full rounded-lg border border-slate-200 focus:border-primary focus:ring-primary h-12 px-4 focus:outline-none" placeholder="Ej: Juan Pérez" type="text" />
+								</div>
+								<div class="space-y-2">
+									<label class="text-sm font-semibold">Correo Corporativo</label>
+									<input class="w-full rounded-lg border border-slate-200 focus:border-primary focus:ring-primary h-12 px-4 focus:outline-none" placeholder="juan@empresa.com" type="email" />
+								</div>
+							</div>
+							<div class="space-y-2">
+								<label class="text-sm font-semibold">Tipo de Servicio</label>
+								<select class="w-full rounded-lg border border-slate-200 focus:border-primary focus:ring-primary h-12 px-4 focus:outline-none">
+									<option>FTL (Carga Completa)</option>
+									<option>LTL (Consolidado)</option>
+									<option>Cross-Border</option>
+									<option>Expedited / Urgente</option>
+								</select>
+							</div>
+							<div class="space-y-2">
+								<label class="text-sm font-semibold">Detalles del Embarque (Opcional)</label>
+								<textarea class="w-full rounded-lg border border-slate-200 focus:border-primary focus:ring-primary px-4 py-3 focus:outline-none" placeholder="Origen, destino, peso..." rows="3"></textarea>
+							</div>
+							<button class="w-full bg-primary text-white font-bold h-14 rounded-lg text-lg hover:bg-blue-700 transition-colors shadow-lg shadow-primary/20 mt-4" type="submit">
+								Enviar Solicitud
+							</button>
+							<p class="text-xs text-center text-slate-500 mt-4">Al enviar, aceptas nuestras <a href="/privacidad" class="text-primary hover:underline">políticas de privacidad</a> y <a href="/terminos" class="text-primary hover:underline">términos de servicio</a>.</p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<SiteFooter />
+	</body>
+</html>

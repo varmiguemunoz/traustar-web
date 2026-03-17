@@ -1,0 +1,23 @@
+---
+/**
+ * ServiceLink molecule — "Ver detalles →" link with hover gap animation
+ * @param href - Link destination
+ * @param label - Link text
+ */
+import Icon from '../atoms/Icon.astro';
+
+interface Props {
+	href?: string;
+	label?: string;
+}
+
+const { href = '#', label = 'Ver detalles' } = Astro.props;
+---
+
+<a
+	href={href}
+	class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all"
+>
+	{label}
+	<Icon name="arrow_right_alt" />
+</a>

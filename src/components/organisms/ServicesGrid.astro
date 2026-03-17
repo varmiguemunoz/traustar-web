@@ -1,0 +1,64 @@
+---
+/**
+ * ServicesGrid organism — 6 service cards in a responsive grid
+ */
+import Icon from '../atoms/Icon.astro';
+import ServiceLink from '../molecules/ServiceLink.astro';
+
+const services = [
+	{
+		icon: 'local_shipping',
+		title: 'FTL (Carga Completa)',
+		description: "Capacidad dedicada de 53' para sus embarques de mayor volumen en Norteamérica.",
+	},
+	{
+		icon: 'inventory_2',
+		title: 'LTL (Carga Consolidada)',
+		description: 'Optimice sus costos pagando solo por el espacio que su mercancía utiliza.',
+	},
+	{
+		icon: 'public',
+		title: 'Cross-Border',
+		description: 'Expertos en cruce fronterizo México - USA - Canadá sin contratiempos.',
+	},
+	{
+		icon: 'ac_unit',
+		title: 'Reefer (Refrigerado)',
+		description: 'Control estricto de temperatura para productos perecederos y farmacéuticos.',
+	},
+	{
+		icon: 'conveyor_belt',
+		title: 'Flatbed (Plataformas)',
+		description: 'Soluciones para carga sobredimensionada, maquinaria y construcción.',
+	},
+	{
+		icon: 'train',
+		title: 'Intermodal',
+		description: 'Combine ferrocarril y carretera para maximizar la eficiencia en largas distancias.',
+	},
+];
+---
+
+<section id="servicios" class="py-24 bg-white dark:bg-background-dark">
+	<!-- Section Header -->
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+		<h2 class="text-3xl sm:text-4xl font-black text-navy-deep dark:text-white mb-4">
+			Soluciones Logísticas Integrales
+		</h2>
+		<p class="text-slate-500 max-w-2xl mx-auto">
+			Equipamiento diverso y servicios especializados adaptados a sus requerimientos de transporte.
+		</p>
+	</div>
+
+	<!-- Cards Grid -->
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		{services.map((service) => (
+			<div class="group p-8 rounded-2xl bg-background-light dark:bg-slate-800/50 border border-transparent hover:border-primary/30 transition-all hover:shadow-2xl hover:shadow-primary/5">
+				<Icon name={service.icon} size="text-4xl" className="text-primary mb-6" />
+				<h3 class="text-xl font-bold mb-3">{service.title}</h3>
+				<p class="text-slate-600 dark:text-slate-400 mb-6">{service.description}</p>
+				<ServiceLink />
+			</div>
+		))}
+	</div>
+</section>

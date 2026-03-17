@@ -1,0 +1,172 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Navbar from '../components/organisms/Navbar.astro';
+import SiteFooter from '../components/organisms/SiteFooter.astro';
+import Icon from '../components/atoms/Icon.astro';
+import Button from '../components/atoms/Button.astro';
+
+const title = 'Market Rate Reports | Traustar Logistics';
+const description = 'Manténgase informado con análisis de mercado de flete en tiempo real y tendencias en todos los tipos de equipo.';
+
+const spotRates = [
+	{ icon: 'grid_view', label: 'Dry Van', trend: 'Stable', price: '$2.14', change: '+1.2%', color: 'green', bgClass: 'bg-primary/10', iconClass: 'text-primary' },
+	{ icon: 'ac_unit', label: 'Reefer', trend: 'Rising', price: '$2.58', change: '+3.4%', color: 'green', bgClass: 'bg-blue-100', iconClass: 'text-blue-600' },
+	{ icon: 'horizontal_rule', label: 'Flatbed', trend: 'Falling', price: '$2.82', change: '-0.8%', color: 'red', bgClass: 'bg-slate-100', iconClass: 'text-slate-600' },
+];
+
+const regions = [
+	{ name: 'Midwest', status: 'Balanced', width: '55%', color: 'bg-primary', statusColor: 'text-primary' },
+	{ name: 'Southeast', status: 'Tight', width: '85%', color: 'bg-red-500', statusColor: 'text-red-500' },
+	{ name: 'Northeast', status: 'Loose', width: '30%', color: 'bg-green-500', statusColor: 'text-green-500' },
+	{ name: 'West Coast', status: 'Balanced', width: '50%', color: 'bg-primary', statusColor: 'text-primary' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="bg-white text-slate-900 font-display">
+		<Navbar />
+
+		<main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-10 py-8 pt-28">
+			<!-- Page Title Section -->
+			<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+				<div class="flex flex-col gap-2">
+					<h1 class="text-slate-900 text-3xl md:text-4xl font-black leading-tight tracking-tight">Market Rate Reports</h1>
+					<p class="text-slate-500 text-lg max-w-2xl">Stay informed with real-time freight market analytics and trends across all equipment types.</p>
+				</div>
+				<div class="flex gap-3">
+					<button class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold shadow-sm hover:bg-slate-50 transition-colors">
+						<Icon name="download" size="text-[20px]" /> Download PDF
+					</button>
+					<Button variant="primary" size="sm" className="flex items-center gap-2 shadow-md">
+						<Icon name="share" size="text-[20px]" /> Share Report
+					</Button>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+				<!-- Heatmap Section -->
+				<section class="lg:col-span-2 flex flex-col gap-4">
+					<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm overflow-hidden">
+						<div class="flex justify-between items-center mb-6">
+							<h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+								<Icon name="map" className="text-primary" />
+								Lane Rate Heatmap - North America
+							</h2>
+							<div class="flex bg-slate-100 p-1 rounded-lg">
+								<button class="px-3 py-1 text-xs font-bold bg-white rounded shadow-sm">Map View</button>
+								<button class="px-3 py-1 text-xs font-bold text-slate-500">List View</button>
+							</div>
+						</div>
+						<div class="relative w-full aspect-[16/9] bg-slate-100 rounded-lg border border-slate-200 overflow-hidden group">
+							<div class="absolute inset-0 bg-cover bg-center opacity-80" style="background-image: url('/images/market-heatmap.jpg');"></div>
+							<div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+							<!-- Map UI Controls -->
+							<div class="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none">
+								<div class="flex flex-col gap-2 pointer-events-auto w-64">
+									<div class="relative">
+										<span class="absolute left-3 top-2.5 text-slate-400"><Icon name="search" size="text-[20px]" /></span>
+										<input class="w-full bg-white border-none rounded-lg pl-10 py-2 shadow-lg text-sm focus:ring-2 focus:ring-primary" placeholder="Search specific lane..." />
+									</div>
+								</div>
+								<div class="flex flex-col gap-2 pointer-events-auto">
+									<div class="flex flex-col bg-white rounded-lg shadow-lg overflow-hidden border border-slate-200">
+										<button class="p-2 hover:bg-slate-50 border-b border-slate-100 transition-colors">
+											<Icon name="add" />
+										</button>
+										<button class="p-2 hover:bg-slate-50 transition-colors">
+											<Icon name="remove" />
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Heatmap Legend -->
+							<div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg border border-slate-200 shadow-lg">
+								<div class="text-[10px] font-bold text-slate-500 uppercase mb-2">Price Intensity ($/mi)</div>
+								<div class="flex items-center gap-2">
+									<span class="text-[10px]">$1.20</span>
+									<div class="w-32 h-2 rounded-full bg-gradient-to-r from-blue-500 via-green-400 via-yellow-400 to-red-500"></div>
+									<span class="text-[10px]">$4.50+</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Weekly Market Summary -->
+					<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+						<h3 class="text-lg font-bold text-slate-900 mb-4">Market Summary - Week 42</h3>
+						<div class="text-slate-600 text-sm leading-relaxed space-y-3">
+							<p>Freight activity remained resilient this week with consistent volumes across the Midwest corridor. National load-to-truck ratios showed a slight uptick of 2.4% for Dry Vans as inventory replenishment for the upcoming holiday season begins to accelerate.</p>
+							<p>Fuel prices have stabilized, offering some relief to carrier margins, though reefer capacity remains tight in the Pacific Northwest due to seasonal harvest cycles. We anticipate rates to hold steady for the next 10 days before a projected 3.5% seasonal increase in the Northeast.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Sidebar -->
+				<aside class="flex flex-col gap-8">
+					<!-- Spot Rates -->
+					<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+						<h3 class="text-sm font-black text-slate-500 uppercase tracking-widest mb-6">National Avg Spot Rates</h3>
+						<div class="flex flex-col gap-6">
+							{spotRates.map((rate) => (
+								<div class="flex items-center justify-between">
+									<div class="flex items-center gap-3">
+										<div class:list={['size-10 rounded-lg flex items-center justify-center', rate.bgClass]}>
+											<Icon name={rate.icon} className={rate.iconClass} />
+										</div>
+										<div>
+											<p class="text-sm font-semibold">{rate.label}</p>
+											<p class="text-xs text-slate-500">Trend: {rate.trend}</p>
+										</div>
+									</div>
+									<div class="text-right">
+										<p class="text-lg font-bold text-slate-900">{rate.price}</p>
+										<p class:list={['text-xs flex items-center justify-end font-bold', rate.color === 'green' ? 'text-green-500' : 'text-red-500']}>
+											<Icon name={rate.color === 'green' ? 'trending_up' : 'trending_down'} size="text-xs" /> {rate.change}
+										</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<!-- Regional Capacity -->
+					<div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+						<h3 class="text-sm font-black text-slate-500 uppercase tracking-widest mb-4">Regional Capacity</h3>
+						<div class="space-y-4">
+							{regions.map((region) => (
+								<div>
+									<div class="flex justify-between text-xs font-bold mb-1">
+										<span>{region.name}</span>
+										<span class={region.statusColor}>{region.status}</span>
+									</div>
+									<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+										<div class:list={['h-full rounded-full', region.color]} style={`width: ${region.width}`}></div>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<!-- CTA -->
+					<div class="bg-primary rounded-xl p-6 shadow-lg relative overflow-hidden group">
+						<div class="relative z-10">
+							<h3 class="text-white text-xl font-bold mb-2">Need lane specific pricing?</h3>
+							<p class="text-white/80 text-sm mb-6">Get a personalized freight quote for your specific volume and lanes.</p>
+							<a href="/contacto" class="block w-full py-3 bg-white text-primary font-bold rounded-lg hover:bg-slate-100 transition-colors shadow-sm text-center">
+								Get a Custom Quote
+							</a>
+						</div>
+						<div class="absolute -bottom-6 -right-6 size-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+						<div class="absolute -top-6 -left-6 size-20 bg-black/10 rounded-full blur-xl group-hover:scale-125 transition-transform duration-700"></div>
+					</div>
+				</aside>
+			</div>
+		</main>
+
+		<SiteFooter />
+	</body>
+</html>

@@ -1,0 +1,23 @@
+---
+/**
+ * Badge atom — small label badge
+ * @param variant - 'primary' | 'success' | 'neutral'
+ * @param className - Additional CSS classes
+ */
+interface Props {
+	variant?: 'primary' | 'success' | 'neutral';
+	className?: string;
+}
+
+const { variant = 'primary', className = '' } = Astro.props;
+
+const variantClasses: Record<string, string> = {
+	primary: 'text-primary bg-primary/10 font-bold',
+	success: 'text-green-500 bg-white/5 border border-white/10',
+	neutral: 'text-slate-500 bg-slate-100 dark:bg-slate-800',
+};
+---
+
+<span class:list={['inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-bold uppercase tracking-widest', variantClasses[variant], className]}>
+	<slot />
+</span>

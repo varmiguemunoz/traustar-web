@@ -1,0 +1,180 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Navbar from '../../components/organisms/Navbar.astro';
+import SiteFooter from '../../components/organisms/SiteFooter.astro';
+import Icon from '../../components/atoms/Icon.astro';
+import Button from '../../components/atoms/Button.astro';
+
+const title = 'Servicio FTL (Carga Completa) | Traustar Logistics Inc.';
+const description = 'Optimice su cadena de suministro con soluciones de carga completa diseñadas para la máxima seguridad, puntualidad y visibilidad en Norteamérica.';
+
+const benefits = [
+	{ icon: 'location_on', title: 'Visibilidad Total (GPS)', description: 'Monitoreo en tiempo real 24/7 de cada unidad. Acceda a actualizaciones automáticas de estatus para una transparencia absoluta en su logística.' },
+	{ icon: 'verified_user', title: 'Red de Transportistas', description: 'Acceso a una red rigurosamente auditada y verificada. Cumplimos con los más altos estándares de seguridad y confianza.' },
+	{ icon: 'bar_chart', title: 'Pricing Inteligente', description: 'Tarifas competitivas optimizadas mediante algoritmos de mercado. Obtenga el mejor valor basado en datos históricos y tendencias actuales.' },
+];
+
+const equipment = [
+	{ icon: 'local_shipping', title: 'Caja Seca (Dry Van)', description: "Unidades de 53' para carga general protegida y segura." },
+	{ icon: 'ac_unit', title: 'Refrigerado (Reefer)', description: 'Control estricto de temperatura para productos perecederos.' },
+	{ icon: 'view_agenda', title: 'Plataforma (Flatbed)', description: 'Para carga sobredimensionada, maquinaria y proyectos industriales.' },
+];
+
+const certs = [
+	{ label: 'FMCSA', sub: 'Registered' },
+	{ label: 'C-TPAT', sub: 'Compliant' },
+	{ label: 'FAST', sub: 'Certified' },
+];
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="bg-white text-slate-900 font-display">
+		<Navbar />
+
+		<!-- Hero -->
+		<section class="relative overflow-hidden bg-slate-900 py-24 lg:py-32">
+			<div class="absolute inset-0 opacity-40">
+				<div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent z-10"></div>
+				<img class="h-full w-full object-cover" src="/images/svc-ftl-hero.jpg" alt="Camión en carretera" loading="eager" />
+			</div>
+			<div class="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div class="max-w-3xl">
+					<div class="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary ring-1 ring-inset ring-primary/30 mb-6">
+						Servicio Premium Full Truckload
+					</div>
+					<h1 class="text-4xl font-black tracking-tight text-white sm:text-6xl mb-6">
+						Capacidad Garantizada y <span class="text-primary">Eficiencia Crítica</span> en FTL
+					</h1>
+					<p class="text-lg leading-relaxed text-slate-300 mb-10 max-w-2xl">
+						Optimice su cadena de suministro con soluciones de carga completa diseñadas para la máxima seguridad, puntualidad y visibilidad en Norteamérica.
+					</p>
+					<div class="flex flex-wrap gap-4">
+						<a href="/quote/ftl" class="flex items-center gap-2 rounded-lg bg-primary px-8 py-4 text-base font-bold text-white hover:bg-primary/90 transition-all">
+							Solicitar Cotización FTL <Icon name="arrow_forward" />
+						</a>
+						<a href="#detalles" class="rounded-lg border border-slate-700 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm hover:bg-white/10 transition-all">
+							Ver Equipamiento
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits -->
+		<section class="py-24 bg-white">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-16">
+					<h2 class="text-base font-bold uppercase tracking-widest text-primary mb-3">Ventaja Competitiva</h2>
+					<h3 class="text-3xl font-black tracking-tight sm:text-4xl">Beneficios Clave de Nuestro Servicio</h3>
+				</div>
+				<div class="grid gap-8 md:grid-cols-3">
+					{benefits.map((b) => (
+						<div class="group relative rounded-2xl border border-slate-200 bg-slate-50 p-8 transition-all hover:shadow-xl hover:-translate-y-1">
+							<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+								<Icon name={b.icon} size="text-3xl" />
+							</div>
+							<h4 class="mb-3 text-xl font-bold">{b.title}</h4>
+							<p class="text-slate-600 leading-relaxed">{b.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Equipment & Coverage -->
+		<section class="py-24 bg-slate-50" id="detalles">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div class="grid lg:grid-cols-2 gap-16 items-center">
+					<div>
+						<h2 class="text-3xl font-black tracking-tight sm:text-4xl mb-6">
+							Equipamiento y Cobertura <span class="text-primary">Transfronteriza</span>
+						</h2>
+						<p class="text-lg text-slate-600 mb-8">
+							Conectamos Norteamérica con una flota versátil y presencia estratégica en los principales corredores comerciales.
+						</p>
+						<div class="space-y-6">
+							{equipment.map((eq) => (
+								<div class="flex items-start gap-4">
+									<div class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
+										<Icon name={eq.icon} className="text-primary" />
+									</div>
+									<div>
+										<h5 class="font-bold">{eq.title}</h5>
+										<p class="text-sm text-slate-500">{eq.description}</p>
+									</div>
+								</div>
+							))}
+						</div>
+						<div class="mt-10 p-6 rounded-xl bg-primary text-white">
+							<div class="flex items-center gap-3 mb-4">
+								<Icon name="public" />
+								<h5 class="font-bold">Cobertura Integral Norteamérica</h5>
+							</div>
+							<div class="flex justify-between text-sm font-medium opacity-90">
+								<span>México</span><span>•</span><span>Estados Unidos</span><span>•</span><span>Canadá</span>
+							</div>
+						</div>
+					</div>
+					<div class="relative">
+						<div class="aspect-square overflow-hidden rounded-3xl shadow-2xl">
+							<img class="h-full w-full object-cover" src="/images/svc-ftl-map.jpg" alt="Mapa logístico de Norteamérica" loading="lazy" />
+						</div>
+						<div class="absolute -bottom-6 -left-6 rounded-2xl bg-white p-6 shadow-xl max-w-xs hidden sm:block">
+							<div class="flex items-center gap-4 mb-3">
+								<div class="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
+									<Icon name="check_circle" />
+								</div>
+								<span class="font-bold">99.2% On-Time Delivery</span>
+							</div>
+							<p class="text-xs text-slate-500">Nuestra eficiencia operativa se traduce en entregas puntuales y clientes satisfechos.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Certifications -->
+		<section class="py-20 bg-white">
+			<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+				<div class="flex flex-col md:flex-row items-center justify-between gap-12 border-y border-slate-200 py-12">
+					<div class="flex flex-col gap-4 text-center md:text-left">
+						<h4 class="text-xl font-bold">Comprometidos con la Seguridad</h4>
+						<p class="text-slate-500">Contamos con las certificaciones de cumplimiento más estrictas de la industria.</p>
+					</div>
+					<div class="flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+						{certs.map((c) => (
+							<div class="flex flex-col items-center">
+								<div class="h-16 w-32 bg-slate-200 rounded-lg flex items-center justify-center font-black text-slate-500">{c.label}</div>
+								<span class="text-[10px] uppercase tracking-widest mt-2 font-bold">{c.sub}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="relative py-24">
+			<div class="absolute inset-0 bg-primary"></div>
+			<div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]"></div>
+			<div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+				<h2 class="text-3xl font-black text-white sm:text-5xl mb-8">¿Listo para mover su carga con los expertos?</h2>
+				<p class="text-xl text-white/80 mb-12">Obtenga una cotización personalizada para sus necesidades de Full Truckload hoy mismo.</p>
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+					<a href="/quote/ftl" class="w-full sm:w-auto rounded-lg bg-white px-10 py-5 text-lg font-black text-primary hover:bg-slate-100 transition-all shadow-xl">
+						Solicitar Cotización FTL
+					</a>
+					<a href="/contacto" class="w-full sm:w-auto rounded-lg bg-primary/20 border border-white/30 px-10 py-5 text-lg font-bold text-white hover:bg-primary/30 backdrop-blur-sm transition-all">
+						Hablar con un Agente
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<SiteFooter />
+	</body>
+</html>

@@ -1,0 +1,22 @@
+---
+/**
+ * Icon atom — wraps Material Symbols Outlined
+ * @param name - Material Symbol name
+ * @param size - CSS class for size (e.g. 'text-xl', 'text-3xl', 'text-4xl')
+ * @param filled - Whether to use the filled variant
+ * @param className - Additional CSS classes
+ */
+interface Props {
+	name: string;
+	size?: string;
+	filled?: boolean;
+	className?: string;
+}
+
+const { name, size = '', filled = false, className = '' } = Astro.props;
+const fillClass = filled ? 'fill-1' : '';
+---
+
+<span class:list={['material-symbols-outlined', fillClass, size, className]}>
+	{name}
+</span>

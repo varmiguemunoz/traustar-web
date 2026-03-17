@@ -1,0 +1,20 @@
+---
+/**
+ * ContactItem molecule — icon + contact text
+ * @param icon - Material Symbol name
+ * @param text - Contact text
+ */
+import Icon from '../atoms/Icon.astro';
+
+interface Props {
+	icon: string;
+	text: string;
+}
+
+const { icon, text } = Astro.props;
+---
+
+<li class="flex gap-3">
+	<Icon name={icon} className="text-primary" />
+	<span>{text}</span>
+</li>

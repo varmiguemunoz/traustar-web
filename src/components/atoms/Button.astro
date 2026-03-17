@@ -1,0 +1,44 @@
+---
+/**
+ * Button atom
+ * @param variant - 'primary' | 'secondary' | 'ghost'
+ * @param size - 'sm' | 'md' | 'lg'
+ * @param href - Optional link href, renders <a> instead of <button>
+ * @param className - Additional CSS classes
+ */
+interface Props {
+	variant?: 'primary' | 'secondary' | 'ghost';
+	size?: 'sm' | 'md' | 'lg';
+	href?: string;
+	className?: string;
+}
+
+const { variant = 'primary', size = 'md', href, className = '' } = Astro.props;
+
+const baseClasses = 'inline-flex items-center justify-center font-bold transition-all cursor-pointer';
+
+const variantClasses: Record<string, string> = {
+	primary: 'bg-primary hover:bg-primary-hover text-white shadow-lg shadow-primary/20',
+	secondary: 'bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700',
+	ghost: 'text-primary hover:text-primary-hover bg-transparent',
+};
+
+const sizeClasses: Record<string, string> = {
+	sm: 'px-4 py-2 text-sm rounded-lg',
+	md: 'px-6 py-2.5 text-sm rounded-lg',
+	lg: 'px-8 py-4 text-lg rounded-xl',
+};
+
+const classes = [baseClasses, variantClasses[variant], sizeClasses[size], className].join(' ');
+const Tag = href ? 'a' : 'button';
+---
+
+{href ? (
+	<a href={href} class={classes}>
+		<slot />
+	</a>
+) : (
+	<button class={classes}>
+		<slot />
+	</button>
+)}

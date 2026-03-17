@@ -1,0 +1,15 @@
+---
+/**
+ * SectionLabel atom — uppercase tracking label for section headers
+ * @param className - Additional CSS classes
+ */
+interface Props {
+	className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<span class:list={['text-primary font-bold uppercase tracking-widest text-sm mb-4 block', className]}>
+	<slot />
+</span>

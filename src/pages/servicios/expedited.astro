@@ -1,0 +1,174 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Navbar from '../../components/organisms/Navbar.astro';
+import SiteFooter from '../../components/organisms/SiteFooter.astro';
+import Icon from '../../components/atoms/Icon.astro';
+import Button from '../../components/atoms/Button.astro';
+
+const title = 'Servicio Expedited (Carga Urgente) | Traustar Logistics Inc.';
+const description = 'Logística de alta prioridad en EE.UU., México y Canadá. Velocidad sin compromisos para envíos críticos.';
+
+const features = [
+	{ icon: 'timer', title: 'Velocidad Garantizada', description: 'Cumplimiento estricto de ventanas de entrega. Priorizamos sus envíos para asegurar el tiempo de tránsito más corto posible por vía terrestre.' },
+	{ icon: 'query_stats', title: 'Monitoreo Crítico 24/7', description: 'Seguimiento GPS en tiempo real y actualizaciones proactivas cada 2 horas por nuestro equipo de despacho especializado en urgencias.' },
+	{ icon: 'bolt', title: 'Disponibilidad Inmediata', description: 'Red de unidades listas para recolección en menos de 90 minutos en los principales corredores industriales de Norteamérica.' },
+];
+
+const capabilities = [
+	{ icon: 'local_shipping', title: 'Transporte Terrestre Expeditado', description: 'Rutas directas sin paradas intermedias en camiones de caja cerrada y unidades dedicadas para máxima seguridad.' },
+	{ icon: 'groups', title: 'Conductores en Equipo (Team Drivers)', description: 'El camión nunca se detiene. Relevos certificados para operaciones que requieren tránsito continuo de costa a costa.' },
+	{ icon: 'pan_tool_alt', title: 'Manejo White-Glove', description: 'Servicio especializado para equipos médicos, tecnología o carga de alto valor que requiere atención meticulosa y descarga asistida.' },
+];
+
+const trustItems = [
+	{ icon: 'location_on', title: 'GPS en Tiempo Real', description: 'Transparencia total con visibilidad satelital minuto a minuto de su carga.' },
+	{ icon: 'verified', title: 'FMCSA Compliance', description: 'Operamos bajo los más altos estándares de seguridad y regulación en Norteamérica.' },
+	{ icon: 'support_agent', title: 'Despacho Dedicado 24/7', description: 'Un solo punto de contacto especializado disponible en cualquier momento del día o la noche.' },
+];
+
+const faqs = [
+	{ q: '¿Cuál es el tiempo de respuesta para una recolección urgente?', a: 'En las principales zonas industriales (como El Paso, Monterrey, Querétaro, Detroit o Chicago), podemos posicionar una unidad en menos de 90 a 120 minutos tras la aprobación de la cotización.' },
+	{ q: '¿Cómo puedo rastrear mi envío expeditado?', a: 'Proporcionamos acceso a nuestra plataforma de rastreo en vivo y enviamos reportes automáticos vía email o WhatsApp cada 2-4 horas, dependiendo de la criticidad del servicio solicitado.' },
+	{ q: '¿Qué áreas de cobertura manejan para servicios críticos?', a: 'Nuestra red cubre todo el territorio continental de Estados Unidos, los principales centros industriales de México y las provincias del sur de Canadá (Ontario y Quebec), garantizando un flujo transfronterizo ágil.' },
+];
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="bg-white text-slate-900 font-display">
+		<Navbar />
+
+		<!-- Hero -->
+		<section class="relative bg-slate-900 overflow-hidden">
+			<div class="absolute inset-0 opacity-40">
+				<div class="w-full h-full bg-cover bg-center" style="background-image: url('/images/svc-exp-hero.jpg');"></div>
+			</div>
+			<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col items-start gap-8">
+				<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-white text-xs font-bold uppercase tracking-widest">
+					<span class="relative flex h-2 w-2">
+						<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+						<span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+					</span>
+					Servicios Expeditados 24/7
+				</div>
+				<h1 class="text-white text-4xl md:text-6xl font-black leading-tight max-w-3xl tracking-tight">
+					Soluciones Críticas de Envío: <span class="text-primary">Velocidad Sin Compromisos</span>
+				</h1>
+				<p class="text-slate-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+					Logística de alta prioridad en EE. UU., México y Canadá. Cuando el tiempo es el factor más crítico, Traustar responde con disponibilidad inmediata.
+				</p>
+				<div class="flex flex-wrap gap-4">
+					<a href="/quote" class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all shadow-xl">
+						Cotizar Envío Urgente
+					</a>
+					<a href="#capabilities" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-lg text-lg font-bold transition-all">
+						Ver Cobertura
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Features -->
+		<section class="py-20 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl md:text-4xl font-bold mb-4">Excelencia en Logística Crítica</h2>
+					<p class="text-slate-600 max-w-2xl mx-auto">Nuestra infraestructura está diseñada para reaccionar en minutos, no horas.</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					{features.map((f) => (
+						<div class="p-8 rounded-xl bg-slate-50 border border-slate-200 hover:shadow-lg transition-shadow">
+							<Icon name={f.icon} className="text-primary" size="text-5xl" />
+							<h3 class="text-xl font-bold mb-3 mt-6">{f.title}</h3>
+							<p class="text-slate-600 leading-relaxed">{f.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Capabilities -->
+		<section class="py-20 bg-slate-50" id="capabilities">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex flex-col md:flex-row items-center gap-16">
+					<div class="w-full md:w-1/2">
+						<div class="relative">
+							<img class="rounded-2xl shadow-2xl relative z-10" src="/images/svc-exp-ops.jpg" alt="Verificación de carga en almacén" loading="lazy" />
+							<div class="absolute -bottom-6 -right-6 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-0"></div>
+						</div>
+					</div>
+					<div class="w-full md:w-1/2">
+						<h2 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">Capacidades de Servicio Transfronterizo</h2>
+						<div class="space-y-8">
+							{capabilities.map((cap) => (
+								<div class="flex gap-4">
+									<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+										<Icon name={cap.icon} />
+									</div>
+									<div>
+										<h4 class="text-lg font-bold mb-1">{cap.title}</h4>
+										<p class="text-slate-600">{cap.description}</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Trust Bar -->
+		<section class="py-20 bg-primary text-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+					{trustItems.map((t) => (
+						<div class="flex flex-col items-center">
+							<Icon name={t.icon} size="text-5xl" className="mb-4" />
+							<h3 class="text-2xl font-bold mb-2">{t.title}</h3>
+							<p class="text-white/80">{t.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- FAQ -->
+		<section class="py-20 bg-white">
+			<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+				<h2 class="text-3xl font-bold text-center mb-12">Preguntas Frecuentes sobre Servicios Críticos</h2>
+				<div class="space-y-4">
+					{faqs.map((faq, i) => (
+						<details class="group p-6 rounded-xl border border-slate-200 bg-slate-50 open:bg-white transition-all cursor-pointer" open={i === 0}>
+							<summary class="flex items-center justify-between font-bold text-lg list-none">
+								{faq.q}
+								<Icon name="expand_more" className="group-open:rotate-180 transition-transform" />
+							</summary>
+							<div class="mt-4 text-slate-600 leading-relaxed">{faq.a}</div>
+						</details>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Final CTA -->
+		<section class="py-20 bg-slate-50 text-center border-t border-slate-200">
+			<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+				<h2 class="text-3xl md:text-5xl font-black mb-6 tracking-tight">¿Tienes una emergencia logística <span class="text-primary italic">ahora</span>?</h2>
+				<p class="text-lg text-slate-600 mb-10 leading-relaxed">Nuestro equipo de especialistas en urgencias está en línea para gestionar su envío inmediatamente.</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/contacto" class="bg-primary hover:bg-primary/90 text-white px-10 py-5 rounded-lg text-xl font-black shadow-2xl transition-all transform hover:-translate-y-1">
+						Hablar con un Especialista
+					</a>
+					<a href="tel:+18005550123" class="flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary/10 px-10 py-5 rounded-lg text-xl font-bold transition-all">
+						<Icon name="call" /> +1 (800) TRAUSTAR
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<SiteFooter />
+	</body>
+</html>

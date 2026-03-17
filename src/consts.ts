@@ -1,5 +1,3 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = 'Astro Blog';
-export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const SITE_TITLE = 'Traustar Logistics | Logística de Alta Precisión';
+export const SITE_DESCRIPTION =
+	'Capacidad garantizada para cargas críticas. Visibilidad total 24/7, costos optimizados y una red de carriers certificados por la FMCSA. Cotiza hoy.';

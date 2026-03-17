@@ -1,0 +1,40 @@
+---
+/**
+ * Navbar organism — fixed navigation with logo, links, CTA, mobile hamburger
+ */
+import Icon from '../atoms/Icon.astro';
+import Button from '../atoms/Button.astro';
+import NavLink from '../molecules/NavLink.astro';
+---
+
+<nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-navy-deep/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="flex justify-between items-center h-20">
+			<!-- Logo -->
+			<a href="/" class="flex items-center gap-2 no-underline">
+				<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg text-white">
+					<Icon name="local_shipping" size="text-3xl" />
+				</div>
+				<span class="text-2xl font-black tracking-tight text-navy-deep dark:text-white uppercase">
+					Traustar<span class="text-primary">.</span>
+				</span>
+			</a>
+
+			<!-- Desktop Links -->
+			<div class="hidden md:flex items-center gap-8">
+				<NavLink label="Servicios" href="#servicios" />
+				<NavLink label="Tecnología" href="#tecnologia" />
+				<NavLink label="Cobertura" href="#cobertura" />
+				<NavLink label="Nosotros" href="#nosotros" />
+				<Button variant="primary" size="md">
+					Cotizar Carga
+				</Button>
+			</div>
+
+			<!-- Mobile Hamburger -->
+			<div class="md:hidden cursor-pointer">
+				<Icon name="menu" size="text-3xl" />
+			</div>
+		</div>
+	</div>
+</nav>

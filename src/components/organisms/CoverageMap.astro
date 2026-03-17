@@ -1,0 +1,35 @@
+---
+/**
+ * CoverageMap organism — map image with country pill labels
+ */
+---
+
+<section id="cobertura" class="py-24 bg-background-light dark:bg-slate-900">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Section Header -->
+		<div class="text-center mb-16">
+			<h2 class="text-3xl sm:text-4xl font-black text-navy-deep dark:text-white mb-4">
+				Cobertura en toda Norteamérica
+			</h2>
+			<p class="text-slate-500">Sin fronteras para su crecimiento. Red activa en México, USA y Canadá.</p>
+		</div>
+
+		<!-- Map -->
+		<div class="aspect-video w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl relative">
+			<img
+				src="/images/coverage-map.jpg"
+				alt="Mapa estilizado de rutas logísticas en Norteamérica"
+				class="w-full h-full object-cover"
+				loading="lazy"
+			/>
+			<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+			<div class="absolute inset-0 flex items-center justify-center">
+				<div class="flex flex-wrap justify-center gap-4">
+					<span class="px-6 py-2 bg-white/90 dark:bg-navy-deep/90 rounded-full font-bold shadow-lg text-sm sm:text-base">México</span>
+					<span class="px-6 py-2 bg-white/90 dark:bg-navy-deep/90 rounded-full font-bold shadow-lg text-sm sm:text-base">USA</span>
+					<span class="px-6 py-2 bg-white/90 dark:bg-navy-deep/90 rounded-full font-bold shadow-lg text-sm sm:text-base">Canada</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

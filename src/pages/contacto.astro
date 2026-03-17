@@ -1,0 +1,158 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Navbar from '../components/organisms/Navbar.astro';
+import SiteFooter from '../components/organisms/SiteFooter.astro';
+import Icon from '../components/atoms/Icon.astro';
+import Button from '../components/atoms/Button.astro';
+
+const title = 'Contacto | Traustar Logistics Inc.';
+const description = 'Estamos listos para optimizar su cadena de suministro en USA, México y Canadá con soluciones logísticas de vanguardia.';
+
+const contactCards = [
+	{ icon: 'mail', title: 'Correo Electrónico', subtitle: 'Para consultas generales y ventas.', value: 'info@traulog.com', href: 'mailto:info@traulog.com' },
+	{ icon: 'phone_in_talk', title: 'Teléfono', subtitle: 'Llámanos para atención inmediata.', value: '+1 872 351 9977', href: 'tel:+18723519977' },
+	{ icon: 'location_on', title: 'Dirección', subtitle: 'Sede Corporativa en Chicago.', value: '2327 N Harding Ave., Chicago, IL, 60647', href: null },
+];
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="bg-white text-slate-900 font-display">
+		<Navbar />
+
+		<!-- Hero Section -->
+		<section class="relative w-full py-20 lg:py-32 overflow-hidden bg-slate-900">
+			<div class="absolute inset-0 opacity-40">
+				<img alt="Bodega logística con camiones y carga" class="w-full h-full object-cover" src="/images/contacto-hero.jpg" loading="eager" />
+			</div>
+			<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+			<div class="relative max-w-7xl mx-auto px-4 text-center">
+				<span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-primary uppercase bg-white rounded-full">Atención Especializada</span>
+				<h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Ponte en Contacto</h1>
+				<p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+					Estamos listos para optimizar su cadena de suministro en USA, México y Canadá con soluciones logísticas de vanguardia.
+				</p>
+			</div>
+		</section>
+
+		<!-- Contact Info Cards -->
+		<section class="max-w-7xl mx-auto px-4 -mt-16 relative z-10">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{contactCards.map((card) => (
+					<div class="bg-white p-8 rounded-xl shadow-xl border border-slate-100 group hover:border-primary/50 transition-all">
+						<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+							<Icon name={card.icon} />
+						</div>
+						<h3 class="text-lg font-bold mb-2">{card.title}</h3>
+						<p class="text-slate-500 text-sm mb-4">{card.subtitle}</p>
+						{card.href ? (
+							<a class="text-primary font-semibold hover:underline" href={card.href}>{card.value}</a>
+						) : (
+							<p class="text-slate-900 font-semibold">{card.value}</p>
+						)}
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- Form and Availability Section -->
+		<section class="max-w-7xl mx-auto px-4 py-20">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+				<!-- Contact Form -->
+				<div>
+					<h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+						<span class="w-8 h-1 bg-primary inline-block"></span>
+						Envíanos un mensaje
+					</h2>
+					<form action="#" class="space-y-6">
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+							<div class="space-y-2">
+								<label class="text-sm font-semibold text-slate-700">Nombre Completo</label>
+								<input class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="text" />
+							</div>
+							<div class="space-y-2">
+								<label class="text-sm font-semibold text-slate-700">Correo Electrónico</label>
+								<input class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="email" />
+							</div>
+						</div>
+						<div class="space-y-2">
+							<label class="text-sm font-semibold text-slate-700">Empresa</label>
+							<input class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" type="text" />
+						</div>
+						<div class="space-y-2">
+							<label class="text-sm font-semibold text-slate-700">Mensaje</label>
+							<textarea class="w-full px-4 py-3 rounded-lg border border-slate-200 bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none" rows="4"></textarea>
+						</div>
+						<Button variant="primary" size="lg" className="w-full shadow-lg shadow-primary/30 flex items-center justify-center gap-2">
+							Enviar Consulta <Icon name="send" size="text-base" />
+						</Button>
+					</form>
+				</div>
+
+				<!-- Strategic Location & Hours -->
+				<div class="space-y-12">
+					<div>
+						<h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+							<span class="w-8 h-1 bg-primary inline-block"></span>
+							Nuestra Disponibilidad
+						</h2>
+						<div class="bg-primary text-white p-8 rounded-xl shadow-2xl relative overflow-hidden">
+							<div class="relative z-10 flex items-start gap-4">
+								<div class="bg-white/20 p-2 rounded-lg">
+									<Icon name="emergency" size="text-3xl" />
+								</div>
+								<div>
+									<h3 class="text-xl font-bold mb-2">Atención Crítica 24/7</h3>
+									<p class="text-white/80 leading-relaxed">Entendemos que la logística no duerme. Contamos con un equipo de soporte dedicado las 24 horas para incidencias críticas y seguimiento urgente.</p>
+								</div>
+							</div>
+							<div class="absolute -right-10 -bottom-10 opacity-10">
+								<Icon name="support_agent" size="text-[160px]" />
+							</div>
+						</div>
+					</div>
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+						<div class="p-6 border-l-4 border-primary bg-white rounded-r-xl shadow-sm">
+							<h4 class="font-bold text-slate-900 mb-2">Horario de Oficina</h4>
+							<p class="text-slate-500 text-sm">8:00 am – 5:00 pm</p>
+							<p class="text-slate-500 text-sm">Lunes a Sábado</p>
+						</div>
+						<div class="p-6 border-l-4 border-slate-300 bg-white rounded-r-xl shadow-sm">
+							<h4 class="font-bold text-slate-900 mb-2">Área de Servicio</h4>
+							<p class="text-slate-500 text-sm">USA, México y Canadá</p>
+							<p class="text-slate-500 text-sm">Cross-border especializado</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Map Section -->
+		<section class="w-full bg-slate-100 py-20">
+			<div class="max-w-7xl mx-auto px-4">
+				<div class="text-center mb-12">
+					<h2 class="text-3xl font-bold mb-4 text-slate-900">Presencia Estratégica</h2>
+					<p class="text-slate-500 max-w-2xl mx-auto">Nuestra ubicación en Chicago nos permite ser el eje central para operaciones terrestres que conectan todo el continente norteamericano.</p>
+				</div>
+				<div class="rounded-2xl overflow-hidden shadow-2xl h-[500px] border-4 border-white relative">
+					<img alt="Mapa de Norteamérica con rutas de transporte" class="w-full h-full object-cover" src="/images/contacto-map.jpg" loading="lazy" />
+					<div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+					<div class="absolute bottom-6 left-6 bg-white p-6 rounded-xl shadow-xl border border-slate-100 max-w-xs">
+						<div class="flex items-center gap-3 mb-4">
+							<span class="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+							<span class="font-bold text-sm">Chicago HQ</span>
+						</div>
+						<p class="text-xs text-slate-500 leading-relaxed">
+							Punto neurálgico de operaciones para la gestión de carga intermodal y terrestre hacia las principales fronteras.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<SiteFooter />
+	</body>
+</html>
