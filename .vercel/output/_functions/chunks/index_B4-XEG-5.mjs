@@ -1,0 +1,60 @@
+import { c as createComponent } from './astro-component_BTpquHhU.mjs';
+import { d as renderComponent, e as renderHead, r as renderTemplate, b as addAttribute } from './entrypoint_DqZWjQNj.mjs';
+import { $ as $$BaseHead } from './BaseHead_DCtjqGSZ.mjs';
+import { $ as $$Navbar, b as $$Icon, a as $$Button } from './Navbar_DbnW6vow.mjs';
+import { $ as $$SiteFooter } from './SiteFooter_Bqm_snkQ.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const title = "Cotización Cross-Border | Traustar Logistics Inc.";
+  const description = "Expert transborder trucking with door-to-door visibility. We bridge the gap between North American markets with customs expertise and security.";
+  const advantages = [
+    { icon: "gavel", title: "Seamless Clearance", description: "Expert customs brokerage integration for zero-delay border crossings. We manage all documentation and compliance requirements proactively." },
+    { icon: "translate", title: "Bicultural Support", description: "Fluent logistics coordinators managing communication across all borders. We speak the language of international trade in English, Spanish, and French." },
+    { icon: "hub", title: "Strategic Laredo Hub", description: "Prime positioning at the busiest commercial port in North America for faster transloading, storage, and cross-docking operations." }
+  ];
+  const formFeatures = [
+    "C-TPAT Security Verified",
+    "Door-to-Door Visibility",
+    "24/7 Transborder Support"
+  ];
+  const certifications = [
+    { icon: "verified_user", label: "C-TPAT" },
+    { icon: "speed", label: "FAST" },
+    { icon: "language", label: "WCO" },
+    { icon: "shield", label: "ACE/ACI" }
+  ];
+  const ports = [
+    { value: "laredo", label: "Laredo (TX/MX)" },
+    { value: "elpaso", label: "El Paso (TX/MX)" },
+    { value: "otay", label: "Otay Mesa (CA/MX)" },
+    { value: "detroit", label: "Detroit (MI/CA)" },
+    { value: "buffalo", label: "Buffalo (NY/CA)" }
+  ];
+  return renderTemplate`<html lang="en"> <head>${renderComponent($$result, "BaseHead", $$BaseHead, { "title": title, "description": description })}${renderHead()}</head> <body class="bg-white text-slate-900 font-display"> ${renderComponent($$result, "Navbar", $$Navbar, {})} <!-- Hero Section --> <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 pt-28"> <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"> <div class="flex flex-col gap-8"> <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider w-fit"> ${renderComponent($$result, "Icon", $$Icon, { "name": "verified", "size": "text-sm" })}
+C-TPAT & FAST Certified
+</div> <div class="flex flex-col gap-4"> <h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight">
+Seamless Cross-Border Logistics: <span class="text-primary">USA, Mexico & Canada</span> </h1> <p class="text-slate-600 text-lg leading-relaxed max-w-xl">
+Expert transborder trucking with door-to-door visibility. We bridge the gap between North American markets with unparalleled customs expertise and security.
+</p> </div> <div class="flex flex-wrap gap-4"> <a href="#quote-form" class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg text-base font-bold transition-all shadow-lg flex items-center gap-2">
+Request International Quote ${renderComponent($$result, "Icon", $$Icon, { "name": "arrow_forward" })} </a> <div class="flex items-center gap-4 px-4"> <div class="flex -space-x-2"> <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">US</div> <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">MX</div> <div class="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold">CA</div> </div> <span class="text-sm font-medium text-slate-500">Active North American Routes</span> </div> </div> </div> <div class="relative"> <div class="aspect-video lg:aspect-square bg-slate-200 rounded-2xl overflow-hidden shadow-2xl relative" style="background-image: url('/images/quote-cb-hero.jpg'); background-size: cover; background-position: center;"> <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div> </div> <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl flex items-center gap-4 border border-slate-100"> <div class="bg-green-100 text-green-600 p-3 rounded-full"> ${renderComponent($$result, "Icon", $$Icon, { "name": "location_on" })} </div> <div> <p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Live Status</p> <p class="font-bold text-slate-900">Cleared at Laredo Port</p> </div> </div> </div> </div> </section> <!-- Cross-Border Advantage --> <section class="bg-slate-50 py-20"> <div class="max-w-7xl mx-auto px-4 sm:px-6"> <div class="text-center mb-16"> <h2 class="text-3xl md:text-4xl font-black mb-4 tracking-tight">The Traustar Cross-Border Advantage</h2> <p class="text-slate-600 max-w-2xl mx-auto">
+Navigate international trade with confidence through our strategic presence at major ports and deep cultural understanding.
+</p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> ${advantages.map((adv) => renderTemplate`<div class="p-8 rounded-2xl border border-slate-200 bg-white hover:border-primary/30 transition-colors group"> <div class="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all"> ${renderComponent($$result, "Icon", $$Icon, { "name": adv.icon, "size": "text-3xl" })} </div> <h3 class="text-xl font-bold mb-3">${adv.title}</h3> <p class="text-slate-600 leading-relaxed">${adv.description}</p> </div>`)} </div> </div> </section> <!-- Quote Form Section --> <section class="py-20 bg-white" id="quote-form"> <div class="max-w-4xl mx-auto px-4 sm:px-6"> <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200"> <div class="grid grid-cols-1 md:grid-cols-5"> <div class="md:col-span-2 bg-primary p-10 text-white flex flex-col justify-between"> <div> <h3 class="text-2xl font-bold mb-4">Fast Quote</h3> <p class="text-white/80 mb-8 leading-relaxed">Get a specialized cross-border logistics quote in under 2 hours.</p> <ul class="space-y-4"> ${formFeatures.map((feat) => renderTemplate`<li class="flex items-center gap-3 text-sm"> ${renderComponent($$result, "Icon", $$Icon, { "name": "check_circle", "size": "text-lg" })} ${feat} </li>`)} </ul> </div> <div class="mt-12 flex flex-col gap-4"> <div class="bg-white/10 p-4 rounded-lg"> <p class="text-xs font-bold uppercase tracking-widest mb-1 text-white/60">Primary Port</p> <p class="font-medium">Laredo World Trade Bridge</p> </div> </div> </div> <div class="md:col-span-3 p-10"> <form action="#" class="space-y-6"> <div class="grid grid-cols-1 sm:grid-cols-2 gap-6"> <div class="flex flex-col gap-2"> <label class="text-sm font-bold text-slate-700">Port of Entry / Crossing</label> <select class="rounded-lg border border-slate-200 focus:ring-primary focus:border-primary px-4 py-3"> ${ports.map((p) => renderTemplate`<option${addAttribute(p.value, "value")}>${p.label}</option>`)} </select> </div> <div class="flex flex-col gap-2"> <label class="text-sm font-bold text-slate-700">Type of Commodity</label> <input class="rounded-lg border border-slate-200 focus:ring-primary focus:border-primary px-4 py-3" placeholder="e.g., Automotive Parts" type="text"> </div> </div> <div class="flex flex-col gap-2"> <label class="text-sm font-bold text-slate-700">Customs Broker Info <span class="font-normal text-slate-400">(Optional)</span></label> <input class="rounded-lg border border-slate-200 focus:ring-primary focus:border-primary px-4 py-3" placeholder="Broker Name / ID" type="text"> </div> <div class="grid grid-cols-1 sm:grid-cols-2 gap-6"> <div class="flex flex-col gap-2"> <label class="text-sm font-bold text-slate-700">Origin City</label> <input class="rounded-lg border border-slate-200 focus:ring-primary focus:border-primary px-4 py-3" placeholder="City, State" type="text"> </div> <div class="flex flex-col gap-2"> <label class="text-sm font-bold text-slate-700">Destination City</label> <input class="rounded-lg border border-slate-200 focus:ring-primary focus:border-primary px-4 py-3" placeholder="City, State" type="text"> </div> </div> <div class="flex flex-col gap-2"> <label class="text-sm font-bold text-slate-700">Email Address</label> <input class="rounded-lg border border-slate-200 focus:ring-primary focus:border-primary px-4 py-3" placeholder="you@company.com" type="email"> </div> ${renderComponent($$result, "Button", $$Button, { "variant": "primary", "size": "lg", "className": "w-full shadow-lg text-lg" }, { "default": ($$result2) => renderTemplate`
+Request Quote Now
+` })} <p class="text-center text-xs text-slate-400">
+By submitting, you agree to our terms for cross-border transit services.
+</p> </form> </div> </div> </div> </div> </section> <!-- Compliance Banner --> <section class="py-12 border-t border-slate-200"> <div class="max-w-7xl mx-auto px-4 sm:px-6"> <div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all"> ${certifications.map((cert) => renderTemplate`<div class="flex items-center gap-2"> ${renderComponent($$result, "Icon", $$Icon, { "name": cert.icon, "size": "text-3xl" })} <span class="font-black text-xl">${cert.label}</span> </div>`)} </div> </div> </section> ${renderComponent($$result, "SiteFooter", $$SiteFooter, {})} </body></html>`;
+}, "/Users/varmiguemunoz/varmiguemunoz/clients/traustar-web/src/pages/quote/cross-border/index.astro", void 0);
+
+const $$file = "/Users/varmiguemunoz/varmiguemunoz/clients/traustar-web/src/pages/quote/cross-border/index.astro";
+const $$url = "/quote/cross-border";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+	__proto__: null,
+	default: $$Index,
+	file: $$file,
+	url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

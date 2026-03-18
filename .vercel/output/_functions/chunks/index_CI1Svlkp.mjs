@@ -1,0 +1,65 @@
+import { c as createComponent } from './astro-component_BTpquHhU.mjs';
+import { d as renderComponent, e as renderHead, r as renderTemplate } from './entrypoint_DqZWjQNj.mjs';
+import { $ as $$BaseHead } from './BaseHead_DCtjqGSZ.mjs';
+import { $ as $$Navbar, b as $$Icon } from './Navbar_DbnW6vow.mjs';
+import { $ as $$SiteFooter } from './SiteFooter_Bqm_snkQ.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const title = "Preguntas Frecuentes | Traustar Logistics";
+  const description = "Todo lo que necesitas saber sobre nuestras soluciones logísticas, transporte de carga y procesos operativos.";
+  const faqCategories = [
+    {
+      icon: "inventory_2",
+      title: "Servicios",
+      items: [
+        { q: "¿Qué tipos de transporte ofrecen?", a: "Ofrecemos transporte terrestre de carga pesada (FTL), carga consolidada (LTL), distribución urbana de última milla y transporte especializado para mercancías refrigeradas o peligrosas." },
+        { q: "¿Realizan envíos internacionales?", a: "Sí, contamos con cobertura en toda América del Norte y alianzas estratégicas para fletes marítimos y aéreos a nivel global, incluyendo gestión de trámites aduanales." }
+      ]
+    },
+    {
+      icon: "payments",
+      title: "Precios y Cotizaciones",
+      items: [
+        { q: "¿Cómo se calculan las tarifas de transporte?", a: "Nuestras tarifas se basan en la distancia, el peso volumétrico de la carga, el tipo de equipo requerido y la urgencia del envío. Ofrecemos precios competitivos y transparencia total en los costos." },
+        { q: "¿El seguro de carga está incluido?", a: "Ofrecemos seguros de carga opcionales con cobertura contra todo riesgo. Recomendamos siempre asegurar mercancía de alto valor para su total tranquilidad." }
+      ]
+    },
+    {
+      icon: "monitoring",
+      title: "Tecnología y Rastreo",
+      items: [
+        { q: "¿Cómo puedo rastrear mi envío en tiempo real?", a: "Puede rastrear su unidad a través de nuestro portal de clientes utilizando su número de guía. Todas nuestras unidades cuentan con GPS activo las 24 horas del día." },
+        { q: "¿Ofrecen integración con sistemas ERP/E-commerce?", a: "Sí, contamos con APIs abiertas para conectarnos con los principales sistemas de gestión (SAP, Oracle) y plataformas de e-commerce como Shopify o Magento." }
+      ]
+    },
+    {
+      icon: "conveyor_belt",
+      title: "Procesos de Carga",
+      items: [
+        { q: "¿Cuáles son los requisitos para la recolección?", a: "Se requiere la carta porte, factura comercial y que la carga esté debidamente embalada. Nuestro equipo puede asesorarle sobre el embalaje óptimo para cada tipo de producto." },
+        { q: "¿Qué sucede si hay una demora en la entrega?", a: "Nuestro centro de monitoreo notifica proactivamente cualquier retraso debido a clima o tráfico. Trabajamos con protocolos de contingencia para minimizar cualquier impacto en su cadena de suministro." }
+      ]
+    }
+  ];
+  return renderTemplate`<html lang="es"> <head>${renderComponent($$result, "BaseHead", $$BaseHead, { "title": title, "description": description })}${renderHead()}</head> <body class="bg-white text-slate-900 font-display"> ${renderComponent($$result, "Navbar", $$Navbar, {})} <!-- Hero Section --> <section class="relative overflow-hidden bg-slate-900 py-24 text-white pt-32"> <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: linear-gradient(rgba(15, 73, 189, 0.4) 0%, rgba(16, 22, 34, 0.9) 100%), url('/images/nosotros-hero.jpg');"></div> <div class="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center"> <h1 class="mb-6 text-4xl font-black tracking-tight sm:text-6xl">Preguntas Frecuentes</h1> <p class="mx-auto mb-10 max-w-2xl text-lg text-slate-300 sm:text-xl">
+Todo lo que necesitas saber sobre nuestras soluciones logísticas, transporte de carga y procesos operativos.
+</p> <!-- Search Bar --> <div class="mx-auto max-w-2xl"> <div class="group relative flex items-center"> <span class="absolute left-4 text-slate-400">${renderComponent($$result, "Icon", $$Icon, { "name": "search" })}</span> <input class="h-16 w-full rounded-xl border-none bg-white px-12 text-slate-900 shadow-2xl ring-4 ring-primary/10 transition-all focus:ring-primary/30" placeholder="Busca por palabra clave (ej. rastreo, tarifas, seguro)..." type="text"> </div> </div> </div> </section> <!-- FAQ Sections --> <section class="mx-auto max-w-5xl px-4 sm:px-6 py-20"> <div class="grid gap-16"> ${faqCategories.map((cat) => renderTemplate`<div> <div class="mb-8 flex items-center gap-4"> <span class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary"> ${renderComponent($$result, "Icon", $$Icon, { "name": cat.icon })} </span> <h2 class="text-2xl font-bold tracking-tight">${cat.title}</h2> </div> <div class="space-y-4"> ${cat.items.map((item) => renderTemplate`<details class="group rounded-xl border border-slate-200 bg-white p-1 transition-all open:ring-1 open:ring-primary"> <summary class="flex cursor-pointer list-none items-center justify-between p-5 font-semibold transition-colors group-hover:text-primary"> ${item.q} ${renderComponent($$result, "Icon", $$Icon, { "name": "expand_more", "className": "transition-transform duration-300 group-open:rotate-180" })} </summary> <div class="px-5 pb-5 pt-0 text-slate-600"> ${item.a} </div> </details>`)} </div> </div>`)} </div> </section> <!-- Bottom CTA Section --> <section class="bg-primary py-20 text-white"> <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center"> <h2 class="mb-6 text-3xl font-bold tracking-tight">¿No encontraste lo que buscabas?</h2> <p class="mb-10 text-lg opacity-90">
+Nuestro equipo de soporte está disponible 24/7 para ayudarte con cualquier duda técnica o logística.
+</p> <div class="flex flex-col items-center justify-center gap-4 sm:flex-row"> <a href="/contacto" class="flex items-center gap-2 rounded-lg bg-white px-8 py-4 font-bold text-primary transition-transform hover:scale-105"> ${renderComponent($$result, "Icon", $$Icon, { "name": "mail" })} Contactar Soporte
+</a> <a href="tel:+18723519977" class="flex items-center gap-2 rounded-lg border-2 border-white/30 bg-transparent px-8 py-4 font-bold transition-colors hover:bg-white/10"> ${renderComponent($$result, "Icon", $$Icon, { "name": "call" })} Llamar ahora
+</a> </div> </div> </section> ${renderComponent($$result, "SiteFooter", $$SiteFooter, {})} </body></html>`;
+}, "/Users/varmiguemunoz/varmiguemunoz/clients/traustar-web/src/pages/faq/index.astro", void 0);
+
+const $$file = "/Users/varmiguemunoz/varmiguemunoz/clients/traustar-web/src/pages/faq/index.astro";
+const $$url = "/faq";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+	__proto__: null,
+	default: $$Index,
+	file: $$file,
+	url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

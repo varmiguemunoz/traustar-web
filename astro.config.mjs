@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import Compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
 import robotsTxt from 'astro-robots-txt';
@@ -74,9 +74,7 @@ export default defineConfig({
       priority: 0.7,
       lastmod: new Date()
     }),
-    tailwind({
-      applyBaseStyles: false, // Ya tenemos global.css
-    }),
+
     robotsTxt({
       policy: [
         {
@@ -96,28 +94,9 @@ export default defineConfig({
     react(),
   ],
   vite: {
+    plugins: [tailwindcss()],
     build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            // React core
-            'react-vendor': ['react', 'react-dom'],
-            // Three.js separado
-            'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
-            // Radix UI separado
-            'radix-vendor': [
-              '@radix-ui/react-accordion',
-              '@radix-ui/react-dialog',
-              '@radix-ui/react-dropdown-menu',
-              '@radix-ui/react-popover',
-              '@radix-ui/react-select',
-              '@radix-ui/react-tabs'
-            ],
-            // Form libraries
-            'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod']
-          }
-        }
-      },
+      rollupOptions: {},
       // Minificación
       minify: 'terser',
       terserOptions: {

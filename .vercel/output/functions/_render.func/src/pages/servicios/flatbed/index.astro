@@ -1,0 +1,114 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import Navbar from '@/components/organisms/Navbar.astro';
+import SiteFooter from '@/components/organisms/SiteFooter.astro';
+import ServiceHero from '@/components/screens/services/ServiceHero.astro';
+import ValuePropsGrid from '@/components/screens/services/ValuePropsGrid.astro';
+import FeatureWithImage from '@/components/screens/services/FeatureWithImage.astro';
+import FleetGrid from '@/components/screens/services/FleetGrid.astro';
+import ServiceCta from '@/components/screens/services/ServiceCta.astro';
+
+const title = 'Flatbed Transport Services | Traustar Logistics Inc.';
+const description = 'Precision-engineered flatbed shipping for the most demanding cargo. From construction machinery to oversized industrial components, we deliver on schedule.';
+
+const solutions = [
+	{ icon: 'construction', title: 'Construction Machinery', description: 'Expert transport for excavators, cranes, pavers, and earth-moving equipment. We handle all height and weight permits.' },
+	{ icon: 'factory', title: 'Industrial Units', description: 'Safe passage for heavy manufacturing units, generators, and large engines requiring open-deck access.' },
+	{ icon: 'straighten', title: 'Structural Materials', description: 'Dedicated logistics for steel beams, pipes, oversized lumber, and pre-cast concrete structures.' },
+	{ icon: 'precision_manufacturing', title: 'Oversized Loads', description: 'Custom solutions for unique dimensions, including pilot cars and specialized route planning for superloads.' },
+];
+
+const securityFeatures = [
+	{ icon: 'verified', title: 'Dunnage & Tarping', description: 'Premium weather protection and load-balancing support systems.' },
+	{ icon: 'lock', title: 'Chain & Binder', description: 'High-tensile steel securing for the heaviest industrial machinery.' },
+	{ icon: 'monitor_heart', title: 'Real-time Tracking', description: 'GPS-monitored shipments with 24/7 visibility for all clients.' },
+	{ icon: 'engineering', title: 'Certified Riggers', description: 'Professional oversight for complex loading and unloading ops.' },
+];
+
+const fleetCards = [
+	{
+		image: '/images/svc-flatbed-standard.jpg',
+		imageAlt: 'Standard flatbed trailer',
+		title: 'Standard Flatbeds',
+		description: "48ft and 53ft trailers for general freight, lumber, and steel.",
+		tags: ['UP TO 48,000 LBS', 'OPEN DECK'],
+	},
+	{
+		image: '/images/svc-flatbed-stepdeck.jpg',
+		imageAlt: 'Step deck trailer',
+		title: 'Step Deck (Drop Deck)',
+		description: 'Ideal for taller cargo that exceeds standard height regulations.',
+		tags: ['10\' 2" CLEARANCE', 'LOWER GRAVITY'],
+	},
+	{
+		image: '/images/svc-flatbed-rgn.jpg',
+		imageAlt: 'RGN trailer',
+		title: 'RGN (Removable Gooseneck)',
+		description: 'Drive-on capability for heavy mobile machinery and oversized loads.',
+		tags: ['UP TO 150,000+ LBS', 'MULTI-AXLE'],
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="bg-white text-slate-900 font-display">
+		<Navbar />
+
+		<ServiceHero
+			badge="Specialized Logistics"
+			title="Heavy-Haul &"
+			titleHighlight="Flatbed Experts"
+			description="Traustar Logistics provides precision-engineered flatbed shipping for the most demanding cargo. From construction machinery to oversized industrial components, we ensure your load is secured and delivered on schedule."
+			primaryCta="Start Your Shipment"
+			primaryCtaHref="/quote"
+			secondaryCta="View Fleet Specs"
+			secondaryCtaHref="#fleet"
+			heroImage="/images/svc-flatbed-hero.jpg"
+			heroImageAlt="Modern flatbed truck carrying heavy industrial equipment on a highway"
+			variant="light"
+		/>
+
+		<ValuePropsGrid
+			sectionTitle="Flatbed Solutions for Every Industry"
+			sectionSubtitle="Our fleet is equipped to handle unconventional loads that standard van trailers simply cannot accommodate."
+			items={solutions}
+			bgColor="white"
+			columns={4}
+		/>
+
+		<FeatureWithImage
+			sectionTitle="Uncompromising Load Security"
+			sectionDescription="Our commitment to safety begins with our securing methods. Every driver is trained in advanced rigging and tie-down procedures to ensure cargo stability throughout the journey."
+			features={securityFeatures}
+			image="/images/svc-flatbed-security.jpg"
+			imageAlt="Heavy-duty cargo straps and chains securing a large load"
+			variant="dark"
+			imagePosition="right"
+		/>
+
+		<div id="fleet">
+			<FleetGrid
+				sectionTitle="Our Specialized Fleet"
+				sectionSubtitle="From standard flatbeds to complex multi-axle configurations, we maintain the right equipment for any challenge."
+				cards={fleetCards}
+				ctaText="See Equipment Specifications"
+				ctaHref="/contact"
+			/>
+		</div>
+
+		<ServiceCta
+			title="Ready to move your heaviest assets?"
+			description="Get a personalized quote within hours. Our logistics specialists are standing by to plan your next complex move."
+			primaryCta="Request Free Quote"
+			primaryCtaHref="/quote"
+			secondaryCta="Call (786) 688-9819"
+			secondaryCtaHref="tel:+17866889819"
+		/>
+
+		<SiteFooter />
+	</body>
+</html>

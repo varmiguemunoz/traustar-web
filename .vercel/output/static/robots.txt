@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /funnel/
+Disallow: /payment/
+Disallow: /thank-you/
+Disallow: /api/
+Allow: /
+
+User-agent: Googlebot
+Disallow: /funnel/
+Disallow: /payment/
+Disallow: /api/
+Allow: /
+Sitemap: https://www.growthlyfast.com/sitemap-index.xml

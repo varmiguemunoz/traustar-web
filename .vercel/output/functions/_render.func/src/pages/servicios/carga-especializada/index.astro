@@ -1,0 +1,193 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import Navbar from '@/components/organisms/Navbar.astro';
+import SiteFooter from '@/components/organisms/SiteFooter.astro';
+import Icon from '@/components/atoms/Icon.astro';
+
+const title = 'Specialized Logistics & Heavy Haul | Traustar Logistics Inc.';
+const description = 'Expert handling of oversized, hazardous, and high-value freight across North America. Precision logistics for high-stakes cargo.';
+
+const stats = [
+	{ icon: 'verified_user', label: 'Safety Rating', value: '99.9%', trend: 'trending_up', trendText: 'Zero-incident track record' },
+	{ icon: 'assignment_turned_in', label: 'Permits Secured', value: '50K+', trend: 'check_circle', trendText: 'State & Federal compliance' },
+	{ icon: 'engineering', label: 'Specialized Fleet', value: '250+', trend: 'settings', trendText: 'Custom trailer configurations' },
+];
+
+const solutions = [
+	{
+		title: 'Oversized & Heavy Haul',
+		description: 'Handling multi-axle configurations for over-dimensional loads, including wind turbines, bridge beams, and industrial machinery.',
+		image: '/images/svc-specialized-heavy.jpg',
+		imageAlt: 'Massive power transformer on a multi-axle trailer',
+		features: [
+			{ icon: 'route', text: 'Route Survey & Pilot Cars' },
+			{ icon: 'description', text: 'Oversize Permit Management' },
+		],
+	},
+	{
+		title: 'Hazardous Materials',
+		description: 'Certified hazmat transport with rigorous adherence to FMCSA and PHMSA regulations for sensitive chemical shipments.',
+		image: '/images/svc-specialized-hazmat.jpg',
+		imageAlt: 'Industrial chemical storage tanks',
+		features: [
+			{ icon: 'security', text: 'Certified Hazmat Drivers' },
+			{ icon: 'emergency', text: '24/7 Response Protocols' },
+		],
+	},
+	{
+		title: 'High-Value Cargo',
+		description: 'Secured transport for electronics, medical equipment, and aerospace components with real-time GPS tracking and geofencing.',
+		image: '/images/svc-specialized-highvalue.jpg',
+		imageAlt: 'Secure equipment in protective crates',
+		features: [
+			{ icon: 'location_on', text: 'Real-Time GPS & Monitoring' },
+			{ icon: 'lock', text: 'Multi-Layered Asset Protection' },
+		],
+	},
+];
+
+const safetyFeatures = [
+	{ icon: 'gavel', title: 'Regulatory Compliance', description: 'Automated permit acquisition and state-by-state routing compliance updates.' },
+	{ icon: 'radar', title: '24/7 Command Center', description: 'Constant monitoring of weather, traffic, and vehicle telematics to ensure zero delays.' },
+];
+
+const equipment = [
+	{ name: 'RGN', sub: 'Removable Gooseneck' },
+	{ name: 'Drop Deck', sub: 'Single & Double Drop' },
+	{ name: 'Multi-Axle', sub: 'Up to 19 Axle Configs' },
+	{ name: 'Climate', sub: 'Temp Controlled Specialty' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="bg-slate-50 text-slate-900 font-display">
+		<Navbar />
+
+		<!-- Hero Section -->
+		<section class="pt-20 px-4 sm:px-6 lg:px-8 py-10">
+			<div class="max-w-7xl mx-auto">
+				<div class="bg-cover bg-center flex flex-col justify-end overflow-hidden bg-slate-200 rounded-xl min-h-[400px] md:min-h-[450px] relative" style="background-image: linear-gradient(to top, rgba(15, 73, 189, 0.8) 0%, rgba(16, 22, 34, 0.3) 50%, rgba(0, 0, 0, 0) 100%), url('/images/svc-specialized-hero.jpg');">
+					<div class="flex flex-col p-8 lg:p-12 gap-4">
+						<span class="bg-primary/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest w-fit">Specialized Division</span>
+						<h1 class="text-white tracking-tight text-4xl lg:text-6xl font-black leading-tight max-w-2xl">Precision Logistics for High-Stakes Cargo</h1>
+						<p class="text-slate-100 text-lg lg:text-xl font-normal max-w-xl opacity-90">Expert handling of oversized, hazardous, and high-value freight across North America.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Key Stats -->
+		<section class="px-4 sm:px-6 lg:px-8 py-12">
+			<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+				{stats.map((stat) => (
+					<div class="flex flex-col gap-3 rounded-xl p-8 bg-white border border-slate-200 shadow-sm">
+						<div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center text-primary mb-2">
+							<Icon name={stat.icon} />
+						</div>
+						<p class="text-slate-500 text-sm font-medium uppercase tracking-wider">{stat.label}</p>
+						<p class="tracking-tight text-4xl font-black">{stat.value}</p>
+						<div class="flex items-center gap-2">
+							<Icon name={stat.trend} className="text-emerald-500" size="text-sm" />
+							<p class="text-emerald-500 text-sm font-bold">{stat.trendText}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- Specialized Solutions -->
+		<section class="px-4 sm:px-6 lg:px-8 py-12">
+			<div class="max-w-7xl mx-auto">
+				<div class="flex flex-col gap-4 mb-12">
+					<h2 class="text-3xl font-black leading-tight">Our Specialized Solutions</h2>
+					<p class="text-slate-600 text-lg max-w-3xl">We don't just move freight; we engineer transportation solutions for cargo that others find impossible.</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{solutions.map((sol) => (
+						<div class="group flex flex-col bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-xl">
+							<div class="h-56 w-full overflow-hidden bg-slate-200" style={`background-image: url('${sol.image}'); background-size: cover; background-position: center;`}>
+							</div>
+							<div class="p-6 flex flex-col gap-4">
+								<h3 class="text-xl font-bold">{sol.title}</h3>
+								<p class="text-slate-600 text-sm leading-relaxed">{sol.description}</p>
+								<ul class="flex flex-col gap-2">
+									{sol.features.map((feat) => (
+										<li class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+											<Icon name={feat.icon} className="text-primary" size="text-lg" />
+											{feat.text}
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Safety & Compliance Section -->
+		<section class="px-4 sm:px-6 lg:px-8 my-16">
+			<div class="max-w-7xl mx-auto bg-slate-900 rounded-3xl overflow-hidden relative">
+				<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #334155 1px, transparent 0); background-size: 24px 24px;"></div>
+				<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 lg:p-16 items-center">
+					<div class="flex flex-col gap-6">
+						<h2 class="text-white text-3xl lg:text-4xl font-black leading-tight">Uncompromising Safety Protocols</h2>
+						<p class="text-slate-300 text-lg">Specialized loads require specialized thinking. Our compliance team manages every detail from the first mile to the last.</p>
+						<div class="space-y-4">
+							{safetyFeatures.map((feat) => (
+								<div class="flex items-start gap-4">
+									<div class="bg-primary p-2 rounded-lg mt-1">
+										<Icon name={feat.icon} className="text-white" size="text-xl" />
+									</div>
+									<div>
+										<h4 class="text-white font-bold">{feat.title}</h4>
+										<p class="text-slate-400 text-sm">{feat.description}</p>
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
+					<div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl">
+						<h3 class="text-white text-xl font-bold mb-6">Equipment Profile</h3>
+						<div class="grid grid-cols-2 gap-4">
+							{equipment.map((eq) => (
+								<div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+									<span class="text-primary font-bold block text-lg">{eq.name}</span>
+									<span class="text-slate-400 text-xs">{eq.sub}</span>
+								</div>
+							))}
+						</div>
+						<div class="mt-8 pt-8 border-t border-slate-700">
+							<p class="text-slate-400 text-sm italic">"The expertise Traustar brought to our turbine project was unmatched. They handled the complex permitting across six states without a single hitch."</p>
+							<p class="text-white font-bold text-sm mt-4">— Director of Operations, Global Energy Co.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="px-4 sm:px-6 lg:px-8 mb-20">
+			<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 p-10 bg-white rounded-2xl border border-slate-200 shadow-sm">
+				<div class="flex flex-col gap-3">
+					<h2 class="text-3xl font-black">Ready to move the impossible?</h2>
+					<p class="text-slate-600 text-lg">Speak with a specialized logistics consultant today for a custom quote.</p>
+				</div>
+				<div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+					<a href="/quote" class="flex min-w-[200px] items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-base font-bold tracking-wide hover:shadow-lg hover:shadow-primary/20 transition-all">
+						Request Specialist Consultation
+					</a>
+					<a href="tel:+17866889819" class="flex min-w-[200px] items-center justify-center rounded-lg h-14 px-6 bg-slate-100 text-slate-900 text-base font-bold border border-slate-200 hover:bg-slate-200 transition-all">
+						Call (786) 688-9819
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<SiteFooter />
+	</body>
+</html>

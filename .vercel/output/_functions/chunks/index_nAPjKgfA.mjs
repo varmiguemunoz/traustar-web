@@ -1,0 +1,60 @@
+import { c as createComponent } from './astro-component_BTpquHhU.mjs';
+import { d as renderComponent, e as renderHead, r as renderTemplate, b as addAttribute } from './entrypoint_DqZWjQNj.mjs';
+import { $ as $$BaseHead } from './BaseHead_DCtjqGSZ.mjs';
+import { $ as $$Navbar, b as $$Icon } from './Navbar_DbnW6vow.mjs';
+import { $ as $$SiteFooter } from './SiteFooter_Bqm_snkQ.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const title = "Servicio LTL (Carga Consolidada) | Traustar Logistics Inc.";
+  const description = "Optimice sus costos pagando únicamente por el espacio que utiliza su carga. Soluciones inteligentes para envíos parciales en Norteamérica.";
+  const valueProps = [
+    { icon: "payments", title: "Optimización de Costos", description: "Consolidación inteligente de carga. No pague por un camión completo cuando solo necesita una fracción." },
+    { icon: "visibility", title: "Visibilidad Total", description: "Rastreo en tiempo real y actualizaciones constantes vía GPS y notificaciones automáticas de estado." },
+    { icon: "verified_user", title: "Confiabilidad Superior", description: "Red de transportistas certificados FMCSA y C-TPAT, monitoreados bajo estándares internacionales." }
+  ];
+  const capabilities = [
+    { icon: "hub", title: "Consolidación de Carga", description: "Agrupamos su mercancía de forma estratégica en nuestros hubs regionales para maximizar la eficiencia de ruta." },
+    { icon: "swap_horiz", title: "Cross-docking Fronterizo", description: "Operaciones ágiles en Laredo, McAllen y El Paso para minimizar tiempos de estancia en aduana." },
+    { icon: "public", title: "Corredores USA-MEX-CAN", description: "Cobertura total en Norteamérica con tiempos de tránsito competitivos y despachos aduanales integrados." }
+  ];
+  const equipment = [
+    { image: "/images/svc-ftl-hero.jpg", title: "Dry Van (Caja Seca)", description: "Transporte estándar para mercancías generales, protegido de la intemperie y altamente seguro." },
+    { image: "/images/svc-ltl-hero.jpg", title: "Reefers (Refrigerado)", description: "LTL con control de temperatura para productos perecederos, farmacéuticos o sensibles." },
+    { image: "/images/svc-ltl-ops.jpg", title: "Liftgate Services", description: "Servicios de rampa hidráulica para recolecciones y entregas en lugares sin andén." }
+  ];
+  const faqs = [
+    { q: "¿Cómo se calcula el precio de un envío LTL?", a: "El costo se basa en la distancia, el peso de la carga, la clasificación del producto (Freight Class) y el espacio que ocupa en el camión. En Traustar, optimizamos estos factores para ofrecerle la tarifa más competitiva." },
+    { q: "¿Cuál es el peso máximo para una carga LTL?", a: "Generalmente, las cargas LTL oscilan entre los 68 kg (150 lbs) y los 6,800 kg (15,000 lbs). Para envíos mayores, podríamos recomendar servicios de Carga Parcial (Volume LTL) o Camión Completo (FTL)." },
+    { q: "¿Ofrecen servicios de recolección en sitio?", a: "Sí, ofrecemos recolección puerta a puerta en todo México, Estados Unidos y Canadá. Contamos con equipo especial como rampas (liftgates) si su ubicación no dispone de un muelle de carga." }
+  ];
+  return renderTemplate`<html lang="es"> <head>${renderComponent($$result, "BaseHead", $$BaseHead, { "title": title, "description": description })}${renderHead()}</head> <body class="bg-white text-slate-900 font-display"> ${renderComponent($$result, "Navbar", $$Navbar, {})} <!-- Hero --> <section class="px-4 sm:px-6 lg:px-8 py-12 md:py-20 pt-28 bg-white"> <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"> <div class="flex flex-col gap-8"> <div class="flex flex-col gap-4"> <h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tight">
+Logística LTL: Eficiencia Máxima para Cargas Parciales
+</h1> <p class="text-slate-600 text-lg md:text-xl leading-relaxed">
+Optimice sus costos pagando únicamente por el espacio que utiliza su carga. Soluciones inteligentes para envíos parciales en Norteamérica con la mayor red de transportistas certificados.
+</p> </div> <div class="flex gap-4"> <a href="/quote/ltl" class="flex min-w-[180px] items-center justify-center rounded-lg h-14 px-6 bg-primary text-white text-lg font-bold hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
+Cotizar LTL
+</a> <a href="#equipos" class="flex min-w-[180px] items-center justify-center rounded-lg h-14 px-6 border-2 border-slate-200 text-slate-700 text-lg font-bold hover:bg-slate-50 transition-all">
+Ver Tarifas
+</a> </div> </div> <div class="relative"> <div class="w-full aspect-[4/3] bg-center bg-cover rounded-xl shadow-2xl" style="background-image: url('/images/svc-ltl-hero.jpg');"></div> <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-xl hidden md:block"> <div class="flex items-center gap-4"> <div class="p-3 bg-primary/10 rounded-full text-primary"> ${renderComponent($$result, "Icon", $$Icon, { "name": "savings", "size": "text-3xl" })} </div> <div> <p class="text-sm text-slate-500">Ahorro Promedio</p> <p class="text-2xl font-bold">Hasta 45%</p> </div> </div> </div> </div> </div> </section> <!-- Value Props --> <section class="px-4 sm:px-6 lg:px-8 py-16 bg-slate-50"> <div class="max-w-7xl mx-auto"> <div class="text-center mb-16"> <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-3">¿Por qué Traustar?</h2> <h3 class="text-3xl md:text-4xl font-bold">Nuestros Pilares de Valor</h3> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> ${valueProps.map((vp) => renderTemplate`<div class="bg-white p-8 rounded-xl border border-slate-200 hover:border-primary transition-all group"> <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-all"> ${renderComponent($$result, "Icon", $$Icon, { "name": vp.icon, "size": "text-3xl" })} </div> <h4 class="text-xl font-bold mb-4">${vp.title}</h4> <p class="text-slate-600">${vp.description}</p> </div>`)} </div> </div> </section> <!-- Capabilities --> <section class="px-4 sm:px-6 lg:px-8 py-20 bg-white"> <div class="max-w-7xl mx-auto"> <div class="flex flex-col lg:flex-row gap-16 items-center"> <div class="lg:w-1/2 order-2 lg:order-1"> <div class="grid grid-cols-2 gap-4"> <div class="bg-slate-100 p-6 rounded-lg text-center border-l-4 border-primary"> <p class="text-3xl font-black text-primary">3-5</p> <p class="text-sm font-semibold text-slate-600">Días Tránsito USA-MEX</p> </div> <div class="bg-slate-100 p-6 rounded-lg text-center border-l-4 border-primary"> <p class="text-3xl font-black text-primary">24/7</p> <p class="text-sm font-semibold text-slate-600">Monitoreo Aduanal</p> </div> <div class="col-span-2 relative h-64 bg-cover bg-center rounded-lg shadow-lg" style="background-image: url('/images/svc-ltl-ops.jpg');"></div> </div> </div> <div class="lg:w-1/2 order-1 lg:order-2 flex flex-col gap-8"> <h3 class="text-3xl md:text-4xl font-bold">Alcance y Capacidades Operativas</h3> <div class="space-y-6"> ${capabilities.map((cap) => renderTemplate`<div class="flex gap-4"> <div class="shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"> ${renderComponent($$result, "Icon", $$Icon, { "name": cap.icon })} </div> <div> <h5 class="text-lg font-bold">${cap.title}</h5> <p class="text-slate-600">${cap.description}</p> </div> </div>`)} </div> </div> </div> </div> </section> <!-- Equipment --> <section class="px-4 sm:px-6 lg:px-8 py-20 bg-slate-50" id="equipos"> <div class="max-w-7xl mx-auto"> <div class="text-center mb-16"> <h3 class="text-3xl md:text-4xl font-bold">Equipamiento Especializado</h3> <p class="text-slate-600 mt-4">Contamos con el equipo adecuado para cada tipo de carga LTL</p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> ${equipment.map((eq) => renderTemplate`<div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-200"> <div class="h-48 bg-cover bg-center"${addAttribute(`background-image: url('${eq.image}');`, "style")}></div> <div class="p-6"> <h4 class="text-xl font-bold mb-2">${eq.title}</h4> <p class="text-slate-600 text-sm">${eq.description}</p> </div> </div>`)} </div> </div> </section> <!-- Trust --> <section class="px-4 sm:px-6 lg:px-8 py-12 border-y border-slate-200 bg-white"> <div class="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all"> <div class="flex items-center gap-3 font-bold text-xl text-slate-800"> ${renderComponent($$result, "Icon", $$Icon, { "name": "verified", "className": "text-primary", "size": "text-4xl" })} FMCSA LICENSED
+</div> <div class="flex items-center gap-3 font-bold text-xl text-slate-800"> ${renderComponent($$result, "Icon", $$Icon, { "name": "shield", "className": "text-primary", "size": "text-4xl" })} C-TPAT READY
+</div> <div class="flex items-center gap-3 font-bold text-xl text-slate-800"> ${renderComponent($$result, "Icon", $$Icon, { "name": "inventory", "className": "text-primary", "size": "text-4xl" })} SCAC REGISTERED
+</div> </div> </section> <!-- FAQ --> <section class="px-4 sm:px-6 lg:px-8 py-20 bg-white"> <div class="max-w-3xl mx-auto"> <h3 class="text-3xl font-bold text-center mb-12">Preguntas Frecuentes sobre LTL</h3> <div class="space-y-4"> ${faqs.map((faq) => renderTemplate`<details class="group bg-slate-50 rounded-lg p-6 border border-slate-200"> <summary class="flex cursor-pointer items-center justify-between gap-1.5"> <h4 class="text-lg font-bold">${faq.q}</h4> ${renderComponent($$result, "Icon", $$Icon, { "name": "expand_more", "className": "group-open:-rotate-180 transition-transform" })} </summary> <p class="mt-4 leading-relaxed text-slate-600">${faq.a}</p> </details>`)} </div> </div> </section> <!-- CTA --> <section class="px-4 sm:px-6 lg:px-8 py-20 bg-primary text-white text-center"> <div class="max-w-7xl mx-auto flex flex-col items-center gap-8"> <h2 class="text-4xl md:text-5xl font-black leading-tight">Optimice sus Envíos Parciales Hoy</h2> <p class="text-xl opacity-90 max-w-2xl">Únase a cientos de empresas que ya ahorran en su logística transfronteriza con Traustar Logistics.</p> <div class="flex flex-col sm:flex-row gap-4 mt-4"> <a href="/quote/ltl" class="bg-white text-primary px-10 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all shadow-xl">
+Solicitar Cotización
+</a> <a href="/contacto" class="bg-primary border-2 border-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all">
+Hablar con un Experto
+</a> </div> </div> </section> ${renderComponent($$result, "SiteFooter", $$SiteFooter, {})} </body></html>`;
+}, "/Users/varmiguemunoz/varmiguemunoz/clients/traustar-web/src/pages/servicios/ltl/index.astro", void 0);
+
+const $$file = "/Users/varmiguemunoz/varmiguemunoz/clients/traustar-web/src/pages/servicios/ltl/index.astro";
+const $$url = "/servicios/ltl";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+	__proto__: null,
+	default: $$Index,
+	file: $$file,
+	url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };

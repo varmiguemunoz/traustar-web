@@ -1,0 +1,24 @@
+{
+    "social_links": [
+      {
+        "name": "Linkedin",
+        "url": "https://www.linkedin.com/company/growthlyfast",
+        "icon": "Linkedin"
+      },
+      {
+        "name": "Threads",
+        "url": "https://www.threads.com/@growthlyfast",
+        "icon": "MessageCircle"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/growthlyfast",
+        "icon": "Instagram"
+      },
+      {
+        "name": "Mail",
+        "url": "mailto:hello@growthlyfast.com",
+        "icon": "Mail"
+      }
+    ]
+  }

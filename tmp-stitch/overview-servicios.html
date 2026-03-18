@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0f49bd",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 md:px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Traustar Logistics</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Technology</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">About Us</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<div class="text-slate-500 flex border-none bg-slate-100 dark:bg-slate-800 items-center justify-center pl-4 rounded-l-lg">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 border-none bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-500 px-4 rounded-r-lg text-sm focus:ring-0" placeholder="Search services" value=""/>
+</div>
+</label>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-opacity hover:opacity-90">
+<span>Get a Quote</span>
+</button>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="bg-white dark:bg-slate-900 py-12 md:py-20 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
+                                Global Supply Chain Solutions
+                            </div>
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
+                                Our Comprehensive Logistics Services
+                            </h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-xl">
+                                From standard truckloads to complex intermodal freight, Traustar Logistics provides the expertise and technology to keep your business moving forward.
+                            </p>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity">Request Strategy Session</button>
+<button class="border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-lg font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Download Brochure</button>
+</div>
+</div>
+<div class="relative aspect-video lg:aspect-square bg-slate-200 dark:bg-slate-800 rounded-xl overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Modern logistics warehouse with shipping containers and trucks" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCt50vVuGArxW7LcxUEOgbll96qrvVFov0JQg43yHZOrtp8J6Bt_7PHRgcRp52HVSbXsWMHBmefM1xCWjBacLjzV-ts6eKE6EZi8K3p3vG_UEy55vTpWsEJzBkN9YflHnXoKmIbHW67v3AGpiiiB2yA8KssHlHLmzlCXXuq4Rbyfz8mnkb_9DhEQKmGSrudA-n2jk48EATOsURTjxixod8zEkxxNoIuiOsE4xKAbOvD1w9sWSD8ITxh0ON70SkodjTDq0lMo_syglY')"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition -->
+<section class="py-16 bg-background-light dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+<div class="max-w-2xl">
+<h2 class="text-slate-900 dark:text-white text-3xl font-bold mb-4">The Traustar Strategic Advantage</h2>
+<p class="text-slate-600 dark:text-slate-400">Why leading enterprises choose Traustar as their primary logistics partner.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 hover:underline" href="#">
+                            Learn more about our technology
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-8 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">analytics</span>
+</div>
+<h3 class="text-xl font-bold mb-3 dark:text-white">Real-Time Visibility</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Advanced TMS integration provides 100% accurate tracking and predictive arrival times for every shipment.</p>
+</div>
+<div class="p-8 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">hub</span>
+</div>
+<h3 class="text-xl font-bold mb-3 dark:text-white">Scalable Capacity</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Direct access to a vetted network of over 50,000 premium carriers across North America and beyond.</p>
+</div>
+<div class="p-8 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<h3 class="text-xl font-bold mb-3 dark:text-white">24/7 Expert Support</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Dedicated account managers and operations teams available around the clock to solve complex freight challenges.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-16 bg-white dark:bg-slate-900">
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+<h2 class="text-slate-900 dark:text-white text-3xl font-bold mb-10 text-center">Our Core Logistics Solutions</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- FTL -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Large white semi-truck on a highway" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4TPShoe4FZvwSNbq8yRBR_GLoBLNLtBZV0B2uTn3y5h4RYqzV3i8o0WrRs68cOQaNkgAC02r9RRSuH1cc2IwqGpu7LHPO7hvinH2ruJLEITMaKIIjudiCdpdgHHsuufOVbEyAIaoWNNLBMNlkj_kEKBY2PkrdduYqht4asWr6O1sxNnhHqZ7cPqZMtHfeF__fI1kJlT4NsWNWKAJOGk_eK2PoPlyC803eFbClZ3-Z1ln6xyzlZ1IePaUKBDQgZmBexzPOCPqENdg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">FTL</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Full Truckload</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Dedicated capacity for high-volume needs with point-to-point security.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- LTL -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Delivery pallets inside a logistics warehouse" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmbp1Q6j2HgW-taiwccuWm7BOmg3PoFZVLTnbXdCYQ5kqd6H7n-S-BkgBd8Em7MrIEOWg-KtuzVi52cXDs_mgy3Rhng7fiPwtk75IEtVVJrokLKKahDO9cTXjoq8cN8ed7rTOf7e5slE0ipPS1lANsi_Pxwwv5IlRvNGyiGbVvIaVeHK9YRpDxqp4ScjEFFBaseq7bl8emnppCsyeRz5gim51CTbOR7Xd42l5NTcertrOBL1Im2gW9bICLCm2E6sQvTK9pkZ85yB0')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">LTL</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Less-Than-Truckload</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Cost-effective shipping for smaller loads through our optimized network.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Reefer -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Refrigerated shipping container showing cooling unit" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6Kb6Epkza77xjJUKsTelevX0x9oW5LRFIN_CYngWnvjuR_nEDkoD0V2Zki1UvoRXLFXyOm5FljhbNRHYO7SeN7RgQ630gdFhRGWOaSskcOrj-VcpPhGoOCpTPuO85-H3iTpayxm59PVKfx-inC6nVmjvWShdWFrs2afC3QNDDoUcfPCjqi97iqWPVhx7EWPkDlKG7Xom8oSWuUb7WDNLhrScztg9Rj1taO9Wybv__IH7HMkQJP0jF2c2T87IhcyxXC3rwgWobli4')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Reefer</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Temp Controlled</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Precise climate control for sensitive perishables and pharmaceuticals.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Flatbed -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Heavy equipment loaded on a flatbed trailer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCee9ravbxVpkXu92OM1VQSQDrNBvEL2VTHWt7aildlcpURSfZFvbXHnxhVrXY14heQEzVTkWwkCrkqoDfQ1wH-r0xbNm3V2icQ-GcGCyA4NzsE0qVXPh2TYv_lEm48uCI8w1f_a6E4FWu9qTsImI5Z2ePwpQu03fSdlduaP1edmrQdLvgfuK5HwHcYm_oOadR3JyTXNW7lJ9qjZEPwrmgpyJiC62wKBBM9GPZO0vo8mUe4dXJ0kz-viDdTFe7--3_Hn31U8rXeAl4')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Flatbed</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Open Deck</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Versatile solutions for oversized cargo and construction materials.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Specialized -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Industrial equipment being moved by specialized crane" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCD0M3cJ4y6h8t5Chi-qBpt269ZtnhG280Mpa67oFM9k4gIPkzXwncNfWNqJg9GtWAanLFr2lebg-rBQYf7mfzV0_aaMBqupMc3wX4f2cg5UTDkGWT3FsacFRWVZTENihnN5VjpfIVRgPOvHLgMQTLK4HA4oVpaL2xUrhQ-g5kHouFhNBPlkNLXHiHNx4RjeL_ctbSD20MmqgWyc4QWMfh7MBOLQp3P0u8Emfh3AwKBvJ31HyP4S6K849elfAaUnuTADKNIx0kL-ZM')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Specialized</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Heavy Haul</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Expert handling for high-value, complex, and oversized freight.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Intermodal -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Freight train carrying shipping containers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBnSLcPDL1QZjDOMxuEzuIUlstkXojvNnrBBSoI_TXr7gyiKDccw-MBj-daLabAkjEmi3xGr-T9a_2UxK_h9dIUJjKSbyuNze0c2Fjkp3yhD0h-qTMJagXLiH8F7DJ_5Jb2LLw65ing0onuwE0vdx0u93I2JauCDhgODlAlfHr_Q0Kf0I5BIQ2p8_WBm4kRsgW9ksaOOXJaji3hYqVpz5flz4g0RUN7tirlXvCQNcJsKlVhImglwAjM9IY0P-Ftn8hGJs9OaoDr_ew')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Intermodal</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Intermodal &amp; Rail</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Eco-friendly and cost-efficient long-haul transportation solutions.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Drayage -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Truck moving a container near a port terminal" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDpyfUkIE0CWRbvx7E2SG66x5kYcedst_WrFzczj2Gbnw0atB4Z-FZCLiJu9TxTm_zs9_Ewu3qA6GHIITrEcRgONoc_vglVnjSO7qcAbj50Phyy97xwLYj4NNjSb7ufoIGYOjmRw-7lKv2MPhDO1jvcO4-mbtqnUjGYy64BNrwj4ycgJzERSr59efU9NzDoqnpDUoSQrYL87UbBxxyNCTI5QMpy9UjLBAbcV4OCRcam4TIHr7erNtBgb7960npTbyJEENMj-zsKxg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Drayage</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Port Services</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Seamless container movement from ports to rail heads or warehouses.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Cross-Border -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Border crossing checkpoint with trucks lined up" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQEFMgGcXRG8UWtJi3YS1BzDZPVykGtkHr8NHlRLNxcWC2U5qhXVXzB89HttiN8U6Y1KxKKKu7b0My-lPNx1SU601Ijc3JLUgKPIMOU4QP8bR1GJm6SH45ZqS0XGZYZBC0l2kUQXRd-XZT0fTxbNjJ2qCrsvnYA04OJIlbeNDz33B-cVgc3wkci2UUz-3H3m1Aq0pZVP8zy68t27j3W5WQIkwHpRklLhixFF4Ns0hKfKTpRCW44HYOmetakv7s-5fRc97nARFYsYk')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Cross-Border</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Global Trade</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Customs expertise in US-Mexico-Canada trade and beyond.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Expedited -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Fast moving delivery van on city street" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDA3aC4Y0ZlaL0eklJilaz4MpjnWWFPj7X8lKz5rR3W4gC7CKzFqAm9NevSMbUIsl0ZQYC4w2K0nb0YfMZIuaSi3qSYBahfD402cNThQJBqNQGPT8VACQ0fanHPnxwCHziPy_H5a2c19WvyLVFxzUv7zsDcXXeK2IuUEEB48g_FylLGfQRdWSU2cdzZ_p08e7WZQUkJLTa9eLm1W8IBMSQHsc4CRX5Wgzp3zfuFkv8sbxQlr19mAYtHytlQRjFxIsApBM-xUQW-vzs')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Expedited</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Hot Shot</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Time-critical delivery when every second counts for your supply chain.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Spot/Contract -->
+<div class="group flex flex-col bg-background-light dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/30 transition-all shadow-sm hover:shadow-md">
+<div class="aspect-video relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Two professionals reviewing a logistics contract" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDj59v2QLfbcsui6wGOhzj9ONE-s_Tv-1fLSfmJuIKLUVDG8HRc_4QAE72DHVAK6UiySOlX26AZvnGdvAHtZP-4KWVrcsWw051Yax-6P3A3dZe9b4aBWPlziK-afiNnrXVyHRhDzHPWwfzssZD3oQNbGJ7t9gW28efvhxjFh8qXdjNh56AUkCwC9nzsR7eby9KVzMV5s_LzzMqoEdGoAnO3hE75NbOA4-jdtRl6augGM4SYPFvjA8Gq18ZCg2h7MDqpIo0bn-sjOew')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white font-bold">Freight Market</div>
+</div>
+<div class="p-6 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 dark:text-white">Spot &amp; Contract</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm flex-1 mb-4">Flexible pricing models tailored to your business volume and frequency.</p>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-20 bg-primary text-white">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Optimize Your Logistics?</h2>
+<p class="text-primary/10 text-lg mb-10 text-white/90">Join thousands of companies who trust Traustar for their critical shipping needs. Get a custom quote or schedule a consultation today.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 transition-colors">Get Started Now</button>
+<button class="bg-transparent border border-white/40 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors">Speak with an Expert</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-16">
+<div class="max-w-7xl mx-auto px-6 md:px-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold">Traustar Logistics</h2>
+</div>
+<p class="text-sm leading-relaxed">Global leader in tech-enabled logistics solutions. We simplify complex supply chains through innovation and reliability.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Services</h4>
+<ul class="flex flex-col gap-3 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Full Truckload</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Less-Than-Truckload</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Intermodal Freight</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Cross-Border Solutions</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Company</h4>
+<ul class="flex flex-col gap-3 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Carrier Network</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Newsletter</h4>
+<p class="text-sm mb-4">Stay updated with market trends and freight insights.</p>
+<form class="flex gap-2">
+<input class="bg-slate-800 border-none rounded-lg px-4 py-2 text-sm text-white focus:ring-1 focus:ring-primary w-full" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white p-2 rounded-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>© 2024 Traustar Logistics. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Cookie Settings</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
