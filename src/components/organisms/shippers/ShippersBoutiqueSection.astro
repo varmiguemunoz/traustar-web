@@ -1,0 +1,68 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+---
+
+<section class="overflow-hidden bg-white py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col items-center gap-16 lg:flex-row">
+      <div class="flex-1 space-y-8">
+        <div>
+          <h2 class="mb-6 text-3xl font-black leading-tight md:text-5xl">
+            Boutique execution with enterprise logistics capabilities
+          </h2>
+          <p class="text-lg leading-relaxed text-slate-600">
+            Unlike high-volume brokers with generic support models, Traustar assigns dedicated teams that understand your lanes, priorities, and escalation thresholds.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="mt-1 rounded-lg bg-primary/10 p-2 text-primary">
+              <Icon name="support_agent" />
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">Dedicated 24/7 support</h3>
+              <p class="text-slate-600">Direct access to logistics specialists who can act immediately.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="mt-1 rounded-lg bg-primary/10 p-2 text-primary">
+              <Icon name="hub" />
+            </div>
+            <div>
+              <h3 class="text-lg font-bold">Operational agility</h3>
+              <p class="text-slate-600">Fast adaptation to demand shifts, disruptions, and urgent lane changes.</p>
+            </div>
+          </div>
+        </div>
+        <blockquote class="rounded-2xl border-l-4 border-primary bg-slate-50 p-8">
+          <p class="mb-4 italic text-slate-700">
+            “Traustar does more than move our loads. They understand our business and help us reduce dwell time by 25%.”
+          </p>
+          <p class="text-sm font-bold">Director of Logistics, Global Manufacturing Client</p>
+        </blockquote>
+      </div>
+
+      <div class="relative w-full flex-1">
+        <div class="absolute -right-10 -top-10 h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+        <div class="relative z-10 grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="aspect-square overflow-hidden rounded-2xl bg-slate-100 shadow-lg">
+              <img class="h-full w-full object-cover" alt="Freight container and truck" src="/images/shipper-about-1.jpg" loading="lazy" />
+            </div>
+            <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 shadow-lg">
+              <img class="h-full w-full object-cover" alt="Logistics agreement meeting" src="/images/shipper-about-2.jpg" loading="lazy" />
+            </div>
+          </div>
+          <div class="space-y-4 pt-8">
+            <div class="aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 shadow-lg">
+              <img class="h-full w-full object-cover" alt="Operations team strategy session" src="/images/shipper-about-3.jpg" loading="lazy" />
+            </div>
+            <div class="aspect-square overflow-hidden rounded-2xl bg-slate-100 shadow-lg">
+              <img class="h-full w-full object-cover" alt="Logistics dashboard on tablet" src="/images/shipper-about-4.jpg" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

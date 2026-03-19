@@ -1,0 +1,39 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+import SectionLabel from '@/components/atoms/SectionLabel.astro';
+
+interface Benefit {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: Benefit[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-16 text-center">
+      <SectionLabel>Why Traustar</SectionLabel>
+      <h2 class="mb-6 mt-3 text-3xl font-black md:text-5xl">Shipper-focused advantages</h2>
+      <p class="mx-auto max-w-2xl text-lg text-slate-600">
+        We combine logistics expertise and execution technology to improve service levels and operational control.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {items.map((item) => (
+        <article class="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
+          <div class="mb-6 flex size-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+            <Icon name={item.icon} size="text-3xl" />
+          </div>
+          <h3 class="mb-3 text-xl font-bold">{item.title}</h3>
+          <p class="leading-relaxed text-slate-600">{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

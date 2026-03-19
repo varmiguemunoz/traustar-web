@@ -1,79 +1,49 @@
-// Schema.org utilities para GrowthlyFast
+// Schema.org utilities for Traustar Logistics
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'GrowthlyFast',
-  alternateName: 'growthlyfast',
-  url: 'https://www.growthlyfast.com',
-  logo: 'https://www.growthlyfast.com/logo.webp',
+  name: 'Traustar Logistics',
+  alternateName: 'Traustar',
+  url: 'https://www.traustarlogistics.com',
+  logo: 'https://www.traustarlogistics.com/favicon.svg',
   description:
-    'Professional development services for agencies, startups, and contractors. AI Agents, white-label partnerships, and custom development',
-  foundingDate: '2020',
-  founder: {
-    '@type': 'Person',
-    name: 'Miguel Angel Munoz',
-    jobTitle: 'Software Engineer',
-    url: 'https://www.growthlyfast.com',
-  },
+    'Freight brokerage and logistics coordination across the United States, Mexico, and Canada.',
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+573023278057',
-    contactType: 'Sales',
-    availableLanguage: ['English', 'Spanish'],
-    areaServed: 'Worldwide',
+    telephone: '+18723519977',
+    contactType: 'Customer Support',
+    availableLanguage: ['English'],
+    areaServed: ['US', 'MX', 'CA']
   },
   address: {
     '@type': 'PostalAddress',
-    addressCountry: 'CO',
+    addressLocality: 'Chicago',
+    addressRegion: 'IL',
+    addressCountry: 'US'
   },
   knowsAbout: [
-    'Web Development',
-    'React',
-    'Node.js',
-    'Next.js',
-    'Mobile Development',
-    'AI Automation',
-    'White Label Services',
-    'SaaS Development',
-    'Dev Packs',
-    'Agency Development',
-    'Technical Consulting',
-    'Software Development',
-    'Web Development',
-    'Mobile Development',
-    'software development',
-    'development',
-    'development services',
-    'development partner',
-    'development agency',
-    'development consulting',
-    'development team',
-    'development services',
-    'development partner',
-    'development agency',
-    'AI Agents',
-    'AI Sales Agents',
-    'AI Marketing Agents',
-    'AI Customer Support Agents',
-    'AI Technical Support Agents',
-    'AI Virtual Assistants',
-    'AI Chatbots',
-    'AI Voice Assistants',
-    'AI Personal Assistants',
-  ],
+    'Freight Brokerage',
+    'Full Truckload (FTL)',
+    'Less Than Truckload (LTL)',
+    'Cross-Border Logistics',
+    'Intermodal Freight',
+    'Drayage',
+    'Expedited Shipping',
+    'Transportation Analytics'
+  ]
 };
 
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'GrowthlyFast',
-  url: 'https://www.growthlyfast.com',
-  description: 'Monthly Dev Packs and agency development services',
+  name: 'Traustar Logistics',
+  url: 'https://www.traustarlogistics.com',
+  description: 'North American freight brokerage and transportation execution',
   publisher: {
     '@type': 'Organization',
-    name: 'GrowthlyFast',
-  },
+    name: 'Traustar Logistics'
+  }
 };
 
 export const createBreadcrumbSchema = (items: { name: string; url: string }[]) => ({
@@ -83,15 +53,15 @@ export const createBreadcrumbSchema = (items: { name: string; url: string }[]) =
     '@type': 'ListItem',
     position: index + 1,
     name: item.name,
-    item: item.url,
-  })),
+    item: item.url
+  }))
 });
 
 export const createServiceSchema = ({
   name,
   description,
   offers,
-  serviceType = 'Service',
+  serviceType = 'Service'
 }: {
   name: string;
   description: string;
@@ -106,22 +76,22 @@ export const createServiceSchema = ({
 }) => ({
   '@context': 'https://schema.org',
   '@type': serviceType,
-  name: name,
+  name,
   serviceType: name,
   provider: {
     '@type': 'Organization',
-    name: 'GrowthlyFast',
+    name: 'Traustar Logistics'
   },
-  areaServed: 'Worldwide',
-  description: description,
-  offers: offers,
+  areaServed: ['US', 'MX', 'CA'],
+  description,
+  offers
 });
 
 export const createProductSchema = ({
   name,
   description,
   price,
-  priceCurrency = 'USD',
+  priceCurrency = 'USD'
 }: {
   name: string;
   description: string;
@@ -130,18 +100,18 @@ export const createProductSchema = ({
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: name,
-  description: description,
+  name,
+  description,
   brand: {
     '@type': 'Organization',
-    name: 'GrowthlyFast',
+    name: 'Traustar Logistics'
   },
   offers: {
     '@type': 'Offer',
-    price: price,
-    priceCurrency: priceCurrency,
-    availability: 'https://schema.org/InStock',
-  },
+    price,
+    priceCurrency,
+    availability: 'https://schema.org/InStock'
+  }
 });
 
 export const createFAQSchema = (faqs: { question: string; answer: string }[]) => ({
@@ -152,9 +122,9 @@ export const createFAQSchema = (faqs: { question: string; answer: string }[]) =>
     name: faq.question,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
+      text: faq.answer
+    }
+  }))
 });
 
 export const createBlogPostingSchema = ({
@@ -166,7 +136,7 @@ export const createBlogPostingSchema = ({
   author,
   url,
   keywords = [],
-  wordCount,
+  wordCount
 }: {
   headline: string;
   description: string;
@@ -180,29 +150,29 @@ export const createBlogPostingSchema = ({
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: headline,
-  description: description,
-  image: image,
-  datePublished: datePublished,
+  headline,
+  description,
+  image,
+  datePublished,
   dateModified: dateModified || datePublished,
   author: {
     '@type': 'Person',
-    name: author,
+    name: author
   },
   publisher: {
     '@type': 'Organization',
-    name: 'GrowthlyFast',
+    name: 'Traustar Logistics',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://www.growthlyfast.com/logo.webp',
-    },
+      url: 'https://www.traustarlogistics.com/favicon.svg'
+    }
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': url,
+    '@id': url
   },
-  keywords: keywords,
-  ...(wordCount && { wordCount: wordCount }),
+  keywords,
+  ...(wordCount && { wordCount })
 });
 
 export const createVideoObjectSchema = ({
@@ -212,7 +182,7 @@ export const createVideoObjectSchema = ({
   uploadDate,
   contentUrl,
   embedUrl,
-  duration,
+  duration
 }: {
   name: string;
   description: string;
@@ -224,20 +194,20 @@ export const createVideoObjectSchema = ({
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'VideoObject',
-  name: name,
-  description: description,
-  thumbnailUrl: thumbnailUrl,
-  uploadDate: uploadDate,
-  contentUrl: contentUrl,
-  embedUrl: embedUrl,
-  ...(duration && { duration: duration }),
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  contentUrl,
+  embedUrl,
+  ...(duration && { duration })
 });
 
 export const createAggregateRatingSchema = ({
   ratingValue,
   reviewCount,
   bestRating = 5,
-  worstRating = 1,
+  worstRating = 1
 }: {
   ratingValue: number;
   reviewCount: number;
@@ -245,10 +215,10 @@ export const createAggregateRatingSchema = ({
   worstRating?: number;
 }) => ({
   '@type': 'AggregateRating',
-  ratingValue: ratingValue,
-  reviewCount: reviewCount,
-  bestRating: bestRating,
-  worstRating: worstRating,
+  ratingValue,
+  reviewCount,
+  bestRating,
+  worstRating
 });
 
 export const createOfferSchema = ({
@@ -256,7 +226,7 @@ export const createOfferSchema = ({
   priceCurrency = 'USD',
   priceValidUntil,
   availability = 'https://schema.org/InStock',
-  url,
+  url
 }: {
   price: string;
   priceCurrency?: string;
@@ -265,9 +235,9 @@ export const createOfferSchema = ({
   url?: string;
 }) => ({
   '@type': 'Offer',
-  price: price,
-  priceCurrency: priceCurrency,
-  availability: availability,
-  ...(priceValidUntil && { priceValidUntil: priceValidUntil }),
-  ...(url && { url: url }),
+  price,
+  priceCurrency,
+  availability,
+  ...(priceValidUntil && { priceValidUntil }),
+  ...(url && { url })
 });

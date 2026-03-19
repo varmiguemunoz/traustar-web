@@ -1,0 +1,46 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+
+interface Solution {
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+interface Props {
+  items: Solution[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-slate-50 py-20" id="shipper-services">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-2xl">
+        <h2 class="mb-4 text-3xl font-black md:text-5xl">Specialized freight solutions</h2>
+        <p class="text-lg text-slate-600">Coverage across key shipping models aligned to your business needs.</p>
+      </div>
+      <a class="flex items-center gap-2 whitespace-nowrap font-bold text-primary hover:underline" href="/services">
+        Explore all services <Icon name="arrow_forward" />
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {items.map((item) => (
+        <article class="flex flex-col gap-4">
+          <div class="group relative aspect-[4/5] overflow-hidden rounded-xl shadow-md">
+            <img class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" alt={item.title} src={item.image} loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <p class="mb-1 text-sm font-bold uppercase tracking-widest text-blue-300">{item.label}</p>
+              <h3 class="text-xl font-bold">{item.title}</h3>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600">{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

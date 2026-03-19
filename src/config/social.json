@@ -1,24 +1,24 @@
 {
-    "social_links": [
-      {
-        "name": "Linkedin",
-        "url": "https://www.linkedin.com/company/growthlyfast",
-        "icon": "Linkedin"
-      },
-      {
-        "name": "Threads",
-        "url": "https://www.threads.com/@growthlyfast",
-        "icon": "MessageCircle"
-      },
-      {
-        "name": "Instagram",
-        "url": "https://www.instagram.com/growthlyfast",
-        "icon": "Instagram"
-      },
-      {
-        "name": "Mail",
-        "url": "mailto:hello@growthlyfast.com",
-        "icon": "Mail"
-      }
-    ]
-  }
+  "social_links": [
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/company/traustar-logistics",
+      "icon": "Linkedin"
+    },
+    {
+      "name": "X",
+      "url": "https://x.com/traustarlog",
+      "icon": "MessageCircle"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/traustarlogistics",
+      "icon": "Instagram"
+    },
+    {
+      "name": "Mail",
+      "url": "mailto:info@traustar.com",
+      "icon": "Mail"
+    }
+  ]
+}

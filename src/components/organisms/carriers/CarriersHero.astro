@@ -1,0 +1,44 @@
+---
+import Button from '@/components/atoms/Button.astro';
+import Icon from '@/components/atoms/Icon.astro';
+---
+
+<section class="relative overflow-hidden bg-white pb-20 pt-28 lg:pb-32 lg:pt-36">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div class="space-y-8">
+        <div class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">
+          Join the Traustar Carrier Network
+        </div>
+        <h1 class="text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-6xl">
+          Grow your fleet with premium freight opportunities
+        </h1>
+        <p class="max-w-xl text-lg text-slate-600">
+          Access high-quality loads across North America with dedicated support, streamlined operations, and fast payment options.
+        </p>
+        <div class="flex flex-col gap-4 sm:flex-row">
+          <Button variant="primary" size="lg" href="#carrier-registration" className="shadow-lg shadow-primary/30">
+            Register as a Carrier
+          </Button>
+          <Button variant="secondary" size="lg" href="#carrier-requirements">View Requirements</Button>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-square overflow-hidden rounded-3xl bg-slate-100 shadow-2xl ring-1 ring-slate-200">
+          <img class="h-full w-full object-cover" alt="Carrier truck on a North American highway" src="/images/carrier-hero.jpg" loading="eager" />
+        </div>
+        <div class="absolute -bottom-6 -left-6 rounded-2xl border border-slate-100 bg-white p-6 shadow-xl">
+          <div class="flex items-center gap-4">
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600">
+              <Icon name="payments" />
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-500">QuickPay</p>
+              <p class="text-xl font-black text-slate-900">48 Hours</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

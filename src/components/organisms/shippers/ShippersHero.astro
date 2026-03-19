@@ -1,0 +1,47 @@
+---
+import SectionLabel from '@/components/atoms/SectionLabel.astro';
+import Button from '@/components/atoms/Button.astro';
+import Icon from '@/components/atoms/Icon.astro';
+---
+
+<section class="relative overflow-hidden bg-white pb-12 pt-28 md:pb-20 md:pt-36">
+  <div class="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 sm:px-6 lg:flex-row lg:px-8">
+    <div class="flex flex-1 flex-col gap-8">
+      <div class="flex flex-col gap-4">
+        <SectionLabel>Premium Logistics for Shippers</SectionLabel>
+        <h1 class="text-4xl font-black leading-tight tracking-tight md:text-6xl">
+          Optimize your supply chain with <span class="text-primary">control and visibility</span>
+        </h1>
+        <p class="max-w-xl text-lg leading-relaxed text-slate-600 md:text-xl">
+          Move freight with confidence across North America using a technology-backed team focused on reliability and speed.
+        </p>
+      </div>
+      <div class="flex flex-col gap-4 sm:flex-row">
+        <Button variant="primary" size="lg" href="/quote" className="shadow-lg shadow-primary/20">Request a Quote</Button>
+        <Button variant="secondary" size="lg" href="/services">View Services</Button>
+      </div>
+    </div>
+
+    <div class="relative w-full flex-1">
+      <div class="relative aspect-video overflow-hidden rounded-2xl bg-slate-100 shadow-2xl md:aspect-square">
+        <img
+          class="absolute inset-0 h-full w-full object-cover"
+          alt="Modern logistics warehouse with loading operations"
+          src="/images/shipper-hero.jpg"
+          loading="eager"
+        />
+        <div class="absolute bottom-6 left-6 right-6 rounded-xl border border-white/20 bg-white/90 p-6 shadow-lg backdrop-blur-sm">
+          <div class="flex items-center gap-4">
+            <div class="rounded-full bg-primary/10 p-3 text-primary">
+              <Icon name="analytics" />
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase text-primary">Live performance</p>
+              <p class="text-sm font-semibold">99.8% on-time deliveries this month</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

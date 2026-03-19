@@ -1,40 +1,211 @@
 ---
-/**
- * Navbar organism — fixed navigation with logo, links, CTA, mobile hamburger
- */
-import Icon from '../atoms/Icon.astro';
-import Button from '../atoms/Button.astro';
-import NavLink from '../molecules/NavLink.astro';
+import Icon from '@/components/atoms/Icon.astro';
+import Button from '@/components/atoms/Button.astro';
+import { navGroups, navPrimaryCta, navSecondaryCta, navStandaloneLinks } from '@/data/navigation';
+
+const normalizePath = (path: string) => {
+  const normalized = path.replace(/\/$/, '');
+  return normalized === '' ? '/' : normalized;
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
+
+const isActive = (href: string) => {
+  const targetPath = normalizePath(href);
+  return currentPath === targetPath || (targetPath !== '/' && currentPath.startsWith(`${targetPath}/`));
+};
+
+const isGroupActive = (groupId: string) => {
+  const group = navGroups.find((item) => item.id === groupId);
+  return Boolean(group?.items.some((item) => isActive(item.href)));
+};
 ---
 
-<nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-navy-deep/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="flex justify-between items-center h-20">
-			<!-- Logo -->
-			<a href="/" class="flex items-center gap-2 no-underline">
-				<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg text-white">
-					<Icon name="local_shipping" size="text-3xl" />
-				</div>
-				<span class="text-2xl font-black tracking-tight text-navy-deep dark:text-white uppercase">
-					Traustar<span class="text-primary">.</span>
-				</span>
-			</a>
+<nav class="fixed top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md" aria-label="Primary">
+  <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <a href="/" class="flex items-center gap-2 no-underline" aria-label="Traustar Logistics home">
+      <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+        <Icon name="local_shipping" className="text-2xl" />
+      </div>
+      <span class="text-2xl font-black uppercase tracking-tight text-navy-deep">
+        Traustar<span class="text-primary">.</span>
+      </span>
+    </a>
 
-			<!-- Desktop Links -->
-			<div class="hidden md:flex items-center gap-8">
-				<NavLink label="Servicios" href="#servicios" />
-				<NavLink label="Tecnología" href="#tecnologia" />
-				<NavLink label="Cobertura" href="#cobertura" />
-				<NavLink label="Nosotros" href="#nosotros" />
-				<Button variant="primary" size="md">
-					Cotizar Carga
-				</Button>
-			</div>
+    <div class="hidden items-center gap-1 lg:flex" aria-label="Desktop primary navigation" data-nav-accordion="desktop">
+      {navGroups.map((group) => (
+        <details class="group relative" data-nav-item>
+          <summary
+            class:list={[
+              'flex min-h-11 cursor-pointer items-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2',
+              isGroupActive(group.id) && 'bg-primary/5 text-primary'
+            ]}
+          >
+            {group.label}
+            <Icon name="expand_more" className="text-base transition-transform group-open:rotate-180" />
+          </summary>
 
-			<!-- Mobile Hamburger -->
-			<div class="md:hidden cursor-pointer">
-				<Icon name="menu" size="text-3xl" />
-			</div>
-		</div>
-	</div>
+          <div class="invisible absolute left-1/2 top-full mt-3 w-screen max-w-4xl -translate-x-1/2 rounded-2xl border border-slate-200 bg-white p-6 opacity-0 shadow-2xl transition-all group-open:visible group-open:opacity-100">
+            <div class="mb-4 border-b border-slate-100 pb-4">
+              <p class="text-xs font-bold uppercase tracking-[0.16em] text-primary">{group.label}</p>
+              <p class="mt-1 text-sm text-slate-600">{group.description}</p>
+            </div>
+
+            <ul class="grid grid-cols-2 gap-3" role="list">
+              {group.items.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class:list={[
+                      'block rounded-xl border border-transparent px-3 py-2 transition-colors hover:border-slate-200 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2',
+                      isActive(item.href) && 'border-primary/30 bg-primary/5'
+                    ]}
+                  >
+                    <span class="block text-sm font-semibold text-slate-900">{item.label}</span>
+                    {item.description && <span class="mt-1 block text-xs text-slate-500">{item.description}</span>}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
+      ))}
+
+      {navStandaloneLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2',
+            isActive(link.href) && 'bg-primary/5 text-primary'
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <div class="ml-2 flex items-center gap-2">
+        <Button variant="ghost" size="md" href={navSecondaryCta.href} className="border border-slate-200 text-slate-700 hover:bg-slate-50">
+          {navSecondaryCta.label}
+        </Button>
+        <Button variant="primary" size="md" href={navPrimaryCta.href}>{navPrimaryCta.label}</Button>
+      </div>
+    </div>
+
+    <details class="group relative lg:hidden">
+      <summary
+        class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-lg border border-slate-200 px-2 text-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+        aria-label="Open navigation menu"
+      >
+        <span class="group-open:hidden">
+          <Icon name="menu" className="text-2xl" />
+        </span>
+        <span class="hidden group-open:inline">
+          <Icon name="close" className="text-2xl" />
+        </span>
+      </summary>
+
+      <div class="absolute right-0 mt-3 w-80 max-w-[calc(100vw-2rem)] rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl">
+        <div class="mb-4 rounded-xl border border-slate-200 bg-slate-50 p-3">
+          <p class="text-sm font-semibold text-slate-900">Navigate Traustar</p>
+          <p class="text-xs text-slate-500">Explore services, resources, and quote flows.</p>
+        </div>
+
+        <nav aria-label="Mobile primary navigation" class="space-y-2" data-nav-accordion="mobile">
+          {navGroups.map((group) => (
+            <details class="group rounded-xl border border-slate-200 bg-white p-1" data-nav-item>
+              <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                {group.label}
+                <Icon name="expand_more" className="text-base transition-transform group-open:rotate-180" />
+              </summary>
+              <ul class="space-y-1 px-1 pb-2" role="list">
+                {group.items.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class:list={[
+                        'flex min-h-11 items-center rounded-lg px-3 py-2 text-sm text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2',
+                        isActive(item.href) && 'bg-primary/5 text-primary'
+                      ]}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+
+          {navStandaloneLinks.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                'flex min-h-11 items-center rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2',
+                isActive(link.href) && 'bg-primary/5 text-primary'
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div class="mt-4 grid grid-cols-1 gap-2">
+          <a
+            href={navPrimaryCta.href}
+            class="flex min-h-11 items-center justify-center rounded-lg bg-primary px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+          >
+            {navPrimaryCta.label}
+          </a>
+          <a
+            href={navSecondaryCta.href}
+            class="flex min-h-11 items-center justify-center rounded-lg border border-slate-200 px-4 py-3 text-sm font-bold text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+          >
+            {navSecondaryCta.label}
+          </a>
+        </div>
+      </div>
+    </details>
+  </div>
 </nav>
+
+<script is:inline>
+  const initNavbarAccordions = () => {
+    const accordions = document.querySelectorAll('[data-nav-accordion]');
+
+    accordions.forEach((accordion) => {
+      const items = Array.from(accordion.querySelectorAll('details[data-nav-item]'));
+
+      items.forEach((item) => {
+        if (item.dataset.navAccordionBound === 'true') return;
+        item.dataset.navAccordionBound = 'true';
+
+        item.addEventListener('toggle', () => {
+          if (!item.open) return;
+
+          items.forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.open = false;
+            }
+          });
+        });
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavbarAccordions, { once: true });
+  } else {
+    initNavbarAccordions();
+  }
+
+  document.addEventListener('astro:page-load', initNavbarAccordions);
+</script>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::marker {
+    content: '';
+  }
+</style>

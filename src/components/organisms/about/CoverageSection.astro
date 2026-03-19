@@ -1,0 +1,39 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-slate-50 px-4 py-20 sm:px-6">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="mb-6 text-3xl font-bold text-slate-900">Strategic Coverage</h2>
+        <p class="mb-8 text-lg text-slate-600">
+          Our network connects major North American commercial gateways and manufacturing hubs for reliable cross-border execution.
+        </p>
+        <ul class="space-y-4">
+          {items.map((item) => (
+            <li class="flex items-center gap-3">
+              <Icon name="check_circle" className="shrink-0 text-primary" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="relative h-80 overflow-hidden rounded-2xl bg-slate-300 shadow-2xl md:h-[400px]">
+        <img
+          class="h-full w-full object-cover"
+          alt="Map with key North American freight routes"
+          src="/images/nosotros-map.jpg"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-primary/20"></div>
+      </div>
+    </div>
+  </div>
+</section>

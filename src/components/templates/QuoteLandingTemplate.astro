@@ -1,0 +1,22 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import QuoteLandingHero from '@/components/organisms/quote/QuoteLandingHero.astro';
+import QuoteLandingFormSection from '@/components/organisms/quote/QuoteLandingFormSection.astro';
+import type { QuoteLandingData } from '@/data/quote';
+
+interface Props {
+  data: QuoteLandingData;
+}
+
+const { data } = Astro.props;
+---
+
+<SiteLayout title={data.seo.title} description={data.seo.description}>
+  <QuoteLandingHero
+    title={data.hero.title}
+    description={data.hero.description}
+    image={data.hero.image}
+    imageAlt={data.hero.imageAlt}
+  />
+  <QuoteLandingFormSection data={data} />
+</SiteLayout>

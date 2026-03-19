@@ -1,0 +1,87 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import ServiceHero from '@/components/organisms/services/ServiceHero.astro';
+import ValuePropsGrid from '@/components/organisms/services/ValuePropsGrid.astro';
+import FeatureWithImage from '@/components/organisms/services/FeatureWithImage.astro';
+import ComparisonCards from '@/components/organisms/services/ComparisonCards.astro';
+import DataDrivenSection from '@/components/organisms/services/DataDrivenSection.astro';
+import FleetGrid from '@/components/organisms/services/FleetGrid.astro';
+import FaqSection from '@/components/organisms/services/FaqSection.astro';
+import ServiceCta from '@/components/organisms/services/ServiceCta.astro';
+import type { ServicePageData } from '@/data/services';
+
+interface Props {
+  data: ServicePageData;
+}
+
+const { data } = Astro.props;
+---
+
+<SiteLayout title={data.seo.title} description={data.seo.description}>
+  <ServiceHero
+    badge={data.hero.badge}
+    title={data.hero.title}
+    titleHighlight={data.hero.titleHighlight}
+    description={data.hero.description}
+    primaryCta={data.hero.primaryCta}
+    primaryCtaHref={data.hero.primaryCtaHref}
+    secondaryCta={data.hero.secondaryCta}
+    secondaryCtaHref={data.hero.secondaryCtaHref}
+    heroImage={data.hero.heroImage}
+    heroImageAlt={data.hero.heroImageAlt}
+    variant={data.hero.variant}
+  />
+
+  <ValuePropsGrid
+    sectionTitle={data.valueSection.sectionTitle}
+    sectionSubtitle={data.valueSection.sectionSubtitle}
+    items={data.valueSection.items}
+    bgColor={data.valueSection.bgColor}
+    columns={data.valueSection.columns}
+  />
+
+  {data.comparison && <ComparisonCards items={data.comparison} />}
+
+  {data.dataDriven && (
+    <DataDrivenSection
+      title={data.dataDriven.title}
+      subtitle={data.dataDriven.subtitle}
+      features={data.dataDriven.features}
+    />
+  )}
+
+  {data.feature && (
+    <FeatureWithImage
+      sectionTitle={data.feature.sectionTitle}
+      sectionDescription={data.feature.sectionDescription}
+      features={data.feature.features}
+      image={data.feature.image}
+      imageAlt={data.feature.imageAlt}
+      variant={data.feature.variant}
+      imagePosition={data.feature.imagePosition}
+    />
+  )}
+
+  {data.fleet && (
+    <div id="fleet">
+      <FleetGrid
+        sectionTitle={data.fleet.sectionTitle}
+        sectionSubtitle={data.fleet.sectionSubtitle}
+        cards={data.fleet.cards}
+        ctaText={data.fleet.ctaText}
+        ctaHref={data.fleet.ctaHref}
+      />
+    </div>
+  )}
+
+  {data.faq && <FaqSection title={data.faq.title} items={data.faq.items} />}
+
+  <ServiceCta
+    title={data.cta.title}
+    description={data.cta.description}
+    primaryCta={data.cta.primaryCta}
+    primaryCtaHref={data.cta.primaryCtaHref}
+    secondaryCta={data.cta.secondaryCta}
+    secondaryCtaHref={data.cta.secondaryCtaHref}
+  />
+</SiteLayout>

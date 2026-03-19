@@ -1,0 +1,75 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import QuoteServiceHero from '@/components/organisms/quote/QuoteServiceHero.astro';
+import QuoteServiceFormSection from '@/components/organisms/quote/QuoteServiceFormSection.astro';
+import QuoteServiceFeatureCards from '@/components/organisms/quote/QuoteServiceFeatureCards.astro';
+import QuoteServiceHighlight from '@/components/organisms/quote/QuoteServiceHighlight.astro';
+import QuoteServiceStats from '@/components/organisms/quote/QuoteServiceStats.astro';
+import QuoteServiceCertificationStrip from '@/components/organisms/quote/QuoteServiceCertificationStrip.astro';
+import Button from '@/components/atoms/Button.astro';
+import type { QuoteServiceData } from '@/data/quote';
+
+interface Props {
+  data: QuoteServiceData;
+}
+
+const { data } = Astro.props;
+---
+
+<SiteLayout title={data.seo.title} description={data.seo.description}>
+  <QuoteServiceHero
+    badge={data.hero.badge}
+    title={data.hero.title}
+    description={data.hero.description}
+    image={data.hero.image}
+    imageAlt={data.hero.imageAlt}
+    highlights={data.hero.highlights}
+  />
+
+  <QuoteServiceFormSection
+    title={data.form.title}
+    subtitle={data.form.subtitle}
+    submitLabel={data.form.submitLabel}
+    legalNotice={data.form.legalNotice}
+    fields={data.form.fields}
+    sidePanel={data.form.sidePanel}
+  />
+
+  <QuoteServiceFeatureCards
+    title={data.features.title}
+    subtitle={data.features.subtitle}
+    cards={data.features.cards}
+  />
+
+  {data.highlight && (
+    <QuoteServiceHighlight
+      title={data.highlight.title}
+      description={data.highlight.description}
+      bullets={data.highlight.bullets}
+      image={data.highlight.image}
+      imageAlt={data.highlight.imageAlt}
+      theme={data.highlight.theme}
+    />
+  )}
+
+  {data.stats && <QuoteServiceStats items={data.stats} />}
+
+  {data.certifications && <QuoteServiceCertificationStrip items={data.certifications} />}
+
+  <section class="bg-primary px-4 py-20 text-white sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl text-center">
+      <h2 class="mb-4 text-3xl font-black tracking-tight md:text-4xl">Need a Custom Freight Strategy?</h2>
+      <p class="mx-auto max-w-2xl text-blue-100">
+        Our team can design lane-level pricing and execution plans tailored to your shipping profile.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        <Button href="/contact" variant="secondary" size="lg" className="border-white bg-white text-primary hover:bg-slate-100">
+          Talk to an Expert
+        </Button>
+        <Button href="/quote" variant="ghost" size="lg" className="border border-white text-white hover:bg-white/10">
+          Back to Quote Options
+        </Button>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

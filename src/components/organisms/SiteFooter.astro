@@ -1,102 +1,110 @@
 ---
-/**
- * SiteFooter organism — 4-column footer with logo, quick links, legal, and contact
- */
-import Icon from '../atoms/Icon.astro';
-import Badge from '../atoms/Badge.astro';
-import ContactItem from '../molecules/ContactItem.astro';
+import Icon from '@/components/atoms/Icon.astro';
+import {
+  companyContact,
+  footerColumns,
+  footerCta,
+  socialLinks
+} from '@/data/navigation';
 
 const currentYear = new Date().getFullYear();
-
-const quickLinks = [
-	{ label: 'Nuestros Servicios', href: '#servicios' },
-	{ label: 'Tecnología de Carga', href: '#tecnologia' },
-	{ label: 'Mapa de Cobertura', href: '#cobertura' },
-	{ label: 'Sobre Nosotros', href: '#nosotros' },
-	{ label: 'Portal de Carriers', href: '#' },
-];
-
-const legalLinks = [
-	{ label: 'Aviso de Privacidad', href: '#' },
-	{ label: 'Términos y Condiciones', href: '#' },
-	{ label: 'Políticas de Seguro', href: '#' },
-	{ label: 'Cumplimiento FMCSA', href: '#' },
-];
 ---
 
-<footer class="bg-slate-950 text-slate-400 py-20">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-			<!-- Brand Column -->
-			<div>
-				<div class="flex items-center gap-2 mb-6">
-					<div class="w-8 h-8 bg-primary flex items-center justify-center rounded text-white">
-						<Icon name="local_shipping" size="text-xl" />
-					</div>
-					<span class="text-xl font-black tracking-tight text-white uppercase">
-						Traustar<span class="text-primary">.</span>
-					</span>
-				</div>
-				<p class="text-sm leading-relaxed mb-6">
-					Líderes en soluciones logísticas integrales en Norteamérica. Transformando la cadena de suministro con tecnología y confianza.
-				</p>
-				<div class="flex gap-4">
-					<a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all" aria-label="Sitio web">
-						<Icon name="public" size="text-sm" />
-					</a>
-					<a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all" aria-label="Compartir">
-						<Icon name="share" size="text-sm" />
-					</a>
-					<a href="#" class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center hover:bg-primary hover:text-white transition-all" aria-label="Comunidad">
-						<Icon name="group" size="text-sm" />
-					</a>
-				</div>
-			</div>
+<footer class="bg-slate-950 pt-16 text-slate-300" aria-label="Site footer">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section class="mb-12 rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.16em] text-white/70">Freight Operations Support</p>
+          <h2 class="mt-2 text-2xl font-black tracking-tight text-white">{footerCta.title}</h2>
+          <p class="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400">{footerCta.description}</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a
+            href={footerCta.primary.href}
+            class="inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+          >
+            {footerCta.primary.label}
+          </a>
+          <a
+            href={footerCta.secondary.href}
+            class="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-bold text-slate-200 transition-colors hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+          >
+            {footerCta.secondary.label}
+          </a>
+        </div>
+      </div>
+    </section>
 
-			<!-- Quick Links -->
-			<div>
-				<h4 class="text-white font-bold mb-6">Quick Links</h4>
-				<ul class="space-y-4 text-sm">
-					{quickLinks.map((link) => (
-						<li>
-							<a href={link.href} class="hover:text-primary transition-colors">{link.label}</a>
-						</li>
-					))}
-				</ul>
-			</div>
+    <div class="mb-12 grid grid-cols-1 gap-10 xl:grid-cols-7">
+      <section class="xl:col-span-2">
+        <a href="/" class="mb-4 inline-flex items-center gap-2 no-underline" aria-label="Traustar Logistics home">
+          <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-white">
+            <Icon name="local_shipping" className="text-xl" />
+          </span>
+          <span class="text-2xl font-black uppercase tracking-tight text-white">
+            Traustar<span class="text-primary">.</span>
+          </span>
+        </a>
 
-			<!-- Legal -->
-			<div>
-				<h4 class="text-white font-bold mb-6">Legal</h4>
-				<ul class="space-y-4 text-sm">
-					{legalLinks.map((link) => (
-						<li>
-							<a href={link.href} class="hover:text-primary transition-colors">{link.label}</a>
-						</li>
-					))}
-				</ul>
-			</div>
+        <p class="mb-6 max-w-sm text-sm leading-relaxed text-slate-400">
+          Premium freight brokerage and logistics execution across the United States, Mexico, and Canada.
+        </p>
 
-			<!-- Contact -->
-			<div>
-				<h4 class="text-white font-bold mb-6">Contacto</h4>
-				<ul class="space-y-4 text-sm">
-					<ContactItem icon="location_on" text="Chicago, IL. 60601, USA" />
-					<ContactItem icon="phone" text="+1 (800) 123-4567" />
-					<ContactItem icon="mail" text="contacto@traustar.com" />
-				</ul>
-				<div class="mt-8">
-					<Badge variant="success">
-						<Icon name="check_circle" size="text-sm" className="text-green-500" />
-						<span class="text-white">FMCSA Certified</span>
-					</Badge>
-				</div>
-			</div>
-		</div>
+        <ul class="mb-6 space-y-3 text-sm text-slate-300" role="list">
+          <li class="flex items-start gap-2">
+            <Icon name="location_on" className="mt-0.5 text-primary" />
+            <span>{companyContact.location}</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="phone" className="mt-0.5 text-primary" />
+            <a href={companyContact.phoneHref} class="transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">{companyContact.phone}</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <Icon name="mail" className="mt-0.5 text-primary" />
+            <a href={companyContact.emailHref} class="transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">{companyContact.email}</a>
+          </li>
+        </ul>
 
-		<!-- Bottom Bar -->
-		<div class="pt-8 border-t border-slate-900 text-center text-xs">
-			<p>&copy; {currentYear} Traustar Logistics Inc. Todos los derechos reservados.</p>
-		</div>
-	</div>
+        <div class="flex flex-wrap items-center gap-3">
+          {socialLinks.map((item) => (
+            <a
+              href={item.href}
+              target={item.external ? '_blank' : undefined}
+              rel={item.external ? 'noreferrer' : undefined}
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-slate-300 transition-colors hover:bg-primary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
+              aria-label={item.label}
+            >
+              <Icon name={item.icon} className="text-base" />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 xl:col-span-5 xl:grid-cols-5">
+        {footerColumns.map((column) => (
+          <section>
+            <h3 class="mb-4 text-sm font-bold uppercase tracking-[0.14em] text-white">{column.label}</h3>
+            <ul class="space-y-2" role="list">
+              {column.links.map((link) => (
+                <li>
+                  <a href={link.href} class="text-sm text-slate-400 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 border-t border-slate-900 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {currentYear} Traustar Logistics Inc. All rights reserved.</p>
+      <p class="inline-flex items-center gap-2">
+        <Icon name="verified" className="text-sm text-emerald-400" />
+        FMCSA-certified carrier network and compliance-first operations.
+      </p>
+    </div>
+  </div>
 </footer>

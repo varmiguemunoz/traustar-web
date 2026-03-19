@@ -1,0 +1,96 @@
+---
+import Button from '@/components/atoms/Button.astro';
+import Icon from '@/components/atoms/Icon.astro';
+
+interface Availability {
+  title: string;
+  description: string;
+}
+
+interface MetaCard {
+  title: string;
+  lines: string[];
+  accent: 'primary' | 'slate';
+}
+
+interface Props {
+  availability: Availability;
+  metaCards: readonly MetaCard[];
+}
+
+const { availability, metaCards } = Astro.props;
+---
+
+<section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+  <div class="grid grid-cols-1 gap-16 lg:grid-cols-2">
+    <section>
+      <h2 class="mb-8 flex items-center gap-3 text-3xl font-bold text-slate-900">
+        <span class="inline-block h-1 w-8 bg-primary"></span>
+        Send us a message
+      </h2>
+      <form class="space-y-6" action="#" method="post">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <label class="space-y-2">
+            <span class="text-sm font-semibold text-slate-700">Full Name</span>
+            <input type="text" class="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary" />
+          </label>
+          <label class="space-y-2">
+            <span class="text-sm font-semibold text-slate-700">Email</span>
+            <input type="email" class="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary" />
+          </label>
+        </div>
+
+        <label class="space-y-2">
+          <span class="text-sm font-semibold text-slate-700">Company</span>
+          <input type="text" class="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary" />
+        </label>
+
+        <label class="space-y-2">
+          <span class="text-sm font-semibold text-slate-700">Message</span>
+          <textarea rows="4" class="w-full resize-none rounded-lg border border-slate-200 bg-white px-4 py-3 outline-none transition-colors focus:border-transparent focus:ring-2 focus:ring-primary"></textarea>
+        </label>
+
+        <Button variant="primary" size="lg" className="flex w-full items-center justify-center gap-2 shadow-lg shadow-primary/30">
+          Submit inquiry
+          <Icon name="send" size="text-base" />
+        </Button>
+      </form>
+    </section>
+
+    <section class="space-y-12">
+      <div>
+        <h2 class="mb-8 flex items-center gap-3 text-3xl font-bold text-slate-900">
+          <span class="inline-block h-1 w-8 bg-primary"></span>
+          Availability
+        </h2>
+        <article class="relative overflow-hidden rounded-xl bg-primary p-8 text-white shadow-2xl">
+          <div class="relative z-10 flex items-start gap-4">
+            <div class="rounded-lg bg-white/20 p-2">
+              <Icon name="emergency" size="text-3xl" />
+            </div>
+            <div>
+              <h3 class="mb-2 text-xl font-bold">{availability.title}</h3>
+              <p class="leading-relaxed text-white/80">{availability.description}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+        {metaCards.map((card) => (
+          <article
+            class:list={[
+              'rounded-r-xl bg-white p-6 shadow-sm',
+              card.accent === 'primary' ? 'border-l-4 border-primary' : 'border-l-4 border-slate-300'
+            ]}
+          >
+            <h3 class="mb-2 font-bold text-slate-900">{card.title}</h3>
+            {card.lines.map((line) => (
+              <p class="text-sm text-slate-500">{line}</p>
+            ))}
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</section>

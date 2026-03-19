@@ -1,19 +1,17 @@
 ---
-/**
- * TestimonialStars molecule — 5-star rating display
- * @param count - Number of filled stars (default: 5)
- */
 import Icon from '../atoms/Icon.astro';
 
 interface Props {
-	count?: number;
+  count?: number;
+  rating?: number;
 }
 
-const { count = 5 } = Astro.props;
+const { count, rating } = Astro.props;
+const fullStars = Math.max(0, Math.min(5, Math.round(rating ?? count ?? 5)));
 ---
 
-<div class="flex text-primary">
-	{Array.from({ length: count }).map(() => (
-		<Icon name="star" filled={true} />
-	))}
+<div class="flex text-primary" aria-label={`Rated ${fullStars} out of 5`}>
+  {Array.from({ length: fullStars }).map(() => (
+    <Icon name="star" filled={true} />
+  ))}
 </div>

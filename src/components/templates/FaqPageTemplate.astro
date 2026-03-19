@@ -1,0 +1,47 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import FaqHero from '@/components/organisms/faq/FaqHero.astro';
+import FaqCategoryList from '@/components/organisms/faq/FaqCategoryList.astro';
+import FaqSupportCta from '@/components/organisms/faq/FaqSupportCta.astro';
+import type { FaqCategory } from '@/data/faq';
+
+interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  heroTitle: string;
+  heroDescription: string;
+  searchPlaceholder: string;
+  categories: FaqCategory[];
+  supportCta: {
+    title: string;
+    description: string;
+    primaryLabel: string;
+    primaryHref: string;
+    secondaryLabel: string;
+    secondaryHref: string;
+  };
+}
+
+const {
+  seoTitle,
+  seoDescription,
+  heroTitle,
+  heroDescription,
+  searchPlaceholder,
+  categories,
+  supportCta
+} = Astro.props;
+---
+
+<SiteLayout title={seoTitle} description={seoDescription}>
+  <FaqHero title={heroTitle} description={heroDescription} searchPlaceholder={searchPlaceholder} />
+  <FaqCategoryList categories={categories} />
+  <FaqSupportCta
+    title={supportCta.title}
+    description={supportCta.description}
+    primaryLabel={supportCta.primaryLabel}
+    primaryHref={supportCta.primaryHref}
+    secondaryLabel={supportCta.secondaryLabel}
+    secondaryHref={supportCta.secondaryHref}
+  />
+</SiteLayout>

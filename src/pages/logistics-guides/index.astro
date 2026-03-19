@@ -1,0 +1,12 @@
+---
+import ResourceGuidesTemplate from '@/components/templates/ResourceGuidesTemplate.astro';
+import { featuredGuides, guidesHero, guidesNewsletter, guidesPageSeo } from '@/data/resources';
+---
+
+<ResourceGuidesTemplate
+  seoTitle={guidesPageSeo.title}
+  seoDescription={guidesPageSeo.description}
+  hero={guidesHero}
+  guides={featuredGuides}
+  newsletter={guidesNewsletter}
+/>

@@ -1,0 +1,82 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import TechnologyHero from '@/components/organisms/technology/TechnologyHero.astro';
+import TechnologyVisibilitySection from '@/components/organisms/technology/TechnologyVisibilitySection.astro';
+import TechnologyPricingSection from '@/components/organisms/technology/TechnologyPricingSection.astro';
+import TechnologyNetworkSection from '@/components/organisms/technology/TechnologyNetworkSection.astro';
+import TechnologyCta from '@/components/organisms/technology/TechnologyCta.astro';
+import type { TechnologyFeature } from '@/data/technology';
+
+interface VisibilityCard {
+  icon: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  hero: {
+    badge: string;
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    primaryLabel: string;
+    primaryHref: string;
+    secondaryLabel: string;
+    secondaryHref: string;
+  };
+  visibilityCards: VisibilityCard[];
+  pricingFeatures: TechnologyFeature[];
+  networkFeatures: { icon: string; text: string }[];
+  networkStats: { value: string; label: string }[];
+  cta: {
+    title: string;
+    description: string;
+    primaryLabel: string;
+    primaryHref: string;
+    secondaryLabel: string;
+    secondaryHref: string;
+  };
+}
+
+const {
+  seoTitle,
+  seoDescription,
+  hero,
+  visibilityCards,
+  pricingFeatures,
+  networkFeatures,
+  networkStats,
+  cta
+} = Astro.props;
+---
+
+<SiteLayout title={seoTitle} description={seoDescription}>
+  <TechnologyHero
+    badge={hero.badge}
+    title={hero.title}
+    description={hero.description}
+    image={hero.image}
+    imageAlt={hero.imageAlt}
+    primaryLabel={hero.primaryLabel}
+    primaryHref={hero.primaryHref}
+    secondaryLabel={hero.secondaryLabel}
+    secondaryHref={hero.secondaryHref}
+  />
+
+  <TechnologyVisibilitySection cards={visibilityCards} />
+  <TechnologyPricingSection features={pricingFeatures} />
+  <TechnologyNetworkSection features={networkFeatures} stats={networkStats} />
+  <TechnologyCta
+    title={cta.title}
+    description={cta.description}
+    primaryLabel={cta.primaryLabel}
+    primaryHref={cta.primaryHref}
+    secondaryLabel={cta.secondaryLabel}
+    secondaryHref={cta.secondaryHref}
+  />
+</SiteLayout>

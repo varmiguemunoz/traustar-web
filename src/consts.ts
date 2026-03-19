@@ -1,3 +1,3 @@
-export const SITE_TITLE = 'Traustar Logistics | Logística de Alta Precisión';
+export const SITE_TITLE = 'Traustar Logistics | Precision Freight Solutions';
 export const SITE_DESCRIPTION =
-	'Capacidad garantizada para cargas críticas. Visibilidad total 24/7, costos optimizados y una red de carriers certificados por la FMCSA. Cotiza hoy.';
+  'Guaranteed capacity for critical shipments with full 24/7 visibility, optimized rates, and a trusted carrier network across North America.';

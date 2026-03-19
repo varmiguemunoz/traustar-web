@@ -1,22 +1,41 @@
 ---
-/**
- * Icon atom — wraps Material Symbols Outlined
- * @param name - Material Symbol name
- * @param size - CSS class for size (e.g. 'text-xl', 'text-3xl', 'text-4xl')
- * @param filled - Whether to use the filled variant
- * @param className - Additional CSS classes
- */
+import GlyphIcon from '@/components/icons/GlyphIcon.astro';
+import { resolveIcon } from '@/components/icons/iconMap';
+
 interface Props {
-	name: string;
-	size?: string;
-	filled?: boolean;
-	className?: string;
+  name: string;
+  size?: string;
+  filled?: boolean;
+  className?: string;
+  class?: string;
+  width?: number | string;
+  height?: number | string;
+  title?: string;
+  strokeWidth?: number | string;
 }
 
-const { name, size = '', filled = false, className = '' } = Astro.props;
-const fillClass = filled ? 'fill-1' : '';
+const {
+  name,
+  size = '',
+  filled = false,
+  className = '',
+  class: classAttr = '',
+  width,
+  height,
+  title,
+  strokeWidth = 1.8
+} = Astro.props as Props;
+
+const glyph = resolveIcon(name);
+const classes = ['inline-block shrink-0 align-middle', size, className, classAttr].filter(Boolean).join(' ');
 ---
 
-<span class:list={['material-symbols-outlined', fillClass, size, className]}>
-	{name}
-</span>
+<GlyphIcon
+  glyph={glyph}
+  class={classes}
+  width={width}
+  height={height}
+  title={title}
+  strokeWidth={strokeWidth}
+  filled={filled}
+/>

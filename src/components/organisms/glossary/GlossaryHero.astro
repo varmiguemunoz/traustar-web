@@ -1,0 +1,37 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+import Button from '@/components/atoms/Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  searchPlaceholder: string;
+}
+
+const { title, description, searchPlaceholder } = Astro.props;
+---
+
+<section class="mx-auto w-full max-w-7xl px-4 pt-28 sm:px-6 lg:px-8">
+  <header class="mb-12">
+    <h1 class="mb-4 text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-5xl">{title}</h1>
+    <p class="max-w-2xl text-lg text-slate-600">{description}</p>
+  </header>
+
+  <div class="mb-8 flex flex-col gap-4 md:flex-row">
+    <label class="group relative flex-1" for="glossary-search">
+      <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary">
+        <Icon name="search" />
+      </span>
+      <input
+        id="glossary-search"
+        type="text"
+        placeholder={searchPlaceholder}
+        class="w-full rounded-xl border border-slate-200 bg-white py-3 pl-12 pr-4 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
+      />
+    </label>
+    <Button variant="primary" className="flex items-center gap-2 shadow-lg shadow-primary/20">
+      <Icon name="filter_list" size="text-sm" />
+      Filter
+    </Button>
+  </div>
+</section>

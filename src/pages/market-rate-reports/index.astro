@@ -1,0 +1,21 @@
+---
+import MarketReportsTemplate from '@/components/templates/MarketReportsTemplate.astro';
+import {
+  marketReportsCta,
+  marketReportsHero,
+  marketReportsSeo,
+  marketSummary,
+  regionalCapacity,
+  spotRateCards
+} from '@/data/resources';
+---
+
+<MarketReportsTemplate
+  seoTitle={marketReportsSeo.title}
+  seoDescription={marketReportsSeo.description}
+  hero={marketReportsHero}
+  spotRates={spotRateCards}
+  regions={regionalCapacity}
+  summary={marketSummary}
+  cta={marketReportsCta}
+/>

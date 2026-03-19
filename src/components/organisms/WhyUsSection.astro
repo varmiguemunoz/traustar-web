@@ -1,64 +1,55 @@
 ---
-/**
- * WhyUsSection organism — 2-column layout with feature grid and team image
- */
 import FeatureItem from '../molecules/FeatureItem.astro';
 
 const features = [
-	{
-		icon: 'payments',
-		title: 'Pricing en Tiempo Real',
-		description: 'Tarifas competitivas basadas en datos actuales del mercado.',
-	},
-	{
-		icon: 'satellite_alt',
-		title: 'Monitoreo Satelital',
-		description: 'Seguimiento por GPS de cada unidad en tránsito las 24 horas.',
-	},
-	{
-		icon: 'bolt',
-		title: 'Ejecución Rápida',
-		description: 'Respuesta inmediata a solicitudes de carga y emergencias.',
-	},
-	{
-		icon: 'gavel',
-		title: 'Cumplimiento Federal',
-		description: 'Estricto apego a normativas SCT y DOT de Estados Unidos.',
-	},
+  {
+    icon: 'payments',
+    title: 'Real-Time Pricing',
+    description: 'Market-informed rates for faster decisions and better cost control.'
+  },
+  {
+    icon: 'satellite_alt',
+    title: 'Live Tracking',
+    description: '24/7 GPS visibility for every active shipment in your network.'
+  },
+  {
+    icon: 'bolt',
+    title: 'Fast Execution',
+    description: 'Rapid response to urgent tenders and critical recovery scenarios.'
+  },
+  {
+    icon: 'gavel',
+    title: 'Regulatory Compliance',
+    description: 'Carrier vetting and compliance governance aligned with federal standards.'
+  }
 ];
 ---
 
-<section id="nosotros" class="py-24 bg-background-light dark:bg-navy-deep/20">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid lg:grid-cols-2 gap-16 items-center">
-			<!-- Features -->
-			<div>
-				<h2 class="text-3xl sm:text-4xl font-black text-navy-deep dark:text-white mb-8">
-					¿Por qué Traustar Logistics es su aliado estratégico?
-				</h2>
-				<div class="grid sm:grid-cols-2 gap-8">
-					{features.map((feature) => (
-						<FeatureItem
-							icon={feature.icon}
-							title={feature.title}
-							description={feature.description}
-						/>
-					))}
-				</div>
-			</div>
+<section id="why-us" class="bg-background-light py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-16 lg:grid-cols-2">
+      <div>
+        <h2 class="mb-8 text-3xl font-black text-navy-deep sm:text-4xl">
+          Why Traustar is a strategic logistics partner
+        </h2>
+        <div class="grid gap-8 sm:grid-cols-2">
+          {features.map((feature) => (
+            <FeatureItem icon={feature.icon} title={feature.title} description={feature.description} />
+          ))}
+        </div>
+      </div>
 
-			<!-- Image -->
-			<div class="relative">
-				<div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
-				<div class="relative rounded-3xl overflow-hidden shadow-2xl">
-					<img
-						src="/images/team-control.jpg"
-						alt="Equipo de coordinadores logísticos en un centro de control moderno"
-						class="w-full h-auto"
-						loading="lazy"
-					/>
-				</div>
-			</div>
-		</div>
-	</div>
+      <div class="relative">
+        <div class="absolute -inset-4 rounded-full bg-primary/20 blur-3xl"></div>
+        <div class="relative overflow-hidden rounded-3xl shadow-2xl">
+          <img
+            src="/images/team-control.jpg"
+            alt="Traustar operations team in a logistics control center"
+            class="h-auto w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  badge: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+const { badge, title, description, image, imageAlt } = Astro.props;
+---
+
+<section class="relative w-full overflow-hidden bg-slate-900 py-20 lg:py-32">
+  <div class="absolute inset-0 opacity-40">
+    <img src={image} alt={imageAlt} class="h-full w-full object-cover" loading="eager" width="1600" height="900" />
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+  <div class="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+    <span class="mb-6 inline-block rounded-full bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary">{badge}</span>
+    <h1 class="mb-6 text-4xl font-black tracking-tight text-white md:text-6xl">{title}</h1>
+    <p class="mx-auto max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">{description}</p>
+  </div>
+</section>

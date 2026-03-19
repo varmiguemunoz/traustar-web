@@ -1,0 +1,29 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+---
+
+<section class="bg-white px-4 py-20 sm:px-6">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="space-y-6">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-primary">Our Story</h2>
+        <h3 class="text-3xl font-bold leading-snug text-slate-900 md:text-4xl">
+          Built to solve complex North American freight challenges
+        </h3>
+        <p class="text-lg leading-relaxed text-slate-600">
+          Traustar was founded to bridge the gap between digital efficiency and real operational support. We orchestrate freight with data-driven workflows while keeping experienced logistics specialists directly available for each account.
+        </p>
+        <div class="flex items-start gap-4 rounded-xl border-l-4 border-primary bg-primary/5 p-4">
+          <Icon name="lightbulb" className="shrink-0 text-3xl text-primary" />
+          <p class="italic text-slate-700">
+            “We do not just move freight. We help businesses move faster with confidence.”
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="h-64 overflow-hidden rounded-xl bg-slate-200 bg-cover bg-center" style="background-image: url('/images/nosotros-worker.jpg')"></div>
+        <div class="mt-8 h-64 overflow-hidden rounded-xl bg-slate-200 bg-cover bg-center" style="background-image: url('/images/nosotros-meeting.jpg')"></div>
+      </div>
+    </div>
+  </div>
+</section>

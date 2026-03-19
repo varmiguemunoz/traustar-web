@@ -1,0 +1,41 @@
+---
+import TestimonialStars from '@/components/molecules/TestimonialStars.astro';
+
+interface Testimonial {
+  text: string;
+  name: string;
+  company: string;
+  image: string;
+}
+
+interface Props {
+  items: Testimonial[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-white py-24" id="carrier-testimonials">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mb-16 text-center">
+      <h2 class="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Carrier testimonials</h2>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      {items.map((item, index) => (
+        <article class:list={['rounded-2xl bg-slate-50 p-8 shadow-sm', index === 1 && 'border-t-4 border-primary']}>
+          <TestimonialStars count={5} />
+          <p class="mb-6 mt-4 italic text-slate-600">{item.text}</p>
+          <div class="flex items-center gap-4">
+            <div class="h-12 w-12 overflow-hidden rounded-full bg-slate-300">
+              <img class="h-full w-full object-cover" alt={`Photo of ${item.name}`} src={item.image} loading="lazy" />
+            </div>
+            <div>
+              <p class="font-bold">{item.name}</p>
+              <p class="text-xs text-slate-500">{item.company}</p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

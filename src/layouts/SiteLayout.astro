@@ -1,0 +1,89 @@
+---
+import Navbar from '@/components/organisms/Navbar.astro';
+import SiteFooter from '@/components/organisms/SiteFooter.astro';
+import { createOgImage } from '@/utils/createOgImage';
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
+import '@/styles/global.css';
+
+export interface Props {
+  title?: string;
+  metaTitle?: string;
+  description?: string;
+  noindex?: boolean;
+  canonical?: string;
+  keywords?: string;
+  schema?: object | object[];
+  ogImageTitle?: string;
+  ogImageMeta?: string;
+}
+
+const {
+  title,
+  metaTitle,
+  description,
+  noindex = false,
+  canonical,
+  keywords,
+  schema,
+  ogImageTitle,
+  ogImageMeta
+} = Astro.props;
+
+const pageTitle = metaTitle ?? title ?? SITE_TITLE;
+const pageDescription = description ?? SITE_DESCRIPTION;
+const canonicalUrl =
+  canonical ??
+  new URL(Astro.url.pathname.replace(/\/$/, '') || '/', 'https://www.traustarlogistics.com').toString();
+
+const ogImage = createOgImage({
+  title: ogImageTitle ?? pageTitle,
+  meta: ogImageMeta ?? pageDescription
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content="Traustar Logistics" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalUrl} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Traustar Logistics" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {
+      schema &&
+        (Array.isArray(schema)
+          ? schema.map((item) => (
+              <script type="application/ld+json" set:html={JSON.stringify(item)} />
+            ))
+          : <script type="application/ld+json" set:html={JSON.stringify(schema)} />)
+    }
+  </head>
+  <body class="bg-white text-slate-900">
+    <Navbar />
+    <main class="mx-auto w-full pt-20">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

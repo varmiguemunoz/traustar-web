@@ -1,0 +1,111 @@
+---
+import Button from '@/components/atoms/Button.astro';
+import Icon from '@/components/atoms/Icon.astro';
+import type { QuoteFormField } from '@/data/quote';
+
+interface SidePanel {
+  title: string;
+  points: string[];
+  note: string;
+}
+
+interface Props {
+  title: string;
+  subtitle: string;
+  submitLabel: string;
+  legalNotice: string;
+  fields: QuoteFormField[];
+  sidePanel?: SidePanel;
+}
+
+const { title, subtitle, submitLabel, legalNotice, fields, sidePanel } = Astro.props;
+
+const getInputIcon = (name: string) => {
+  if (name.includes('origin')) return 'location_on';
+  if (name.includes('destination')) return 'flag';
+  if (name.includes('weight')) return 'weight';
+  if (name.includes('email')) return 'mail';
+  if (name.includes('date')) return 'calendar_today';
+  if (name.includes('pallet')) return 'inventory_2';
+  if (name.includes('class')) return 'category';
+  if (name.includes('port')) return 'location_on';
+  if (name.includes('commodity')) return 'category';
+  return 'edit';
+};
+---
+
+<section class="border-y border-slate-200 bg-slate-50 py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class:list={[sidePanel ? 'grid gap-8 lg:grid-cols-5' : 'mx-auto max-w-4xl']}>
+      {sidePanel && (
+        <aside class="rounded-2xl bg-primary p-8 text-white shadow-lg lg:col-span-2">
+          <h2 class="mb-4 text-2xl font-bold">{sidePanel.title}</h2>
+          <ul class="space-y-3">
+            {sidePanel.points.map((point) => (
+              <li class="flex items-start gap-2 text-sm leading-relaxed">
+                <Icon name="check_circle" size="text-lg" className="mt-0.5" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-8 rounded-lg bg-white/10 p-4 text-sm font-medium">{sidePanel.note}</p>
+        </aside>
+      )}
+
+      <div class:list={['rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-12', sidePanel ? 'lg:col-span-3' : ''] }>
+        <header class="mb-10 text-center">
+          <h2 class="mb-4 text-3xl font-black tracking-tight text-slate-900">{title}</h2>
+          <p class="text-slate-600">{subtitle}</p>
+        </header>
+
+        <form class="space-y-8" action="#" method="post">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {fields.map((field) => (
+              <label class="space-y-2" for={field.name}>
+                <span class="text-sm font-bold text-slate-700">{field.label}</span>
+                <span class="relative block">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+                    <Icon name={getInputIcon(field.name)} size="text-lg" />
+                  </span>
+
+                  {field.type === 'select' ? (
+                    <select
+                      id={field.name}
+                      name={field.name}
+                      class="w-full appearance-none rounded-xl border border-slate-200 bg-white py-4 pl-10 pr-4 transition-colors focus:border-primary focus:ring-2 focus:ring-primary"
+                    >
+                      {(field.options ?? []).map((option) => (
+                        <option value={option}>{option}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      id={field.name}
+                      name={field.name}
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      class="w-full rounded-xl border border-slate-200 bg-white py-4 pl-10 pr-4 transition-colors focus:border-primary focus:ring-2 focus:ring-primary"
+                    />
+                  )}
+                </span>
+              </label>
+            ))}
+          </div>
+
+          <div>
+            <Button variant="primary" size="lg" className="flex w-full items-center justify-center gap-2 text-lg">
+              {submitLabel}
+              <Icon name="arrow_forward" />
+            </Button>
+            <p class="mt-4 text-center text-xs text-slate-500">
+              {legalNotice}
+              <a href="/terms" class="ml-1 text-primary underline">Terms</a>
+              and
+              <a href="/privacy" class="ml-1 text-primary underline">Privacy</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

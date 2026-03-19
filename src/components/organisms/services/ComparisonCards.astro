@@ -1,0 +1,46 @@
+---
+/**
+ * ComparisonCards — Side-by-side comparison cards with icon and checklist.
+ * Used on Spot & Contract page.
+ */
+import Icon from '@/components/atoms/Icon.astro';
+
+interface ComparisonItem {
+	icon: string;
+	title: string;
+	description: string;
+	checks: string[];
+}
+
+interface Props {
+	items: ComparisonItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+	<div class="max-w-7xl mx-auto">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			{items.map((item) => (
+				<div class="flex flex-col gap-6 p-8 bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+					<div class="bg-primary/10 size-12 rounded-lg flex items-center justify-center">
+						<Icon name={item.icon} className="text-primary" />
+					</div>
+					<div>
+						<h3 class="text-xl font-bold mb-2">{item.title}</h3>
+						<p class="text-slate-600 leading-relaxed mb-4">{item.description}</p>
+						<ul class="space-y-2">
+							{item.checks.map((check) => (
+								<li class="flex items-center gap-2 text-sm text-slate-500">
+									<Icon name="check_circle" className="text-primary" size="text-xs" />
+									{check}
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

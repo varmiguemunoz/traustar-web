@@ -1,0 +1,49 @@
+---
+import Button from '@/components/atoms/Button.astro';
+import Icon from '@/components/atoms/Icon.astro';
+
+interface Props {
+  badge: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+}
+
+const {
+  badge,
+  title,
+  description,
+  image,
+  imageAlt,
+  primaryLabel,
+  primaryHref,
+  secondaryLabel,
+  secondaryHref
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-slate-900">
+    <div class="absolute inset-0 z-10 bg-gradient-to-r from-slate-900 via-slate-900/85 to-transparent"></div>
+    <img src={image} alt={imageAlt} class="h-full w-full object-cover opacity-35" loading="eager" width="1600" height="900" />
+  </div>
+  <div class="relative z-20 mx-auto max-w-7xl px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <p class="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+        <Icon name="bolt" size="text-sm" />
+        {badge}
+      </p>
+      <h1 class="mb-6 text-4xl font-black leading-tight tracking-tight text-white md:text-6xl">{title}</h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">{description}</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <Button href={primaryHref} variant="primary" size="lg">{primaryLabel}</Button>
+        <Button href={secondaryHref} variant="secondary" size="lg" className="border-white/30 bg-white/10 text-white hover:bg-white/20">{secondaryLabel}</Button>
+      </div>
+    </div>
+  </div>
+</section>

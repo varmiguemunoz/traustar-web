@@ -1,0 +1,8 @@
+---
+import ServicePageTemplate from '@/components/templates/ServicePageTemplate.astro';
+import { getServicePage } from '@/data/services';
+
+const data = getServicePage('intermodal');
+---
+
+<ServicePageTemplate data={data} />

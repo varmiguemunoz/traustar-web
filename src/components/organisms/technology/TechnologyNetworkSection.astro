@@ -1,0 +1,61 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+
+interface NetworkFeature {
+  icon: string;
+  text: string;
+}
+
+interface NetworkStat {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  features: NetworkFeature[];
+  stats: NetworkStat[];
+}
+
+const { features, stats } = Astro.props;
+---
+
+<section class="overflow-hidden bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-12 md:flex-row md:items-center">
+      <div class="flex-1">
+        <h2 class="mb-6 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Integrated Carrier Network</h2>
+        <p class="mb-8 text-lg leading-relaxed text-slate-600">
+          Our platform supports carrier qualification, compliance controls, and operational integration for safer execution.
+        </p>
+
+        <ul class="space-y-4">
+          {features.map((feature) => (
+            <li class="flex items-center gap-3 text-slate-700">
+              <Icon name={feature.icon} className="text-primary" />
+              <span>{feature.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="relative flex-1">
+        <div class="absolute -inset-4 rounded-full bg-primary/10 blur-3xl"></div>
+        <div class="relative grid grid-cols-2 gap-4">
+          {stats.map((stat, index) => (
+            <article
+              class:list={[
+                'aspect-square rounded-2xl border border-slate-200 bg-slate-100 p-6 text-center',
+                'flex flex-col items-center justify-center gap-2',
+                index === 1 && 'mt-8',
+                index === 2 && '-mt-8'
+              ]}
+            >
+              <p class="text-3xl font-black text-primary">{stat.value}</p>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-500">{stat.label}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

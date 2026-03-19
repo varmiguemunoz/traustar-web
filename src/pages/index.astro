@@ -1,6 +1,4 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Navbar from '../components/organisms/Navbar.astro';
 import HeroSection from '../components/organisms/HeroSection.astro';
 import MetricsBar from '../components/organisms/MetricsBar.astro';
 import ServicesGrid from '../components/organisms/ServicesGrid.astro';
@@ -9,27 +7,16 @@ import TechnologySection from '../components/organisms/TechnologySection.astro';
 import CoverageMap from '../components/organisms/CoverageMap.astro';
 import TestimonialsSection from '../components/organisms/TestimonialsSection.astro';
 import CtaBanner from '../components/organisms/CtaBanner.astro';
-import SiteFooter from '../components/organisms/SiteFooter.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Base from '../layouts/Base.astro';
 ---
 
-<!doctype html>
-<html lang="es">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
-		<Navbar />
-		<main>
-			<HeroSection />
-			<MetricsBar />
-			<ServicesGrid />
-			<WhyUsSection />
-			<TechnologySection />
-			<CoverageMap />
-			<TestimonialsSection />
-			<CtaBanner />
-		</main>
-		<SiteFooter />
-	</body>
-</html>
+<Base>
+	<HeroSection />
+	<MetricsBar />
+	<ServicesGrid />
+	<WhyUsSection />
+	<TechnologySection />
+	<CoverageMap />
+	<TestimonialsSection />
+	<CtaBanner />
+</Base>

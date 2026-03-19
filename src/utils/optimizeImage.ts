@@ -11,7 +11,7 @@ export const optimizeCloudinaryImage = (
 ) => {
   const { width, height, quality = 80, format = 'auto' } = options;
 
-  // Si no es URL de Cloudinary, retornar original
+  // If the URL is not from Cloudinary, return it unchanged.
   if (!url.includes('cloudinary.com')) return url;
 
   const transformations = [
@@ -25,7 +25,7 @@ export const optimizeCloudinaryImage = (
     .filter(Boolean)
     .join(',');
 
-  // Insertar transformaciones después de /upload/
+  // Insert transformations right after `/upload/`.
   return url.replace('/upload/', `/upload/${transformations}/`);
 };
 

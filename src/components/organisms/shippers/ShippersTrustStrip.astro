@@ -1,0 +1,27 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+
+interface Item {
+  icon: string;
+  name: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="border-y border-slate-200 bg-slate-50 py-10">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-center gap-8 opacity-70 transition-all hover:opacity-100 md:gap-16">
+      {items.map((item) => (
+        <div class="flex items-center gap-2">
+          <Icon name={item.icon} size="text-3xl" />
+          <span class="text-xl font-bold">{item.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

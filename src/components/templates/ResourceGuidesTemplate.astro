@@ -1,0 +1,36 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import ResourceHero from '@/components/organisms/resources/ResourceHero.astro';
+import GuidesGrid from '@/components/organisms/resources/GuidesGrid.astro';
+import ResourceNewsletterCta from '@/components/organisms/resources/ResourceNewsletterCta.astro';
+import type { ResourceGuide } from '@/data/resources';
+
+interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  hero: {
+    title: string;
+    description: string;
+  };
+  guides: ResourceGuide[];
+  newsletter: {
+    title: string;
+    description: string;
+    placeholder: string;
+    submitLabel: string;
+  };
+}
+
+const { seoTitle, seoDescription, hero, guides, newsletter } = Astro.props;
+---
+
+<SiteLayout title={seoTitle} description={seoDescription}>
+  <ResourceHero title={hero.title} description={hero.description} breadcrumbLabel="Resources" />
+  <GuidesGrid guides={guides} />
+  <ResourceNewsletterCta
+    title={newsletter.title}
+    description={newsletter.description}
+    placeholder={newsletter.placeholder}
+    submitLabel={newsletter.submitLabel}
+  />
+</SiteLayout>

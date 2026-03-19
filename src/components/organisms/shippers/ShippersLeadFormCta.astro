@@ -1,0 +1,55 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+---
+
+<section class="bg-primary py-24 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-16 lg:grid-cols-2">
+      <div class="space-y-6">
+        <h2 class="text-4xl font-black md:text-5xl">Ready to improve freight performance?</h2>
+        <p class="text-xl leading-relaxed text-blue-100">
+          Join the shippers already using Traustar to optimize cost, reliability, and operational visibility.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-center gap-3"><Icon name="check_circle" className="text-green-400" /> Quote turnaround in under 30 minutes</li>
+          <li class="flex items-center gap-3"><Icon name="check_circle" className="text-green-400" /> Dedicated lane optimization support</li>
+          <li class="flex items-center gap-3"><Icon name="check_circle" className="text-green-400" /> Transparent pricing and no hidden charges</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl bg-white p-8 text-slate-900 shadow-2xl md:p-10">
+        <h3 class="mb-6 text-2xl font-bold">Request your quote</h3>
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div class="space-y-2">
+              <label class="text-sm font-semibold">Full Name</label>
+              <input class="h-12 w-full rounded-lg border border-slate-200 px-4 focus:border-primary focus:outline-none focus:ring-primary" placeholder="Jane Doe" type="text" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-semibold">Business Email</label>
+              <input class="h-12 w-full rounded-lg border border-slate-200 px-4 focus:border-primary focus:outline-none focus:ring-primary" placeholder="jane@company.com" type="email" />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold">Service Type</label>
+            <select class="h-12 w-full rounded-lg border border-slate-200 px-4 focus:border-primary focus:outline-none focus:ring-primary">
+              <option>FTL (Full Truckload)</option>
+              <option>LTL (Consolidated)</option>
+              <option>Cross-Border</option>
+              <option>Expedited</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-semibold">Shipment Details (Optional)</label>
+            <textarea class="w-full rounded-lg border border-slate-200 px-4 py-3 focus:border-primary focus:outline-none focus:ring-primary" placeholder="Origin, destination, weight, and timing" rows="3"></textarea>
+          </div>
+          <button class="mt-4 h-14 w-full rounded-lg bg-primary text-lg font-bold text-white transition-colors hover:bg-blue-700" type="submit">
+            Submit Request
+          </button>
+          <p class="mt-4 text-center text-xs text-slate-500">
+            By submitting, you agree to our <a href="/privacy" class="text-primary hover:underline">privacy policy</a> and <a href="/terms" class="text-primary hover:underline">terms of service</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

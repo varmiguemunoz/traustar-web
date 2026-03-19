@@ -1,0 +1,43 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+
+interface VisibilityCard {
+  icon: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+interface Props {
+  cards: VisibilityCard[];
+}
+
+const { cards } = Astro.props;
+---
+
+<section class="bg-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header class="mb-12">
+      <h2 class="mb-4 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">Real-Time Visibility</h2>
+      <p class="max-w-3xl text-lg text-slate-600">
+        Stay informed with 24/7 shipment monitoring and a unified client experience built for operational transparency.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      {cards.map((card) => (
+        <article class="group overflow-hidden rounded-xl bg-slate-100 p-1 transition-shadow hover:shadow-xl">
+          <img src={card.image} alt={card.imageAlt} class="h-64 w-full rounded-lg object-cover" loading="lazy" width="960" height="640" />
+          <div class="px-6 pb-6 pt-5">
+            <div class="mb-3 flex items-center gap-3">
+              <span class="rounded-lg bg-primary/10 p-2 text-primary"><Icon name={card.icon} /></span>
+              <h3 class="text-xl font-bold text-slate-900">{card.title}</h3>
+            </div>
+            <p class="leading-relaxed text-slate-600">{card.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

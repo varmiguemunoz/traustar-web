@@ -1,0 +1,58 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import ContactHero from '@/components/organisms/contact/ContactHero.astro';
+import ContactInfoCards from '@/components/organisms/contact/ContactInfoCards.astro';
+import ContactFormSection from '@/components/organisms/contact/ContactFormSection.astro';
+import ContactMapSection from '@/components/organisms/contact/ContactMapSection.astro';
+
+interface ContactCard {
+  icon: string;
+  title: string;
+  subtitle: string;
+  value: string;
+  href: string;
+}
+
+interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  hero: {
+    badge: string;
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+  };
+  cards: readonly ContactCard[];
+  availability: {
+    title: string;
+    description: string;
+  };
+  metaCards: readonly {
+    title: string;
+    lines: string[];
+    accent: 'primary' | 'slate';
+  }[];
+  map: {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+  };
+}
+
+const { seoTitle, seoDescription, hero, cards, availability, metaCards, map } = Astro.props;
+---
+
+<SiteLayout title={seoTitle} description={seoDescription}>
+  <ContactHero
+    badge={hero.badge}
+    title={hero.title}
+    description={hero.description}
+    image={hero.image}
+    imageAlt={hero.imageAlt}
+  />
+  <ContactInfoCards cards={cards} />
+  <ContactFormSection availability={availability} metaCards={metaCards} />
+  <ContactMapSection title={map.title} description={map.description} image={map.image} imageAlt={map.imageAlt} />
+</SiteLayout>

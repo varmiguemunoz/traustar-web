@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import BlogCardGrid from '@/components/organisms/blog/BlogCardGrid.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<SiteLayout
+  title="Traustar Logistics Blog"
+  description="Insights on freight strategy, transportation technology, and North American logistics operations."
+>
+  <div class="pt-28">
+    <BlogCardGrid posts={posts} />
+  </div>
+</SiteLayout>

@@ -1,23 +1,18 @@
 ---
-/**
- * MetricsBar organism — navy background bar with 4 key metrics
- */
 import StatItem from '../molecules/StatItem.astro';
 
 const metrics = [
-	{ value: '50k+', label: 'Cargas Entregadas' },
-	{ value: '1,400+', label: 'Red de Carriers' },
-	{ value: '99.8%', label: 'Tasa de Puntualidad' },
-	{ value: '15+', label: 'Años Operando' },
+  { value: '50k+', label: 'Loads Delivered' },
+  { value: '1,400+', label: 'Carrier Network' },
+  { value: '99.8%', label: 'On-Time Rate' },
+  { value: '15+', label: 'Years in Operation' }
 ];
 ---
 
 <section class="bg-navy-deep py-12">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-			{metrics.map((metric) => (
-				<StatItem value={metric.value} label={metric.label} />
-			))}
-		</div>
-	</div>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
+      {metrics.map((metric) => <StatItem value={metric.value} label={metric.label} />)}
+    </div>
+  </div>
 </section>

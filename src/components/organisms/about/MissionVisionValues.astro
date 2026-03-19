@@ -1,0 +1,35 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+
+interface ValueItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items: ValueItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-slate-50 px-4 py-20 sm:px-6">
+  <div class="mx-auto max-w-6xl">
+    <div class="mb-16 text-center">
+      <h2 class="mb-4 text-3xl font-bold text-slate-900">Mission, Vision, and Values</h2>
+      <div class="mx-auto h-1 w-20 rounded-full bg-primary"></div>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      {items.map((item) => (
+        <article class="group rounded-xl border border-slate-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md">
+          <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 transition-all group-hover:bg-primary group-hover:text-white">
+            <Icon name={item.icon} size="text-3xl" />
+          </div>
+          <h3 class="mb-4 text-xl font-bold text-slate-900">{item.title}</h3>
+          <p class="text-slate-600">{item.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

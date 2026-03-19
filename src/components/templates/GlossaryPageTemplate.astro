@@ -1,0 +1,39 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import GlossaryHero from '@/components/organisms/glossary/GlossaryHero.astro';
+import GlossaryTermsGrid from '@/components/organisms/glossary/GlossaryTermsGrid.astro';
+import GlossarySupportCta from '@/components/organisms/glossary/GlossarySupportCta.astro';
+import type { GlossaryTerm } from '@/data/glossary';
+// import GlossaryAlphabetNav from '@/components/organisms/glossary/GlossaryAlphabetNav.astro';
+
+interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  hero: {
+    title: string;
+    description: string;
+    searchPlaceholder: string;
+  };
+  alphabet: string[];
+  terms: GlossaryTerm[];
+  cta: {
+    title: string;
+    description: string;
+    label: string;
+    href: string;
+  };
+}
+
+const { seoTitle, seoDescription, hero, alphabet, terms, cta } = Astro.props;
+---
+
+<SiteLayout title={seoTitle} description={seoDescription}>
+  <GlossaryHero
+    title={hero.title}
+    description={hero.description}
+    searchPlaceholder={hero.searchPlaceholder}
+  />
+  <!-- <GlossaryAlphabetNav alphabet={alphabet} /> -->
+  <GlossaryTermsGrid terms={terms} />
+  <GlossarySupportCta title={cta.title} description={cta.description} label={cta.label} href={cta.href} />
+</SiteLayout>

@@ -61,11 +61,6 @@
   backdrop-filter: blur(10px);
 }
 
-/* Material Symbols filled variant */
-.material-symbols-outlined.fill-1 {
-  font-variation-settings: 'FILL' 1;
-}
-
 /* Screen-reader only utility */
 .sr-only {
   border: 0;

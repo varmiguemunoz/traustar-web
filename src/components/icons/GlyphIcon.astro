@@ -1,0 +1,41 @@
+---
+import { ICON_GLYPHS, type CanonicalIconName } from './iconPaths';
+import type { IconComponentProps } from './types';
+
+interface Props extends IconComponentProps {
+  glyph: CanonicalIconName;
+}
+
+const {
+  glyph,
+  class: className = '',
+  width = '1em',
+  height = '1em',
+  title,
+  strokeWidth = 1.8,
+  filled = false
+} = Astro.props as Props;
+
+const icon = ICON_GLYPHS[glyph] ?? ICON_GLYPHS.fallback;
+const fill = filled ? 'currentColor' : 'none';
+const ariaHidden = title ? undefined : 'true';
+const role = title ? 'img' : 'presentation';
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={icon.viewBox}
+  width={width}
+  height={height}
+  class={className}
+  fill={fill}
+  stroke="currentColor"
+  stroke-width={strokeWidth}
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  role={role}
+  aria-hidden={ariaHidden}
+>
+  {title && <title>{title}</title>}
+  <g set:html={icon.body} />
+</svg>

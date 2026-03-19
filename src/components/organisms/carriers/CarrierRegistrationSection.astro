@@ -1,0 +1,44 @@
+---
+import Button from '@/components/atoms/Button.astro';
+---
+
+<section class="relative overflow-hidden bg-white py-24" id="carrier-registration">
+  <div class="absolute inset-0 -z-10 bg-primary/5"></div>
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl lg:p-12">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-black tracking-tight text-slate-900">Start your carrier registration</h2>
+        <p class="mt-2 text-slate-600">Complete the form and our team will contact you in less than 24 hours.</p>
+      </div>
+      <form class="space-y-6">
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label class="mb-2 block text-sm font-semibold">Company Name</label>
+            <input class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-primary focus:outline-none focus:ring-primary" type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-sm font-semibold">DOT / MC Number</label>
+            <input class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-primary focus:outline-none focus:ring-primary" type="text" />
+          </div>
+        </div>
+        <div>
+          <label class="mb-2 block text-sm font-semibold">Email Address</label>
+          <input class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-primary focus:outline-none focus:ring-primary" type="email" />
+        </div>
+        <div>
+          <label class="mb-2 block text-sm font-semibold">Fleet Size</label>
+          <select class="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-primary focus:outline-none focus:ring-primary">
+            <option>1-5 units</option>
+            <option>6-20 units</option>
+            <option>21-50 units</option>
+            <option>50+ units</option>
+          </select>
+        </div>
+        <Button variant="primary" size="lg" className="w-full shadow-lg shadow-primary/30">Submit Application</Button>
+        <p class="text-center text-xs text-slate-500">
+          By registering, you agree to our <a href="/terms" class="text-primary hover:underline">terms and conditions</a> and <a href="/privacy" class="text-primary hover:underline">privacy policy</a>.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

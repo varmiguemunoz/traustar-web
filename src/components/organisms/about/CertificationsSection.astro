@@ -1,0 +1,31 @@
+---
+import Icon from '@/components/atoms/Icon.astro';
+
+interface Certification {
+  icon: string;
+  label: string;
+}
+
+interface Props {
+  items: Certification[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-white px-4 py-20 sm:px-6">
+  <div class="mx-auto max-w-6xl text-center">
+    <h2 class="mb-12 text-2xl font-bold text-slate-900">Federal Compliance and Certifications</h2>
+    <div class="flex flex-wrap items-center justify-center gap-12 opacity-80 transition-all hover:opacity-100">
+      {items.map((item) => (
+        <div class="flex flex-col items-center gap-2">
+          <Icon name={item.icon} size="text-5xl" className="text-primary" />
+          <span class="font-bold text-slate-800">{item.label}</span>
+        </div>
+      ))}
+    </div>
+    <p class="mx-auto mt-12 max-w-2xl text-slate-500">
+      We maintain strict compliance and operational controls to reduce legal, safety, and transit risks.
+    </p>
+  </div>
+</section>

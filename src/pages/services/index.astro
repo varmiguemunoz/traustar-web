@@ -1,0 +1,48 @@
+---
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import ServiceHero from '@/components/organisms/services/ServiceHero.astro';
+import ValuePropsGrid from '@/components/organisms/services/ValuePropsGrid.astro';
+import ServiceCardGrid from '@/components/organisms/services/ServiceCardGrid.astro';
+import ServiceCta from '@/components/organisms/services/ServiceCta.astro';
+import {
+  servicesOverviewCards,
+  servicesOverviewCta,
+  servicesOverviewHero,
+  servicesOverviewSeo,
+  servicesOverviewValueProps
+} from '@/data/services';
+---
+
+<SiteLayout title={servicesOverviewSeo.title} description={servicesOverviewSeo.description}>
+  <ServiceHero
+    badge={servicesOverviewHero.badge}
+    title={servicesOverviewHero.title}
+    titleHighlight={servicesOverviewHero.titleHighlight}
+    description={servicesOverviewHero.description}
+    primaryCta={servicesOverviewHero.primaryCta}
+    primaryCtaHref={servicesOverviewHero.primaryCtaHref}
+    secondaryCta={servicesOverviewHero.secondaryCta}
+    secondaryCtaHref={servicesOverviewHero.secondaryCtaHref}
+    heroImage={servicesOverviewHero.heroImage}
+    heroImageAlt={servicesOverviewHero.heroImageAlt}
+    variant={servicesOverviewHero.variant}
+  />
+
+  <ValuePropsGrid
+    sectionTitle="The Traustar strategic advantage"
+    sectionSubtitle="Freight execution quality that supports growth, resilience, and visibility."
+    items={servicesOverviewValueProps}
+    bgColor="white"
+  />
+
+  <ServiceCardGrid sectionTitle="Core logistics services" cards={servicesOverviewCards} />
+
+  <ServiceCta
+    title={servicesOverviewCta.title}
+    description={servicesOverviewCta.description}
+    primaryCta={servicesOverviewCta.primaryCta}
+    primaryCtaHref={servicesOverviewCta.primaryCtaHref}
+    secondaryCta={servicesOverviewCta.secondaryCta}
+    secondaryCtaHref={servicesOverviewCta.secondaryCtaHref}
+  />
+</SiteLayout>

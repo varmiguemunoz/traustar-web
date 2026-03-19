@@ -1,4 +1,0 @@
-const SITE_TITLE = "Traustar Logistics | Logística de Alta Precisión";
-const SITE_DESCRIPTION = "Capacidad garantizada para cargas críticas. Visibilidad total 24/7, costos optimizados y una red de carriers certificados por la FMCSA. Cotiza hoy.";
-
-export { SITE_DESCRIPTION as S, SITE_TITLE as a };
