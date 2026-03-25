@@ -113,7 +113,7 @@ export default defineConfig({
       chunkSizeWarningLimit: 500
     },
     optimizeDeps: {
-      include: ['react', 'react-dom'],
+      include: ['react', 'react-dom', 'astro-leaflet > leaflet'],
       exclude: ['three', '@react-three/fiber', '@react-three/drei']
     }
   }

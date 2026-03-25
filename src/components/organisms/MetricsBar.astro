@@ -1,18 +1,25 @@
 ---
-import StatItem from '../molecules/StatItem.astro';
-
 const metrics = [
-  { value: '50k+', label: 'Loads Delivered' },
-  { value: '1,400+', label: 'Carrier Network' },
-  { value: '99.8%', label: 'On-Time Rate' },
-  { value: '15+', label: 'Years in Operation' }
+  { value: '15 MIN', label: 'Response Time' },
+  { value: '100%', label: 'NAFTA Coverage' },
+  { value: '24/7', label: 'Monitoring' },
+  { value: '50K+', label: 'Verified Carriers' },
+  { value: 'Tier 1', label: 'Compliance' }
 ];
 ---
 
-<section class="bg-navy-deep py-12">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
-      {metrics.map((metric) => <StatItem value={metric.value} label={metric.label} />)}
+<section class="relative z-20 -mt-10 mx-4 sm:mx-6" aria-label="Key metrics">
+  <div class="bg-white py-10 rounded-xl shadow-2xl overflow-hidden sm:py-12">
+    <div class="mx-auto max-w-screen-2xl px-4 grid grid-cols-2 gap-6 sm:px-6 md:grid-cols-5 md:gap-8">
+      {metrics.map((metric, i) => (
+        <div class:list={[
+          'text-center',
+          i < metrics.length - 1 && 'md:border-r md:border-slate-100'
+        ]}>
+          <p class="text-3xl font-black text-on-background tracking-tighter sm:text-4xl">{metric.value}</p>
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-2">{metric.label}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>

@@ -1,63 +1,90 @@
 ---
-import Icon from '../atoms/Icon.astro';
-import ServiceLink from '../molecules/ServiceLink.astro';
+import SectionLabel from '../atoms/SectionLabel.astro';
 
-const services = [
+interface ServiceItem {
+  icon: string;
+  title: string;
+  description?: string;
+  href: string;
+  featured?: boolean;
+  colSpan?: number;
+}
+
+const services: ServiceItem[] = [
   {
     icon: 'local_shipping',
     title: 'FTL (Full Truckload)',
-    description: 'Dedicated trailer capacity for high-volume shipments and direct routes.',
-    href: '/services/ftl'
+    description: 'Dedicated capacity for your largest shipments with nationwide coverage and expedited options.',
+    href: '/services/ftl',
+    featured: true
   },
-  {
-    icon: 'inventory_2',
-    title: 'LTL (Less-Than-Truckload)',
-    description: 'Cost-efficient shipping where you only pay for the space you use.',
-    href: '/services/ltl'
-  },
-  {
-    icon: 'public',
-    title: 'Cross-Border',
-    description: 'Customs-ready freight execution across the US, Mexico, and Canada.',
-    href: '/services/cross-border'
-  },
-  {
-    icon: 'ac_unit',
-    title: 'Reefer',
-    description: 'Temperature-controlled transport for perishables and pharmaceuticals.',
-    href: '/services/reefer'
-  },
-  {
-    icon: 'conveyor_belt',
-    title: 'Flatbed & Heavy Haul',
-    description: 'Specialized open-deck solutions for oversized and industrial cargo.',
-    href: '/services/flatbed'
-  },
-  {
-    icon: 'train',
-    title: 'Intermodal',
-    description: 'Rail and road combinations that improve long-haul economics and sustainability.',
-    href: '/services/intermodal'
-  }
+  { icon: 'inventory_2', title: 'LTL', href: '/services/ltl' },
+  { icon: 'ac_unit', title: 'Reefer', href: '/services/reefer' },
+  { icon: 'architecture', title: 'Flatbed', href: '/services/flatbed' },
+  { icon: 'train', title: 'Intermodal', href: '/services/intermodal' },
+  { icon: 'public', title: 'Cross-Border', href: '/services/cross-border' },
+  { icon: 'rocket_launch', title: 'Expedited', href: '/services/expedited' },
+  { icon: 'dock', title: 'Drayage', href: '/services/drayage' },
+  { icon: 'show_chart', title: 'Spot Market', href: '/services/spot-contract' },
+  { icon: 'contract_edit', title: 'Contract Freight', href: '/services/spot-contract' },
+  { icon: 'package_2', title: 'Partials', href: '/services/ltl' },
+  { icon: 'verified', title: 'Specialized / High-Value', href: '/services/specialized', colSpan: 2 }
 ];
 ---
 
-<section id="services" class="bg-white py-24">
-  <div class="mx-auto mb-16 max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-    <h2 class="mb-4 text-3xl font-black text-navy-deep sm:text-4xl">Integrated Logistics Solutions</h2>
-    <p class="mx-auto max-w-2xl text-slate-500">
-      Diverse equipment and specialized freight services designed around your operational requirements.
-    </p>
-  </div>
-
-  <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
-    {services.map((service) => (
-      <div class="group rounded-2xl border border-transparent bg-background-light p-8 transition-all hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5">
-        <Icon name={service.icon} size="text-4xl" className="mb-6 text-primary" />
-        <h3 class="mb-3 text-xl font-bold">{service.title}</h3>
-        <p class="mb-6 text-slate-600">{service.description}</p>
-        <ServiceLink href={service.href} />
+<section class="py-24 bg-on-background text-white" id="services">
+  <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="flex flex-col gap-6 mb-12 md:flex-row md:items-end md:justify-between md:mb-16 md:gap-8">
+      <div>
+        <SectionLabel className="text-primary">Comprehensive Solutions</SectionLabel>
+        <h2 class="text-3xl font-black tracking-tighter uppercase sm:text-5xl md:text-6xl lg:text-7xl">Our Services</h2>
       </div>
-    ))}
+      <p class="max-w-md text-slate-400 text-base lg:text-lg">
+        From spot market volatility to complex cross-border logistics, we offer a specialized service suite for every lane.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 sm:gap-4">
+      {services.map((service) => (
+        <a
+          href={service.href}
+          class:list={[
+            'bg-slate-900 rounded-xl group hover:bg-primary transition-all duration-300 relative overflow-hidden block no-underline text-white',
+            service.featured
+              ? 'p-8 sm:col-span-2 sm:row-span-2 sm:p-10 duration-500'
+              : 'p-6 sm:p-8',
+            service.colSpan === 2 && !service.featured && 'sm:col-span-2'
+          ]}
+        >
+          <span
+            class:list={[
+              'material-symbols-outlined text-primary group-hover:text-white mb-4 block',
+              service.featured ? 'text-5xl mb-6' : 'text-3xl'
+            ]}
+            aria-hidden="true"
+          >
+            {service.icon}
+          </span>
+          <h3
+            class:list={[
+              'font-black uppercase tracking-tighter',
+              service.featured ? 'text-2xl mb-4 sm:text-3xl' : 'text-lg mb-2 sm:text-xl'
+            ]}
+          >
+            {service.title}
+          </h3>
+          {service.description && (
+            <p class="text-slate-400 group-hover:text-white/80 text-sm sm:text-base">{service.description}</p>
+          )}
+          {service.featured && (
+            <div class="absolute bottom-0 right-0 opacity-10 translate-x-1/4 translate-y-1/4">
+              <span class="material-symbols-outlined text-[10rem] sm:text-[12rem]" aria-hidden="true">{service.icon}</span>
+            </div>
+          )}
+        </a>
+      ))}
+    </div>
   </div>
 </section>

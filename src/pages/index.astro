@@ -1,22 +1,33 @@
 ---
 import HeroSection from '../components/organisms/HeroSection.astro';
 import MetricsBar from '../components/organisms/MetricsBar.astro';
+import AboutSection from '../components/organisms/AboutSection.astro';
 import ServicesGrid from '../components/organisms/ServicesGrid.astro';
-import WhyUsSection from '../components/organisms/WhyUsSection.astro';
+import IndustriesSection from '../components/organisms/IndustriesSection.astro';
+import HowItWorksSection from '../components/organisms/HowItWorksSection.astro';
 import TechnologySection from '../components/organisms/TechnologySection.astro';
-import CoverageMap from '../components/organisms/CoverageMap.astro';
-import TestimonialsSection from '../components/organisms/TestimonialsSection.astro';
-import CtaBanner from '../components/organisms/CtaBanner.astro';
+import CoverageSection from '../components/organisms/CoverageSection.astro';
+import ComplianceSection from '../components/organisms/ComplianceSection.astro';
+import FaqSection from '../components/organisms/FaqSection.astro';
+import FinalCtaSection from '../components/organisms/FinalCtaSection.astro';
 import Base from '../layouts/Base.astro';
 ---
 
-<Base>
+<Base
+  title="Traustar Logistics | Industrial Precision in Motion"
+  meta_title="Traustar Logistics | Freight Brokerage, Cross-Border & Real-Time Visibility"
+  description="Traustar Logistics manages freight across the US, Mexico, and Canada with competitive pricing, 24/7 GPS tracking, and a vetted carrier network of 50,000+ partners."
+  keywords="freight brokerage, FTL, LTL, cross-border logistics, reefer transport, flatbed shipping, intermodal, drayage, expedited freight, GPS tracking, NAFTA logistics"
+>
 	<HeroSection />
 	<MetricsBar />
+	<AboutSection />
 	<ServicesGrid />
-	<WhyUsSection />
+	<IndustriesSection />
+	<HowItWorksSection />
 	<TechnologySection />
-	<CoverageMap />
-	<TestimonialsSection />
-	<CtaBanner />
+	<CoverageSection />
+	<ComplianceSection />
+	<FaqSection />
+	<FinalCtaSection />
 </Base>

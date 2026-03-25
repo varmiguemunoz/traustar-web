@@ -1,0 +1,26 @@
+---
+const industries = [
+  'Retail',
+  'Food & Beverage',
+  'Manufacturing',
+  'Automotive',
+  'Construction',
+  'Industrial',
+  'E-commerce'
+];
+---
+
+<section class="py-12 bg-surface-container-low border-y border-slate-200 sm:py-16" aria-label="Industries served">
+  <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <h3 class="text-center text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-8 sm:mb-12">
+      Industries We Optimize
+    </h3>
+    <div class="flex flex-wrap justify-center gap-6 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 sm:gap-8 md:gap-12">
+      {industries.map((industry) => (
+        <span class="text-base font-black uppercase tracking-tighter text-on-background sm:text-lg md:text-xl">
+          {industry}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

@@ -59,7 +59,5 @@ export const contactMetaCards = [
 export const contactMap = {
   title: 'Strategic presence',
   description:
-    'Our Chicago location provides strong operational reach into key freight corridors across North America.',
-  image: '/images/contacto-map.jpg',
-  imageAlt: 'Map showing North American logistics corridors'
+    'Our Chicago location provides strong operational reach into key freight corridors across North America.'
 };

@@ -1,12 +1,17 @@
 ---
+import { Leaflet, Marker, Popup, OpenPopup } from 'astro-leaflet';
+
 interface Props {
   title: string;
   description: string;
-  image: string;
-  imageAlt: string;
 }
 
-const { title, description, image, imageAlt } = Astro.props;
+const { title, description } = Astro.props;
+
+// 2327 N Harding Ave, Chicago, IL 60647
+const OFFICE_LAT = 41.9243;
+const OFFICE_LNG = -87.7248;
+const OFFICE_ADDRESS = '2327 N Harding Ave, Chicago, IL 60647';
 ---
 
 <section class="w-full bg-slate-100 py-20">
@@ -17,8 +22,29 @@ const { title, description, image, imageAlt } = Astro.props;
     </header>
 
     <div class="relative h-96 overflow-hidden rounded-2xl border-4 border-white shadow-2xl md:h-[500px]">
-      <img src={image} alt={imageAlt} class="h-full w-full object-cover" loading="lazy" width="1600" height="900" />
-      <div class="pointer-events-none absolute inset-0 bg-primary/10"></div>
+      <Leaflet
+        options={{
+          center: [OFFICE_LAT, OFFICE_LNG],
+          zoom: 15,
+          mapOptions: {
+            scrollWheelZoom: false,
+          },
+        }}
+      >
+        <Marker latlng={[OFFICE_LAT, OFFICE_LNG]}>
+          <Popup content={`<strong>Traustar Logistics</strong><br/>${OFFICE_ADDRESS}`} />
+          <OpenPopup />
+        </Marker>
+      </Leaflet>
     </div>
   </div>
 </section>
+
+<style>
+  /* Ensure Leaflet map fills the container */
+  .relative :global(.leaflet-container) {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+</style>

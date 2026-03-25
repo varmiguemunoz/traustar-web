@@ -1,0 +1,46 @@
+---
+import SectionLabel from '../atoms/SectionLabel.astro';
+
+const checkItems = [
+  'C-TPAT / PIP Certified Carriers',
+  'Multilingual Dispatch Teams',
+  'Cross-Docking Facilities'
+];
+---
+
+<section class="py-24 bg-white overflow-hidden" id="coverage">
+  <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-12 items-center md:flex-row md:gap-16 lg:gap-20">
+      <!-- Text -->
+      <div class="w-full md:w-1/2">
+        <SectionLabel>North American Network</SectionLabel>
+        <h2 class="text-3xl font-black text-on-background tracking-tighter uppercase mb-6 leading-tight sm:text-4xl md:text-5xl md:mb-8">
+          Seamless Cross-Border Capacity
+        </h2>
+        <p class="text-base text-slate-600 mb-6 sm:text-lg sm:mb-8">
+          We specialize in the complexities of US-Canada and US-Mexico freight. From customs documentation to intermodal transitions, we manage the entire corridor.
+        </p>
+        <ul class="space-y-3 sm:space-y-4">
+          {checkItems.map((item) => (
+            <li class="flex items-center gap-3 font-bold uppercase tracking-tight text-on-background text-sm sm:text-base">
+              <span class="material-symbols-outlined text-primary text-xl sm:text-2xl" aria-hidden="true">check_circle</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Map Image -->
+      <div class="w-full md:w-1/2 relative">
+        <div class="bg-surface-container rounded-xl p-3 overflow-hidden shadow-2xl sm:rounded-2xl sm:p-4">
+          <img
+            src="/images/coverage-map.jpg"
+            alt="Map of North America showing logistics hub connections between Chicago, Mexico City, and Toronto"
+            class="w-full h-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-700"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

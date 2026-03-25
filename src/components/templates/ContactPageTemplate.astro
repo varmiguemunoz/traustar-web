@@ -36,8 +36,6 @@ interface Props {
   map: {
     title: string;
     description: string;
-    image: string;
-    imageAlt: string;
   };
 }
 
@@ -54,5 +52,5 @@ const { seoTitle, seoDescription, hero, cards, availability, metaCards, map } = 
   />
   <ContactInfoCards cards={cards} />
   <ContactFormSection availability={availability} metaCards={metaCards} />
-  <ContactMapSection title={map.title} description={map.description} image={map.image} imageAlt={map.imageAlt} />
+  <ContactMapSection title={map.title} description={map.description} />
 </SiteLayout>

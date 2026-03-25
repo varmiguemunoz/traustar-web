@@ -1,0 +1,48 @@
+---
+import SectionLabel from '../atoms/SectionLabel.astro';
+
+const features = [
+  { icon: 'speed', title: 'Rapid Scaling' },
+  { icon: 'security', title: 'Risk Mitigation' }
+];
+---
+
+<section class="py-24 bg-surface-dim overflow-hidden" id="about">
+  <div class="mx-auto max-w-screen-2xl px-4 grid gap-16 items-center sm:px-6 lg:px-8 md:grid-cols-2 md:gap-20">
+    <!-- Content -->
+    <div>
+      <SectionLabel>Our Philosophy</SectionLabel>
+      <h2 class="text-3xl font-black text-on-background tracking-tighter leading-tight mb-8 uppercase sm:text-4xl md:text-5xl lg:text-6xl">
+        A Modern Freight Brokering Firm with <span class="text-primary">Corporate Technology</span> and Boutique Attention.
+      </h2>
+      <p class="text-lg text-slate-600 mb-10 leading-relaxed">
+        We bridge the gap between massive automated logistics and personalized customer service. Our infrastructure handles high-volume global accounts, but our desk-level attention ensures your specific freight requirements are never lost in the shuffle.
+      </p>
+
+      <div class="grid grid-cols-2 gap-4 sm:gap-6">
+        {features.map((feature) => (
+          <div class="bg-white p-5 rounded-xl shadow-lg border-l-4 border-primary sm:p-6">
+            <span class="material-symbols-outlined text-primary text-3xl mb-2" aria-hidden="true">{feature.icon}</span>
+            <h4 class="font-black uppercase tracking-tight text-sm sm:text-base">{feature.title}</h4>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="relative">
+      <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+        <img
+          src="/images/about-control.jpg"
+          alt="High-tech logistics control center with global maps and shipping data"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+      <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-2xl shadow-2xl hidden lg:block sm:p-8 lg:p-10 lg:-bottom-10 lg:-left-10">
+        <p class="text-4xl font-black tracking-tighter mb-1 lg:text-6xl lg:mb-2">99.8%</p>
+        <p class="uppercase tracking-widest text-xs font-bold sm:text-sm">On-Time Performance</p>
+      </div>
+    </div>
+  </div>
+</section>

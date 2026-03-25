@@ -1,0 +1,66 @@
+---
+import SectionLabel from '../atoms/SectionLabel.astro';
+
+const steps = [
+  {
+    number: '01',
+    title: 'Load Request',
+    description: 'Submit your lane details via our portal or EDI integration.'
+  },
+  {
+    number: '02',
+    title: 'Fast Quote',
+    description: 'Receive market-accurate pricing within 15 minutes.'
+  },
+  {
+    number: '03',
+    title: 'Carrier Assignment',
+    description: 'Matching with a vetted carrier from our network.'
+  },
+  {
+    number: '04',
+    title: 'Real-Time Tracking',
+    description: 'Monitor every mile through Macropoint and GPS.'
+  },
+  {
+    number: '05',
+    title: 'Follow-up',
+    description: 'Delivery confirmation and instant digital documentation.'
+  }
+];
+---
+
+<section class="py-24 bg-surface-bright">
+  <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20">
+      <SectionLabel>The Workflow</SectionLabel>
+      <h2 class="text-3xl font-black text-on-background tracking-tighter uppercase sm:text-4xl md:text-5xl">
+        5 Steps to Delivery
+      </h2>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 md:grid-cols-5">
+      {steps.map((step, i) => (
+        <div
+          class:list={[
+            'relative p-6 group sm:p-8',
+            i < steps.length - 1 && 'border-b border-slate-100 md:border-b-0 md:border-r',
+            i % 2 !== 0 && i < steps.length - 1 && 'sm:border-r-0 md:border-r'
+          ]}
+        >
+          <div class="text-5xl font-black text-slate-100 group-hover:text-primary/10 transition-colors absolute top-2 left-4 -z-0 sm:text-6xl sm:top-4" aria-hidden="true">
+            {step.number}
+          </div>
+          <div class="relative z-10">
+            <h4 class="text-lg font-black uppercase tracking-tight mb-3 sm:text-xl sm:mb-4">
+              {step.title}
+            </h4>
+            <p class="text-slate-500 text-sm">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

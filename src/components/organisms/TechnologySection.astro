@@ -1,65 +1,61 @@
 ---
-import Icon from '../atoms/Icon.astro';
 import SectionLabel from '../atoms/SectionLabel.astro';
 
 const techFeatures = [
   {
+    icon: 'monitoring',
+    title: '24/7 GPS Visibility',
+    description: 'Total transparency from pickup to delivery via elite tracking integrations.'
+  },
+  {
     icon: 'analytics',
-    title: 'Data-Driven Pricing',
-    description: 'Algorithms process market signals to secure strong cost-performance outcomes.'
-  },
-  {
-    icon: 'my_location',
-    title: '24/7 Tracking',
-    description: 'Shipment location, milestones, and ETA updates are available in real time.'
-  },
-  {
-    icon: 'integration_instructions',
-    title: 'EDI and API Integrations',
-    description: 'Connect Traustar workflows with your TMS and ERP systems.'
-  },
-  {
-    icon: 'dashboard_customize',
-    title: 'Client Portal',
-    description: 'Centralized access to documents, invoices, and shipment history.'
+    title: 'Market Intelligence',
+    description: 'Data-driven pricing models that beat spot market averages consistently.'
   }
+];
+
+const stats = [
+  { value: '15m', label: 'Quote Times' },
+  { value: '98%', label: 'Compliance Rating' },
+  { value: '50k', label: 'Carrier Network' },
+  { value: '24h', label: 'Operations Support' }
 ];
 ---
 
-<section id="technology" class="bg-white py-24">
-  <div class="mx-auto flex max-w-7xl flex-col items-center gap-16 px-4 sm:px-6 lg:flex-row lg:px-8">
-    <div class="lg:w-1/2">
-      <SectionLabel>Freight Technology</SectionLabel>
-      <h2 class="mb-8 text-3xl font-black text-navy-deep sm:text-4xl">Complete supply chain visibility in one platform</h2>
-      <ul class="space-y-6">
+<section class="py-24 bg-surface-dim" id="technology">
+  <div class="mx-auto max-w-screen-2xl px-4 grid gap-12 sm:px-6 lg:px-8 lg:grid-cols-2 lg:gap-16">
+    <!-- Left: Dark Card -->
+    <div class="bg-on-background rounded-2xl p-8 text-white relative overflow-hidden sm:p-10 lg:rounded-3xl lg:p-12">
+      <div class="absolute top-0 right-0 w-48 h-48 bg-primary/20 blur-[80px] sm:w-64 sm:h-64" aria-hidden="true"></div>
+
+      <SectionLabel className="text-primary mb-6">The Tech Advantage</SectionLabel>
+      <h2 class="text-3xl font-black tracking-tighter uppercase mb-8 sm:text-4xl lg:text-5xl">
+        Data-Driven Logistics
+      </h2>
+
+      <div class="space-y-6 sm:space-y-8">
         {techFeatures.map((feature) => (
-          <li class="flex items-start gap-4">
-            <Icon name={feature.icon} className="mt-1 text-primary" />
-            <div>
-              <h4 class="text-lg font-bold">{feature.title}</h4>
-              <p class="text-slate-500">{feature.description}</p>
+          <div class="flex gap-4 sm:gap-6">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shrink-0 sm:w-12 sm:h-12 sm:rounded-xl">
+              <span class="material-symbols-outlined text-white text-xl sm:text-2xl" aria-hidden="true">{feature.icon}</span>
             </div>
-          </li>
+            <div>
+              <h4 class="text-lg font-black uppercase tracking-tight mb-2 sm:text-xl">{feature.title}</h4>
+              <p class="text-slate-400 text-sm sm:text-base">{feature.description}</p>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
 
-    <div class="w-full lg:w-1/2">
-      <div class="rounded-2xl border border-slate-700 bg-navy-deep p-4 shadow-2xl">
-        <div class="mb-4 flex items-center gap-2 px-2">
-          <div class="h-3 w-3 rounded-full bg-red-500"></div>
-          <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
-          <div class="h-3 w-3 rounded-full bg-green-500"></div>
+    <!-- Right: Stats Grid -->
+    <div class="grid grid-cols-2 gap-4 sm:gap-6">
+      {stats.map((stat) => (
+        <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-primary sm:p-8">
+          <h3 class="text-2xl font-black tracking-tighter mb-2 sm:text-3xl">{stat.value}</h3>
+          <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</p>
         </div>
-        <div class="overflow-hidden rounded-lg bg-slate-900">
-          <img
-            src="/images/dashboard-mockup.jpg"
-            alt="Traustar dashboard with analytics and shipment tracking"
-            class="h-auto w-full opacity-90"
-            loading="lazy"
-          />
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>

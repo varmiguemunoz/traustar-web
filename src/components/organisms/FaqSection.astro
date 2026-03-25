@@ -1,0 +1,37 @@
+---
+const faqs = [
+  {
+    question: 'How fast can I get a quote?',
+    answer: 'Our average response time for standard FTL lanes is under 15 minutes. Complex cross-border or specialized loads may take up to 30 minutes for thorough vetting.'
+  },
+  {
+    question: 'What types of cargo do you manage?',
+    answer: 'We handle everything from standard dry goods and temperature-controlled food to high-value electronics and heavy industrial machinery.'
+  },
+  {
+    question: 'Do you provide real-time tracking?',
+    answer: 'Yes. All shipments are tracked via GPS with automated status updates sent directly to your email or integrated into your TMS via EDI/API.'
+  }
+];
+---
+
+<section class="py-24 bg-surface-bright" aria-label="Frequently asked questions">
+  <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16">
+      <h2 class="text-3xl font-black text-on-background tracking-tighter uppercase sm:text-4xl md:text-5xl">
+        Common Inquiries
+      </h2>
+    </div>
+
+    <div class="max-w-4xl mx-auto grid gap-4 sm:gap-6">
+      {faqs.map((faq) => (
+        <div class="bg-surface-container p-6 rounded-xl sm:p-8">
+          <h4 class="text-base font-black uppercase tracking-tight mb-2 sm:text-lg sm:mb-3">
+            {faq.question}
+          </h4>
+          <p class="text-slate-600 text-sm sm:text-base">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
